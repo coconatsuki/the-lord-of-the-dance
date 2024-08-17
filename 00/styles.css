@@ -54,6 +54,24 @@ body {
   }
 }
 
+#start-story-btn {
+  display: none; /* Hide the button initially */
+  padding: 25px 50px; /* Double the size */
+  font-size: 2.5rem; /* Larger font size */
+  background-color: #333;
+  color: #a8e6a3;
+  border: 2px solid #a8e6a3;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#start-story-btn:hover {
+  background-color: #555;
+}
+
 #backstory-page {
   display: none;
   background-color: #1e1e1e;

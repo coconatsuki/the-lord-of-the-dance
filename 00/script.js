@@ -1,12 +1,23 @@
 // script.js
 
-// Typewriter effect function with sound
+// Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
   let i = 0;
   const typewriterSound = document.getElementById("typewriter-sound");
 
-  // Play the typewriter sound
-  typewriterSound.play();
+  // Function to play and loop the sound
+  function playSound() {
+    typewriterSound.play();
+    typewriterSound.addEventListener("ended", () => {
+      if (i < text.length) {
+        typewriterSound.currentTime = 0; // Reset sound to the beginning
+        typewriterSound.play(); // Play again if typing is not complete
+      }
+    });
+  }
+
+  // Start playing the sound when typing starts
+  playSound();
 
   function typing() {
     if (i < text.length) {
@@ -25,8 +36,15 @@ function typeWriter(element, text, delay = 25) {
 // Show next story part with typewriter effect
 function showNextPart(partIndex) {
   const storyParts = document.querySelectorAll(".story-part");
-  const nextPart = storyParts[partIndex];
 
+  // Hide all previous sections
+  storyParts.forEach((part, index) => {
+    if (index < partIndex) {
+      part.classList.add("hidden");
+    }
+  });
+
+  const nextPart = storyParts[partIndex];
   if (nextPart) {
     const textElement = nextPart.querySelector(".section-text");
     const fullText = textElement.textContent;
@@ -47,12 +65,18 @@ function showNextPart(partIndex) {
 // Initial page load event
 window.addEventListener("load", () => {
   setTimeout(() => {
+    document.getElementById("intro-text").style.display = "none"; // Hide the title
+    document.getElementById("start-story-btn").style.display = "block"; // Show the button
+  }, 6000); // After the 6-second animation
+
+  document.getElementById("start-story-btn").addEventListener("click", () => {
     document.getElementById("intro-screen").style.display = "none";
     document.getElementById("backstory-page").style.display = "block";
+    document.getElementById("next-button").classList.remove("hidden");
 
     // Start with the first part using the typewriter effect
     showNextPart(currentPart);
-  }, 6000); // 1s static + 5s animation
+  });
 });
 
 let currentPart = 0; // Start with the first part
