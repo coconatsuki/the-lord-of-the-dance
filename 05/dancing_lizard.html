@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Says - Mimic the Dancing Lizard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="background-image"></div>
+    <div id="big-container">
+      <h1>Mimic the Dancing Lizard!</h1>
+      <div id="columns">
+        <div class="column" id="left-column">
+          <div id="sequence-container">
+            <div id="sequence"></div>
+          </div>
+        </div>
+        <div class="column" id="center-column">
+          <div id="game-container">
+            <div id="instructions">
+              <span class="yellow">Use the arrow keys to mimic the lizard's dance.</span></br>←-- Follow the
+              sequence closely! <span class="red">(on the LEFT)</span>
+            </div>
+            <div id="player-sequence-container">
+              <div id="player-sequence"></div>
+            </div>
+            <div id="game-info">
+              <p id="instruction">Watch the lizard's moves...</p>
+              <div id="feedback"></div>
+            </div>
+            <button id="start-button" class="red">START GAME</button>
+          </div>
+        </div>
+        <div class="column" id="right-column">
+          <div id="counter-container">
+            <div id="turn-text">Turn</div>
+            <div id="turn-counter">0 / 30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="sound-up" src="up.mp3"></audio>
+    <audio id="sound-down" src="down.mp3"></audio>
+    <audio id="sound-left" src="left.mp3"></audio>
+    <audio id="sound-right" src="right.mp3"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>

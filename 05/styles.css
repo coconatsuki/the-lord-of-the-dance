@@ -1,0 +1,185 @@
+/* styles.css */
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("desert 4.jpeg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+#big-container {
+  padding: 1%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#columns {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+#left-column {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#sequence-container,
+#player-sequence-container {
+  width: 250px;
+  height: 250px;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  border: 2px solid #d0d090; /* Match the theme */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Add a glowing effect */
+  border-radius: 10px;
+}
+
+#player-sequence-container {
+  align-self: center;
+  margin: 10px 0;
+}
+
+#sequence,
+#player-sequence {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold; /* Make arrow fatter */
+}
+
+#sequence {
+  color: #d0d090; /* Placeholder color */
+}
+
+#player-sequence {
+  color: #ffffff; /* Placeholder color */
+}
+
+#center-column {
+  align-self: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+#right-column {
+  display: flex;
+  justify-content: flex-start; /* Align to the right */
+  align-items: flex-end; /* Align to the top */
+  padding: 20px; /* Add padding to keep it from touching the edges */
+}
+
+#counter-container {
+  width: 125px; /* 1/4 the size of sequence squares */
+  height: 125px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #d0d090; /* Match the theme */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Add a glowing effect */
+  border-radius: 10px;
+}
+
+#turn-text {
+  font-size: 18px;
+  color: #ffcc66; /* Counter label color */
+  margin-bottom: 10px;
+}
+
+#turn-counter {
+  font-size: 30px;
+  font-weight: bold;
+  color: #d0d090; /* Counter numbers color */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Digital effect */
+}
+
+#game-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1;
+}
+
+h1 {
+  color: #1e641f;
+  font-family: math, arial;
+  font-size: 3em;
+  text-align: center;
+}
+
+#game-info {
+  margin-bottom: 20px;
+  padding: 2%;
+  border: 1px dashed #d0d090;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#feedback {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+#start-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 22px;
+  cursor: pointer;
+  background-color: black;
+  border: 1px dashed #d0d090;
+  font-weight: 800;
+}
+
+#instructions {
+  /* margin-bottom: 20px; Add spacing between instructions and game info */
+  padding: 10px;
+  font-size: 18px;
+  color: springgreen;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px dashed #d0d090;
+  line-height: 30px;
+}
+
+.red {
+  color: red;
+}
+
+.yellow {
+  color: #d0d090;
+}
+
+#instruction {
+  font-size: 22px;
+  color: springgreen;
+}

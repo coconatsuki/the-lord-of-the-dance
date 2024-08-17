@@ -1,0 +1,159 @@
+/* styles.css */
+
+.grey-qo-regular {
+  font-family: "Grey Qo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+  color: #a8e6a3;
+}
+
+#intro-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+#intro-text {
+  color: #a8e6a3;
+  font-size: 14rem;
+  animation: staticHold 1s forwards, shrinkFade 5s 1s forwards;
+}
+
+@keyframes staticHold {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shrinkFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+#backstory-page {
+  display: none;
+  background-color: #1e1e1e;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #a8e6a3;
+}
+
+#backstory-title {
+  font-size: 6em;
+  margin: 0;
+}
+
+#content-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+#left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#right-side {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: white;
+  padding-right: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#jimli-img {
+  width: 90%;
+  max-width: 450px;
+  border: 5px solid #333;
+  border-radius: 10px;
+}
+
+.section-title {
+  font-size: 2em;
+  margin: 0 auto 10px auto;
+  text-align: center;
+  font-family: serif;
+}
+
+.section-text {
+  line-height: 40px;
+  font-family: "Arial", system-ui;
+  font-size: 1.1em;
+}
+
+button {
+  align-self: center;
+  padding: 10px 25px;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: #333;
+  color: #a8e6a3;
+  border: 2px solid #a8e6a3;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+footer {
+  position: absolute;
+  bottom: 1.5em;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #1e1e1e;
+}
+
+#skip-button {
+  padding: 5px;
+  background: none;
+  border: none;
+  color: #a8e6a3;
+  font-size: 1.2em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#skip-button:hover {
+  color: #d0d090;
+}
+
+.hidden {
+  display: none;
+}
