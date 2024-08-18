@@ -3,9 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAY 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <title>The Enchanted Forest - Setting Forth</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>TEST</h1>
+    <header>
+      <h2 id="location-title">The Enchanted Forest</h2>
+      <h1 id="page-title">Setting Forth</h1>
+    </header>
+
+    <div id="content">
+      <div id="narrative-column">
+        <p id="narrative-text">
+          The sun is just rising over the peaks of Stonehelm as Jimli, with a
+          heart full of dreams and a bag full of snacks, takes his first step
+          beyond the safety of his home. The ancient forest looms ahead, full of
+          mysteries and spirits who watch over the land.<br /><br />
+          As he enters the forest, Jimli recalls the stories his grandfather
+          told him about the ancient spirits dwelling in these woods. "Right,"
+          he mutters, gripping his trusty axe—not that he’ll need it, of course,
+          but it’s comforting. "Let’s see if the spirits are in a dancing mood
+          today."
+        </p>
+        <button id="next-button">Next</button>
+        <div id="dice-instruction" class="hidden">
+          Now, roll the dice (click on it) for Mistriva =>
+        </div>
+      </div>
+
+      <div id="dice-column">
+        <div id="dice-label">D20 Dice</div>
+        <div id="dice-area">
+          <div id="dice" class="disabled">Roll</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
