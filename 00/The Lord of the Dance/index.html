@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload the font to speed up the load time -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    /></noscript>
+    <title>The Lord of the Dance</title>
+    <link rel="stylesheet" href="./00/styles.css" />
+  </head>
+  <body>
+    <div id="intro-screen">
+      <h1 id="intro-text" class="grey-qo-regular">The Lord of the Dance</h1>
+      <button id="start-story-btn">Enter</button>
+    </div>
+
+    <div id="backstory-page" class="hidden">
+      <audio id="typewriter-sound" src="./00/typewriter.mp3"></audio>
+      <header>
+        <h1 id="backstory-title" class="grey-qo-regular">
+          The Lord of the Dance
+        </h1>
+      </header>
+      <div id="content-container">
+        <div id="left-side">
+          <img
+            src="./00/jimli.jpeg"
+            alt="Jimli, the Dancing Dwarf"
+            id="jimli-img"
+          />
+        </div>
+        <div id="right-side">
+          <div id="story-part-1" class="story-part">
+            <p class="section-title">The Dwarf Who Dances</p>
+            <p class="section-text">
+              <b>Jimli</b>, son of Durim, is unlike any other dwarf in the
+              mountainous realm of Stonehelm. While his kin are master
+              blacksmiths, warriors, and miners, Jimli has always had a secret
+              passion: <strong>DANCING.</strong><br /><br />
+              From a young age, he would sneak away from the clanging forges to
+              practice his footwork in the hidden grottos of the mountains. His
+              movements, though unusual for a dwarf, were filled with grace and
+              rhythm —qualities that baffled and amused his fellow dwarves.
+            </p>
+          </div>
+          <div id="story-part-2" class="story-part hidden">
+            <p class="section-title">A Dream Against All Odds</p>
+            <p class="section-text">
+              Legends speak of the <strong>"Dancing Elves' Festival,"</strong> a
+              mystical event held once a year in the hidden Valley of Steps.<br />
+              The festival is renowned across all lands, not just for its rare
+              beauty but for the title bestowed upon its "Mix & Match" contest'
+              champion: the <strong>"Lord of the Dance."</strong> For Jimli,
+              this title is more than just an honor —it's his wildest dream!<br />
+              Yet, there's one problem: dwarves and elves have a long-standing
+              enmity, and no dwarf has ever been allowed into the festival.
+            </p>
+          </div>
+          <div id="story-part-3" class="story-part hidden">
+            <p class="section-title">A Courageous Quest</p>
+            <p class="section-text">
+              Armed with his dancing boots, a quick wit, and a determination as
+              strong as mithril, Jimli sets out on a quest that would make even
+              the most hardened dwarf raise an eyebrow. <br /><br />His journey
+              will take him through enchanted forests, scorching deserts, and
+              towering mountains, all the while perfecting his dance moves and
+              proving that a dwarf can dance as well as any elf!
+            </p>
+          </div>
+          <div id="story-part-4" class="story-part hidden">
+            <p class="section-title">What now?</p>
+            <p class="section-text">
+              The time has come for you to take up Jimli's quest.<br />
+              Will he find the hidden Valley of Steps? Will he arrive in time
+              for the Festival? And when he finally stands before the elves,
+              will they even let him compete?<br /><br />
+              It’s all in your hands now. So, ready your wits, steady your
+              nerves, and remember: there's nothing an elf can do that a dwarf
+              can't do... with a bit of stubbornness and a lot of snacks.
+            </p>
+          </div>
+          <button id="next-button">Next Page</button>
+          <button id="start-button" class="hidden">Begin the Adventure!</button>
+        </div>
+      </div>
+      <footer>
+        <button id="skip-button">Skip and go to Calendar</button>
+      </footer>
+    </div>
+
+    <script src="./00/script.js"></script>
+  </body>
+</html>

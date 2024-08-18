@@ -12,9 +12,6 @@ body {
 header {
   width: 100%;
   text-align: center;
-}
-
-header {
   display: flex;
   padding-bottom: 1em;
   justify-content: center;
@@ -43,35 +40,77 @@ header {
 #content {
   display: flex;
   flex-grow: 1;
+  background-image: url("./background.jpeg"); /* Add your background image here */
+  background-size: cover;
+  background-position: center;
 }
 
 #narrative-column {
   flex: 2;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 #narrative-text {
   font-size: 1.2em;
   line-height: 1.6;
+  background-color: rgba(
+    30,
+    30,
+    30,
+    0.7
+  ); /* Slightly transparent dark background */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#next-button {
+  display: flex;
+  margin-top: 2em;
+  align-self: center;
+  justify-self: center;
+  padding: 10px 25px;
+  font-size: 1.5em;
+  font-family: serif;
+  background-color: black;
+  color: #a8e6a3;
+  border: 2px solid #a8e6a3;
+  cursor: pointer;
+}
+
+#next-button:hover {
+  background-color: #555;
 }
 
 #dice-instruction {
   margin-top: 20px;
   font-size: 1.5em;
+  padding: 1em;
+  background-color: black;
+  text-align: center;
+  font-family: serif;
+  color: #a8e6a3;
+  width: 50%;
+  align-self: flex-end;
+  border-radius: 8px;
 }
 
 #dice-column {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
 
 #dice-label {
+  margin: 1em;
   font-size: 1.2em;
-  margin-bottom: 10px;
   color: #d0d090;
+  background-color: rgba(30, 30, 30, 0.7); /* Slightly transparent background */
+  padding: 10px;
+  border-radius: 8px;
 }
 
 #dice-area {
@@ -83,17 +122,50 @@ header {
   align-items: center;
   border: 2px solid #a8e6a3;
   border-radius: 10px;
+  cursor: not-allowed;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Updated for glow effect */
+}
+
+#dice-area:hover {
+  transform: scale(1.03); /* Slightly bigger */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glowing effect */
 }
 
 #dice {
   font-size: 2em;
   color: white;
-  cursor: pointer;
 }
 
-#dice.disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+#previous-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background-color: rgba(30, 30, 30, 0.7); /* Slightly transparent background */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#previous-label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #d0d090;
+}
+
+.result-container {
+  display: flex;
+  gap: 10px;
+}
+
+.result-square {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border: 2px solid #a8e6a3;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -119,4 +191,23 @@ footer a:disabled {
 
 .hidden {
   display: none;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20%,
+  60% {
+    transform: translate(-10px, 0);
+  }
+  40%,
+  80% {
+    transform: translate(10px, 0);
+  }
+}
+
+#dice-area.shake {
+  animation: shake 0.5s ease;
 }

@@ -5,18 +5,28 @@ const narrativeText = [
 ];
 
 const diceInstructions = [
-  "Now, roll the dice (click on it) for Mistriva =>",
-  "Now, roll the dice (click on it) for Sylvas =>",
-  "Now, roll the dice (click on it) for Kragrok =>",
+  "Now, roll the dice for Mistriva =>",
+  "Now, roll the dice for Sylvas =>",
+  "Now, roll the dice for Kragrok =>",
 ];
 
 let currentStep = 0;
 let totalScore = 0;
 let rolls = 0;
+let gameInProgress = false; // Track whether the game is in progress
+let diceRolling = false; // Track whether the dice is currently rolling
 
 const nextButton = document.getElementById("next-button");
 const diceInstructionDiv = document.getElementById("dice-instruction");
+const diceArea = document.getElementById("dice-area");
 const dice = document.getElementById("dice");
+const previousLabel = document.getElementById("previous-label");
+const previousResults = document.querySelectorAll(".result-square");
+const diceSound = document.getElementById("dice-sound");
+
+// Ensure the dice is disabled on page load
+diceArea.classList.add("disabled");
+diceArea.style.cursor = "not-allowed";
 
 // Handle "Next" button click
 nextButton.addEventListener("click", () => {
@@ -25,15 +35,27 @@ nextButton.addEventListener("click", () => {
       narrativeText[currentStep];
     nextButton.style.display = "none";
     diceInstructionDiv.classList.remove("hidden");
-    dice.classList.remove("disabled"); // Enable the dice
+    diceInstructionDiv.classList.add("flex");
+    diceArea.classList.remove("disabled"); // Enable the dice area
+    diceArea.style.cursor = "grab"; // Set grab cursor
+    gameInProgress = true; // Mark game as in progress
   }
 });
 
 // Handle Dice Rolling Logic
-dice.addEventListener("click", () => {
-  if (dice.classList.contains("disabled")) return;
+diceArea.addEventListener("click", () => {
+  if (diceArea.classList.contains("disabled") || diceRolling) return;
 
   rolls++;
+  diceRolling = true; // Mark dice as rolling
+  diceSound.play(); // Play the dice sound
+
+  // Shake effect on click
+  diceArea.classList.add("shake");
+  setTimeout(() => {
+    diceArea.classList.remove("shake");
+  }, 500);
+
   let rolling = setInterval(() => {
     dice.textContent = Math.floor(Math.random() * 20) + 1;
   }, 100);
@@ -43,22 +65,45 @@ dice.addEventListener("click", () => {
     const diceRoll = parseInt(dice.textContent);
     totalScore += diceRoll;
 
+    // Display previous roll result
+    previousResults[rolls - 1].textContent = diceRoll;
+    previousResults[rolls - 1].classList.remove("hidden");
+
+    if (rolls === 1) {
+      previousLabel.classList.remove("hidden");
+    }
+
     if (rolls < 3) {
       dice.textContent = "Roll";
       document.getElementById("narrative-text").innerHTML =
         narrativeText[rolls];
       diceInstructionDiv.textContent = diceInstructions[rolls];
+      diceRolling = false; // Re-enable the dice for the next roll
+      diceArea.classList.remove("disabled");
+      diceArea.style.cursor = "grab"; // Set grab cursor
     } else {
-      dice.classList.add("disabled");
-      alert(
-        `Total score: ${totalScore}\n\nWith the spirits' responses guiding his journey, Jimli continues onward, feeling slightly more — or perhaps less — confident about the path ahead.`
-      );
+      diceArea.classList.add("disabled");
+      diceArea.style.cursor = "default"; // Reset cursor when disabled
+      gameInProgress = false; // Mark game as finished
+      diceRolling = false; // Reset rolling status
       diceInstructionDiv.classList.add("hidden");
+
+      setTimeout(() => {
+        alert(
+          `Total score: ${totalScore}\n\nWith the spirits' responses guiding his journey, Jimli continues onward, feeling slightly more — or perhaps less — confident about the path ahead.`
+        );
+      }, 500); // Delay to ensure all UI updates before alert
     }
-  }, 2000); // Stop after 2 seconds
+  }, 1500); // Stop after 1.5 seconds
+
+  diceArea.classList.add("disabled"); // Disable the dice during the roll
+  diceArea.style.cursor = "not-allowed"; // Set not-allowed cursor during rolling
 });
 
 // Disable the "Back to Calendar" link during the game
 document.getElementById("back-to-calendar").addEventListener("click", (e) => {
-  e.preventDefault();
+  if (gameInProgress) {
+    e.preventDefault(); // Prevent navigation if the game is in progress
+    alert("Finish the game before returning to the calendar.");
+  }
 });
