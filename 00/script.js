@@ -1,6 +1,7 @@
 // script.js
 
 // Typewriter effect function with looping sound
+// Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
   let i = 0;
   const typewriterSound = document.getElementById("typewriter-sound");
@@ -21,7 +22,8 @@ function typeWriter(element, text, delay = 25) {
 
   function typing() {
     if (i < text.length) {
-      element.innerHTML += text.charAt(i);
+      // Insert HTML characters correctly with innerHTML
+      element.innerHTML = text.slice(0, i + 1);
       i++;
       setTimeout(typing, delay);
     } else {
@@ -47,12 +49,12 @@ function showNextPart(partIndex) {
   const nextPart = storyParts[partIndex];
   if (nextPart) {
     const textElement = nextPart.querySelector(".section-text");
-    const fullText = textElement.textContent;
+    const fullHtml = textElement.innerHTML; // Use innerHTML instead of textContent
     textElement.innerHTML = ""; // Clear the content
     nextPart.classList.remove("hidden");
 
     // Apply the typewriter effect with sound
-    typeWriter(textElement, fullText);
+    typeWriter(textElement, fullHtml);
 
     // Show the correct button (either Next Page or Begin the Adventure)
     if (partIndex === storyParts.length - 1) {

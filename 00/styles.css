@@ -113,6 +113,12 @@ header {
   justify-content: space-between;
 }
 
+.section-text strong,
+.section-text b {
+  font-weight: 800;
+  color: red;
+}
+
 #jimli-img {
   width: 90%;
   max-width: 450px;
