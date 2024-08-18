@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="./00/calendar-styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="calendar-title" class="grey-qo-regular">Calendar</h1>
+    </header>
+
+    <div id="instructions">
+      <p>
+        You have <span id="days-left"></span> days left until the "Dancing
+        Elves' Festival".
+      </p>
+      <p>
+        Let's make sure Jimli finds it in time and is well prepared to impress
+        the crowd with his talents as a dancer!
+      </p>
+      <p class="lighter-text">
+        Each day, you'll be able to progress a bit further in his quest. The
+        more points you earn, the closest he'll be to fulfill his dream.
+      </p>
+    </div>
+
+    <div id="calendar-container"></div>
+
+    <footer>
+      <p>Total points earned so far: <span id="total-points">0</span></p>
+    </footer>
+
+    <script src="./00/calendar-script.js"></script>
+  </body>
+</html>

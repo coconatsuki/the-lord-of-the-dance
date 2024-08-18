@@ -1,5 +1,15 @@
 // script.js
 
+// Event listener for the Start Adventure button
+document.getElementById("start-button").addEventListener("click", () => {
+  window.location.href = "./calendar.html"; // Redirect to the calendar page
+});
+
+// Event listener for the Skip button
+document.getElementById("skip-button").addEventListener("click", () => {
+  window.location.href = "./calendar.html"; // Redirect to the calendar page
+});
+
 // Typewriter effect function with looping sound
 // Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
