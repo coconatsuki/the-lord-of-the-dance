@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -11,20 +15,48 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <audio id="firefly-sound" src="./firefly-catch.mp3"></audio>
     <div id="background-image"></div>
-    <div id="game-container">
-      <div id="game-info">
-        <h1>Catch the Fireflies!</h1>
-        <div>Time Left: <span id="timer">60</span>s</div>
-        <div>Score: <span id="score">0</span></div>
-        <p id="info-message">
-          <span id="note">Note:</span> You can play many times, but ONLY your
-          first score will be recorded and sent.
-        </p>
+    <header>
+      <h2 id="location-title">The Enchanted Forest</h2>
+      <h1 id="page-title">Catch the fireflies!</h1>
+    </header>
+    <div id="columns">
+      <div id="left-column" class="column">
+        <div id="launcher-container">
+          <div id="time-square">
+            <span id="time-title">Time Left: </span>
+            <span
+              ><span id="timer" class="red">60</span
+              ><span id="seconds" class="red">s</span>
+            </span>
+          </div>
+          <button id="start-button">START GAME</button>
+        </div>
       </div>
-      <div id="game-area"></div>
-      <button id="start-button">START GAME</button>
+      <div id="game-container" class="column">
+        <div id="game-info">
+          <p id="instructions">Click on as many fireflies as you can!</p>
+          <p id="info-message">
+            You can play many times, but <span class="red">ONLY</span> your
+            <span class="red">first</span> score will be recorded and sent.
+          </p>
+        </div>
+        <div id="game-area"></div>
+      </div>
+      <div id="right-column" class="column">
+        <div id="score-container">
+          <div id="score-square">
+            Score: <span id="score" class="red">0</span>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
     <script src="../shared-files/sendEmail.js"></script>
     <script src="script.js"></script>
   </body>

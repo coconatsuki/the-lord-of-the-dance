@@ -6,17 +6,111 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
   margin: 0;
 }
 
+header {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  padding-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(30, 30, 30, 0.9);
+  border-bottom: 1px dashed #3d443e;
+}
+
+#location-title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 1.5em;
+  color: white;
+  margin: 0;
+}
+
+#page-title {
+  font-size: 5em;
+  color: #a8e6a3;
+  font-family: "Grey Qo", cursive;
+  font-weight: 400;
+  margin: 0;
+}
+
+#columns {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+#left-column {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#launcher-container {
+  width: 80%;
+}
+
+#launcher-container,
+#score-container {
+  background-color: rgba(30, 30, 30, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 1em;
+  border: 1px dashed #d0d090;
+}
+
+#time-title {
+  font-size: 18px;
+}
+
+#time-square {
+  background-color: black;
+  padding: 1em;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+#timer,
+#seconds {
+  font-size: 2em;
+}
+
+#right-column {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#score-square {
+  font-size: 2.5em;
+}
+
 #game-container {
+  width: 60%;
   text-align: center;
 }
 
 #game-info {
   margin-bottom: 20px;
-  padding: 2%;
+  padding: 1em;
   border: 1px dashed #d0d090;
 }
 
@@ -30,7 +124,10 @@ body {
   cursor: grab;
 }
 
-#game-info,
+#game-info {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
 #game-area {
   background-color: black;
 }
@@ -42,15 +139,20 @@ h1 {
 
 #info-message {
   font-style: italic;
-  margin-top: 10px;
-  font-size: 14px;
+  margin: 10px auto 0 auto;
+  font-size: 16px;
   color: #d0d090;
 }
 
-#note {
+#instructions {
+  margin: 0;
+  font-size: 20px;
+}
+
+.red {
   color: red;
-  font-style: normal;
   font-weight: 800;
+  font-style: normal;
 }
 
 #background-image {
@@ -66,13 +168,13 @@ h1 {
 }
 
 #start-button {
-  margin-top: 20px;
+  margin-top: 2em;
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
   background-color: black;
   color: yellow;
-  width: 40%;
+  width: 100%;
   border: 1px dashed #d0d090;
   font-weight: 800;
 }
@@ -121,4 +223,25 @@ h1 {
   100% {
     transform: translate(-20px, -20px) rotate(180deg);
   }
+}
+
+footer {
+  background-color: #333;
+  color: #a8e6a3;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+footer a {
+  color: #a8e6a3;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+footer a:disabled {
+  color: grey;
+  pointer-events: none;
 }
