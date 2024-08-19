@@ -2,7 +2,7 @@
 const emailNotificationsDisabled = ["2", "4"]; // Example: Disable notifications for game 2 and 4
 
 //emailjs.init("8MQIpzoTDZEjqNboW");
-emailjs.init({ publicKey: "P2-VXe3kREiCkRpZc" });
+emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
 // emailjs.init({
 //   publicKey: "8MQIpzoTDZEjqNboW",
