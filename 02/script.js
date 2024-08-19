@@ -87,5 +87,10 @@ function endGame() {
   }
 
   alert(finalMessage);
+
+  sendEmail(score, "2", "Catch the Fireflies", () => {
+    console.log("Email sent for game 2.");
+  });
+
   startButton.disabled = false;
 }

@@ -167,6 +167,11 @@ function endGame() {
   }
 
   alert(message); // Display the appropriate message based on the level
+
+  sendEmail(level, "5", "Mimic the dancing lizard", () => {
+    console.log("Email sent for game 5.");
+  });
+
   startButton.disabled = false; // Re-enable the start button for a new game
 }
 

@@ -35,8 +35,12 @@ function createDaySquare(dayNumber, date) {
   dateSpan.classList.add("day-date");
   dateSpan.textContent = date;
 
+  let gamesInPlace = [1, 2, 5];
+
   // Lock future days
-  if (dayNumber > currentDay) {
+  // switch commenting the 2 following lines to test:
+  if (!gamesInPlace.includes(dayNumber)) {
+    //if (dayNumber > currentDay) {
     daySquare.classList.add("locked");
   } else {
     // Create correct path for each day based on the day number
