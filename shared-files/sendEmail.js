@@ -2,25 +2,25 @@
 const emailNotificationsDisabled = ["2", "4"]; // Example: Disable notifications for game 2 and 4
 
 //emailjs.init("8MQIpzoTDZEjqNboW");
-//emailjs.init({ publicKey: "8MQIpzoTDZEjqNboW" });
+emailjs.init({ publicKey: "8MQIpzoTDZEjqNboW" });
 
-emailjs.init({
-  publicKey: "8MQIpzoTDZEjqNboW",
-  // Do not allow headless browsers
-  blockHeadless: false,
-  blockList: {
-    // Block the suspended emails
-    list: [],
-    // The variable contains the email address
-    watchVariable: "",
-  },
-  limitRate: {
-    // Set the limit rate for the application
-    id: "app",
-    // Allow 1 request per 10s
-    throttle: 10000,
-  },
-});
+// emailjs.init({
+//   publicKey: "8MQIpzoTDZEjqNboW",
+//   // Do not allow headless browsers
+//   blockHeadless: false,
+//   blockList: {
+//     // Block the suspended emails
+//     list: [],
+//     // The variable contains the email address
+//     watchVariable: "",
+//   },
+//   limitRate: {
+//     // Set the limit rate for the application
+//     id: "app",
+//     // Allow 1 request per 10s
+//     throttle: 10000,
+//   },
+// });
 
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {
