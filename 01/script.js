@@ -166,6 +166,10 @@ diceArea.addEventListener("click", () => {
       diceRolling = false; // Reset rolling status
       diceInstructionDiv.classList.add("hidden");
 
+      sendEmail(totalScore, "1", "Setting Forth", () => {
+        console.log("Email sent for game 1.");
+      });
+
       setTimeout(() => {
         alert(
           `Total score: ${totalScore}\n\nWith the spirits' responses guiding his journey, Jimli continues onward, feeling slightly more — or perhaps less — confident about the path ahead.`
