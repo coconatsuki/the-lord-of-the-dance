@@ -166,16 +166,16 @@ diceArea.addEventListener("click", () => {
       diceRolling = false; // Reset rolling status
       diceInstructionDiv.classList.add("hidden");
 
+      sendEmail(totalScore, "1", "Setting Forth", () => {
+        console.log("Email sent for game 1.");
+      });
+
       setTimeout(() => {
         alert(
           `Total score: ${totalScore}\n\nWith the spirits' responses guiding his journey, Jimli continues onward, feeling slightly more — or perhaps less — confident about the path ahead.`
         );
       }, 500); // Delay to ensure all UI updates before alert
     }
-
-    sendEmail(totalScore, "1", "Setting Forth", () => {
-      console.log("Email sent for game 1.");
-    });
   }, 1500); // Stop after 1.5 seconds
 
   diceArea.classList.add("disabled"); // Disable the dice during the roll
