@@ -1,7 +1,6 @@
 // Array of game numbers for which email notifications are disabled
 const emailNotificationsDisabled = ["2", "4"]; // Example: Disable notifications for game 2 and 4
 
-//emailjs.init("8MQIpzoTDZEjqNboW");
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
 // emailjs.init({
@@ -62,7 +61,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
     };
 
     emailjs
-      .send("service_etujrog", "template_qnkk33d", emailParams)
+      .send("service_e4om8hl", "template_qnkk33d", emailParams)
       .then((response) => {
         console.log("Email sent successfully!", response.status, response.text);
         if (callback) callback();
