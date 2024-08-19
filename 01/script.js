@@ -173,7 +173,7 @@ diceArea.addEventListener("click", () => {
       }, 500); // Delay to ensure all UI updates before alert
     }
 
-    sendEmail(score, "1", "Setting Forth", () => {
+    sendEmail(totalScore, "1", "Setting Forth", () => {
       console.log("Email sent for game 1.");
     });
   }, 1500); // Stop after 1.5 seconds
