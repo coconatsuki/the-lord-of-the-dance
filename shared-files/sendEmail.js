@@ -1,8 +1,8 @@
 // Array of game numbers for which email notifications are disabled
 const emailNotificationsDisabled = ["2", "4"]; // Example: Disable notifications for game 2 and 4
 
-//emailjs.init("YOUR_USER_ID");
-emailjs.init({ publicKey: "8MQIpzoTDZEjqNboW" });
+emailjs.init("8MQIpzoTDZEjqNboW");
+//emailjs.init({ publicKey: "8MQIpzoTDZEjqNboW" });
 
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {
