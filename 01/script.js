@@ -95,7 +95,6 @@ nextButton.addEventListener("click", () => {
       25,
       true,
       () => {
-        //nextButton.style.display = "none";
         diceInstructionDiv.classList.remove("hidden");
         diceArea.classList.remove("disabled"); // Enable the dice area
         diceArea.style.cursor = "grab"; // Set grab cursor
@@ -166,15 +165,27 @@ diceArea.addEventListener("click", () => {
       diceRolling = false; // Reset rolling status
       diceInstructionDiv.classList.add("hidden");
 
+      // Display the final message based on the totalScore
+      let finalMessage = "";
+
+      if (totalScore === 0) {
+        finalMessage = `Total score: ${totalScore}\n\nMistriva's waters remained still, Sylvas's leaves didn't so much as rustle, and Kragrok barely gave a pebble a nudge. It seems like Jimli's prayers were met with… nothing.\n\nThe road ahead may be long, dark, and filled with dwarven curses, but hey, Jimli always did like a good challenge.`;
+      } else if (totalScore >= 1 && totalScore <= 20) {
+        finalMessage = `Total score: ${totalScore}\n\nThe spirits gave Jimli a nod… well, a small nod. Mistriva stirred the waters just enough for a light drizzle, Sylvas dropped a single leaf of wisdom (it's still a leaf, right?), and Kragrok rumbled… slightly.\n\nNot exactly the luckiest start, but hey, even a drizzle can fill a dwarven cup.`;
+      } else if (totalScore >= 21 && totalScore <= 40) {
+        finalMessage = `Total score: ${totalScore}\n\nJimli's prayers were met with some solid support! Mistriva's waters flowed smoothly, Sylvas whispered a few wise words, and Kragrok shifted his stony weight to clear a path.\n\nThe spirits aren't dancing with him yet, but they've certainly got a foot tapping. Jimli's journey might just be a bit brighter after all!`;
+      } else if (totalScore >= 41 && totalScore <= 60) {
+        finalMessage = `Total score: ${totalScore}\n\nThe spirits are practically throwing a party for Jimli! Mistriva's waters are dancing, Sylvas's branches are bowing with wisdom, and Kragrok is rolling stones out of the way like they're pebbles.\n\nJimli's steps feel lighter and he starts believing he's invincible. Just don't trip on your beard, Jimli!`;
+      }
+
+      setTimeout(() => {
+        alert(finalMessage);
+      }, 500);
+
+      // Send email with the score
       sendEmail(totalScore, "1", "Setting Forth", () => {
         console.log("Email sent for game 1.");
       });
-
-      setTimeout(() => {
-        alert(
-          `Total score: ${totalScore}\n\nWith the spirits' responses guiding his journey, Jimli continues onward, feeling slightly more — or perhaps less — confident about the path ahead.`
-        );
-      }, 500); // Delay to ensure all UI updates before alert
     }
   }, 1500); // Stop after 1.5 seconds
 
