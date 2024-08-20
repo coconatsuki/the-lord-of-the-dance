@@ -1,5 +1,3 @@
-// script.js
-
 let timeLeft = 60; // Game time limit
 let score = 0;
 let gameInterval;
@@ -8,13 +6,18 @@ const gameArea = document.getElementById("game-area");
 const timerDisplay = document.getElementById("timer");
 const scoreDisplay = document.getElementById("score");
 const startButton = document.getElementById("start-button");
+const backToCalendarLink = document.getElementById("back-to-calendar");
 let spawnRate = 1000; // Start with 1 second
 const minSpawnRate = 300; // Set a minimum spawn rate to prevent overwhelming difficulty
 
 startButton.addEventListener("click", startGame);
 
 function startGame() {
+  // Disable and blur the Start button and Back to Calendar link
   startButton.disabled = true;
+  startButton.classList.add("disabled-blur");
+  backToCalendarLink.classList.add("disabled-blur");
+
   score = 0;
   timeLeft = 60; // Reset time to 1 minute
   scoreDisplay.textContent = score;
@@ -64,8 +67,6 @@ function spawnFirefly() {
     gameArea.removeChild(fireflyContainer);
   });
 
-  console.log("timeleft: ", timeLeft, " / spawnrate: " + spawnRate);
-
   setTimeout(() => {
     if (gameArea.contains(fireflyContainer)) {
       gameArea.removeChild(fireflyContainer);
@@ -95,11 +96,12 @@ function endGame() {
 
   alert(finalMessage);
 
-  /*
   sendEmail(score, "2", "Catch the Fireflies", () => {
     console.log("Email sent for game 2.");
   });
-  */
 
+  // Re-enable the Start button and Back to Calendar link after the game ends
   startButton.disabled = false;
+  startButton.classList.remove("disabled-blur");
+  backToCalendarLink.classList.remove("disabled-blur");
 }

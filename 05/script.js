@@ -1,13 +1,12 @@
-// script.js
-
 let sequence = [];
 let playerSequence = [];
 let level = 0;
-const maxMoves = 30; // Define the maximum number of moves for the game
+const maxMoves = 30;
 const sequenceDisplay = document.getElementById("sequence");
 const playerSequenceDisplay = document.getElementById("player-sequence");
 const feedbackDisplay = document.getElementById("feedback");
 const startButton = document.getElementById("start-button");
+const backToCalendarLink = document.getElementById("back-to-calendar");
 const instruction = document.getElementById("instruction");
 const turnCounter = document.getElementById("turn-counter");
 
@@ -29,6 +28,9 @@ startButton.addEventListener("click", startGame);
 
 function startGame() {
   startButton.disabled = true;
+  startButton.classList.add("disabled-blur");
+  backToCalendarLink.classList.add("disabled-blur");
+
   sequence = [];
   playerSequence = [];
   level = 0;
@@ -39,15 +41,15 @@ function startGame() {
 
 function nextRound() {
   if (level >= maxMoves) {
-    endGame(); // End the game after 30 moves
+    endGame();
     return;
   }
 
   playerSequence = [];
-  playerSequenceDisplay.textContent = ""; // Clear the player's sequence display
+  playerSequenceDisplay.textContent = "";
   level++;
   updateTurnCounter();
-  sequence.push(moves[Math.floor(Math.random() * moves.length)]); // Add a random move
+  sequence.push(moves[Math.floor(Math.random() * moves.length)]);
   displaySequence();
 }
 
@@ -62,11 +64,11 @@ function displaySequence() {
       playSound(move);
     }, delay);
 
-    delay += 1000; // Show each move for 1 second
+    delay += 1000;
 
     setTimeout(() => {
       sequenceDisplay.textContent = "";
-    }, delay - 500); // Clear after half a second
+    }, delay - 500);
   });
 
   setTimeout(() => {
@@ -90,9 +92,8 @@ function handlePlayerInput(event) {
     playerSequence.push(key);
     displayPlayerMove(key);
 
-    // Check player's input
     if (playerSequence.length === sequence.length) {
-      window.removeEventListener("keydown", handlePlayerInput); // Remove listener to stop input during evaluation
+      window.removeEventListener("keydown", handlePlayerInput);
       checkPlayerSequence();
     }
   }
@@ -104,7 +105,7 @@ function displayPlayerMove(key) {
   playSound(key);
 
   setTimeout(() => {
-    playerSequenceDisplay.textContent = ""; // Clear the player's arrow after 500ms
+    playerSequenceDisplay.textContent = "";
   }, 500);
 }
 
@@ -118,8 +119,7 @@ function checkPlayerSequence() {
     }, 2000);
   } else {
     feedbackDisplay.textContent = `Oops! You made it to level ${level}. Try again!`;
-    endGame(); // Trigger game end when the player makes a mistake
-    startButton.disabled = false; // Re-enable the start button for a new game
+    endGame();
   }
 }
 
@@ -166,13 +166,15 @@ function endGame() {
       "Unbelievable, Jimli! You’ve mastered the lizard’s dance perfectly! The lizard is bowing to your superior moves, and the elves won’t know what hit them at the festival!";
   }
 
-  alert(message); // Display the appropriate message based on the level
+  alert(message);
 
   sendEmail(level, "5", "Mimic the dancing lizard", () => {
     console.log("Email sent for game 5.");
   });
 
-  startButton.disabled = false; // Re-enable the start button for a new game
+  startButton.disabled = false;
+  startButton.classList.remove("disabled-blur");
+  backToCalendarLink.classList.remove("disabled-blur");
 }
 
 function updateTurnCounter() {

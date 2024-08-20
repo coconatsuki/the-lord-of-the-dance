@@ -35,8 +35,9 @@ body {
 
 #columns {
   width: 100%;
-  height: 100%;
   display: flex;
+  flex-grow: 1;
+  margin-bottom: 32.4px;
 }
 
 .column {
@@ -88,6 +89,7 @@ body {
   align-self: center;
   flex-wrap: wrap;
   align-content: center;
+  height: 100%;
 }
 
 #right-column {
@@ -127,6 +129,8 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
   width: 100%;
   z-index: 1;
 }
@@ -151,17 +155,14 @@ h1 {
 }
 
 #start-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 22px;
-  cursor: pointer;
-  background-color: black;
-  border: 1px dashed #d0d090;
-  font-weight: 800;
+  margin-top: 2em;
+  width: 35%;
+  padding: 25px 10px;
+  color: red;
+  font-size: 26px;
 }
 
 #instructions {
-  /* margin-bottom: 20px; Add spacing between instructions and game info */
   padding: 10px;
   font-size: 18px;
   color: springgreen;

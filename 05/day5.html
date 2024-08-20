@@ -3,17 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+    rel="stylesheet"/>
     <script
     type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
   ></script>
     <title>Simon Says - Mimic the Dancing Lizard</title>
+    <link rel="stylesheet" href="../shared-files/layout.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="background-image"></div>
+    <header>
+      <h2 id="location-title">The Desert of Rhythms</h2>
+      <h1 id="page-title">Mimic the Dancing Lizard!</h1>
+    </header>
     <div id="big-container">
-      <h1>Mimic the Dancing Lizard!</h1>
+      <!-- <h1>Mimic the Dancing Lizard!</h1> -->
       <div id="columns">
         <div class="column" id="left-column">
           <div id="sequence-container">
@@ -33,7 +41,6 @@
               <p id="instruction">Watch the lizard's moves...</p>
               <div id="feedback"></div>
             </div>
-            <button id="start-button" class="red">START GAME</button>
           </div>
         </div>
         <div class="column" id="right-column">
@@ -41,6 +48,7 @@
             <div id="turn-text">Turn</div>
             <div id="turn-counter">0 / 30</div>
           </div>
+          <button id="start-button">START GAME</button>
         </div>
       </div>
     </div>
@@ -48,6 +56,9 @@
     <audio id="sound-down" src="down.mp3"></audio>
     <audio id="sound-left" src="left.mp3"></audio>
     <audio id="sound-right" src="right.mp3"></audio>
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
     <script src="../shared-files/sendEmail.js"></script>
     <script src="script.js"></script>
   </body>
