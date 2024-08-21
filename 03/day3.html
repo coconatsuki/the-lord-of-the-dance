@@ -18,27 +18,45 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="background-image"></div>
     <header>
       <h2 id="location-title">The Enchanted Forest</h2>
       <h1 id="page-title">The Path of Leaves</h1>
+      <div id="counter-container">
+        <div id="turn-text">Time</div>
+        <div id="time-counter">0 / 3 min</div>
+      </div>
     </header>
 
     <div id="content">
       <div id="left-column">
         <p id="narrative-text">
           The deeper Jimli goes, the more twisted and confusing the forest paths
-          become. "By Thorin’s toenails," he swears, scratching his head. But
-          then he notices the leaves—each one has a unique pattern. "I may not
-          know an oak from an ash, but by Thorin's toenails, I can match
-          patterns faster than any elf!" Jimli mutters, determined to find the
-          correct path as he starts matching the leaves.
+          become. "By Thorin's toenails!" he swears, scratching his head.
+          <br /><br />But then he notices the leaves —each one has a unique
+          pattern. "I may not know an oak from an ash, but I can match patterns
+          faster than any elf!" Jimli mutters, determined to find the correct
+          path as he starts matching the leaves.
         </p>
         <button id="start-button">START GAME</button>
       </div>
 
       <div id="right-column">
-        <div id="memory-game" class="hidden">
+        <div id="memory-game">
           <!-- Memory game grid will be generated here -->
+        </div>
+        <div id="instructions">
+          <p id="instruction-1">Match ALL the leaves in less than 3 minutes!</p>
+          <p id="instruction-2">
+            The <span class="red">quickiest</span> you make it, the more points
+            you earn.
+          </p>
+          <p id="instruction-3">
+            You can play many times, but
+            <span class="red">ONLY</span> the
+            <span class="red">BEST of your 2 first scores</span>
+            will be recorded.
+          </p>
         </div>
       </div>
     </div>
@@ -47,6 +65,7 @@
       <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
     </footer>
 
+    <audio id="game-music" src="./game-music.mp3"></audio>
     <script src="../shared-files/sendEmail.js"></script>
     <script src="script.js"></script>
   </body>
