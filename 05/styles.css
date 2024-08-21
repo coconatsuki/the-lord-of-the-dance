@@ -44,11 +44,23 @@ body {
   display: flex;
   flex-direction: column;
   width: 33%;
+  padding: 15px 20px;
 }
 
 #left-column {
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+#center-column {
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+#right-column {
+  display: flex;
+  justify-content: flex-start; /* Align to the right */
+  align-items: flex-end; /* Align to the top */
 }
 
 #sequence-container,
@@ -67,14 +79,14 @@ body {
 
 #player-sequence-container {
   align-self: center;
-  margin: 10px 0;
+  margin-top: 2em;
 }
 
 #sequence,
 #player-sequence {
   text-align: center;
   font-size: 100px;
-  font-weight: bold; /* Make arrow fatter */
+  font-weight: bold;
 }
 
 #sequence {
@@ -83,20 +95,6 @@ body {
 
 #player-sequence {
   color: #ffffff; /* Placeholder color */
-}
-
-#center-column {
-  align-self: center;
-  flex-wrap: wrap;
-  align-content: center;
-  height: 100%;
-}
-
-#right-column {
-  display: flex;
-  justify-content: flex-start; /* Align to the right */
-  align-items: flex-end; /* Align to the top */
-  padding: 20px; /* Add padding to keep it from touching the edges */
 }
 
 #counter-container {
@@ -130,7 +128,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: space-around;
   width: 100%;
   z-index: 1;
 }
@@ -143,10 +140,10 @@ h1 {
 }
 
 #game-info {
-  margin-bottom: 20px;
-  padding: 2%;
   border: 1px dashed #d0d090;
   background-color: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  margin-top: 15px;
 }
 
 #feedback {
@@ -156,31 +153,57 @@ h1 {
 
 #start-button {
   margin-top: 2em;
-  width: 35%;
+  width: 40%;
   padding: 25px 10px;
   color: red;
   font-size: 26px;
 }
 
 #instructions {
-  padding: 10px;
+  padding: 0.7em 0.5em;
   font-size: 18px;
   color: springgreen;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px dashed #d0d090;
-  line-height: 30px;
+  line-height: 25px;
+}
+
+#instructions p {
+  margin: 0;
+}
+
+#first-instruction {
+  color: #d0d090;
+  font-size: 20px;
+}
+
+#follow {
+  margin: 12px 0 !important;
+}
+
+#recording-instr-container {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px dashed #d0d090;
+  padding: 10px;
+  width: 70%;
+  margin-top: 2em;
+}
+
+#recording-instructions {
+  font-style: italic;
+  font-size: 16px;
+  color: #d0d090;
+  line-height: 1.7em;
 }
 
 .red {
   color: red;
 }
 
-.yellow {
-  color: #d0d090;
-}
-
 #instruction {
   font-size: 22px;
   color: springgreen;
+  margin: 0;
 }

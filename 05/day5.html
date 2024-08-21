@@ -27,19 +27,24 @@
           <div id="sequence-container">
             <div id="sequence"></div>
           </div>
+          <div id="game-info">
+            <p id="instruction">Watch the lizard's moves...</p>
+            <div id="feedback"></div>
+          </div>
         </div>
         <div class="column" id="center-column">
           <div id="game-container">
             <div id="instructions">
-              <span class="yellow">Use the arrow keys to mimic the lizard's dance.</span></br>←-- Follow the
-              sequence closely! <span class="red">(on the LEFT)</span>
+              <p id="first-instruction">Use the arrow keys to mimic the lizard's dance.</p><p id="follow">←-- Follow the
+              sequence closely! <span class="red">(on the LEFT)</span></p>
+              <p id="recording-instructions">
+                You can play many times, but
+                <span class="red">ONLY your 2 first scores</span>will be recorded
+                and sent.
+              </p>
             </div>
             <div id="player-sequence-container">
               <div id="player-sequence"></div>
-            </div>
-            <div id="game-info">
-              <p id="instruction">Watch the lizard's moves...</p>
-              <div id="feedback"></div>
             </div>
           </div>
         </div>
@@ -49,6 +54,8 @@
             <div id="turn-counter">0 / 30</div>
           </div>
           <button id="start-button">START GAME</button>
+          </div>
+          
         </div>
       </div>
     </div>
