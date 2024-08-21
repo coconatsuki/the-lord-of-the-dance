@@ -10,7 +10,15 @@ const backToCalendarLink = document.getElementById("back-to-calendar");
 const instruction = document.getElementById("instruction");
 const turnCounter = document.getElementById("turn-counter");
 
-// Sound elements
+// Modal Elements
+const narrativeModal = document.getElementById("narrative-modal");
+const closeModalButton = document.getElementById("close-modal-button");
+
+// Hide modal and allow game interaction
+closeModalButton.addEventListener("click", () => {
+  narrativeModal.style.display = "none";
+});
+
 const soundUp = document.getElementById("sound-up");
 const soundDown = document.getElementById("sound-down");
 const soundLeft = document.getElementById("sound-left");

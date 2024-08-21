@@ -18,6 +18,28 @@
   <body>
     <audio id="firefly-sound" src="./firefly-catch.mp3"></audio>
     <div id="background-image"></div>
+
+    <!-- Narrative Modal -->
+    <div id="narrative-modal" class="modal">
+      <div class="modal-content">
+        <p>
+          As Jimli ventures deeper into the forest, the canopy thickens, and
+          darkness wraps around him like a heavy cloak. <br />"Couldn’t they
+          just leave a torch out here or something?" he grumbles.
+        </p>
+        <p>
+          Just then, a soft glow flits by —a firefly. Then another, and another!
+          Until the air is alive with tiny dancing lights.
+        </p>
+        <p>
+          "Catch these glowbugs, eh? Can’t be harder than catching my dinner
+          after a night at the tavern!" Jimli chuckles, reaching out to catch a
+          few for his lantern...
+        </p>
+        <button id="close-modal-button">Let's catch some glowbugs</button>
+      </div>
+    </div>
+
     <header>
       <h2 id="location-title">The Enchanted Forest</h2>
       <h1 id="page-title">Catch the fireflies!</h1>
@@ -29,8 +51,8 @@
             <span id="time-title">Time Left: </span>
             <span
               ><span id="timer" class="red">60</span
-              ><span id="seconds" class="red">s</span>
-            </span>
+              ><span id="seconds" class="red">s</span></span
+            >
           </div>
           <button id="start-button">START GAME</button>
         </div>

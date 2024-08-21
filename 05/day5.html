@@ -4,24 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
-    rel="stylesheet"/>
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <script
-    type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-  ></script>
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <title>Simon Says - Mimic the Dancing Lizard</title>
     <link rel="stylesheet" href="../shared-files/layout.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="background-image"></div>
+
+    <!-- Narrative Modal -->
+    <div id="narrative-modal" class="modal">
+      <div class="modal-content">
+        <p>
+          As the sun dips lower in the sky, casting long shadows across the
+          dunes, Jimli stumbles upon a strange sight: a lizard, about the size
+          of his boot, perched on a rock and moving in a peculiar rhythm.
+        </p>
+        <p>
+          Jimli raises an eyebrow. "Dancing with a lizard? That’s a new one. If
+          my kin could see me now, they’d have me mining rocks just to get the
+          silliness out!"
+        </p>
+        <p>
+          The lizard continues its odd dance, twisting and twirling with
+          surprising agility. Jimli watches, fascinated, as the creature seems
+          to be challenging him to a duel of dance moves. "Alright, you scaly
+          show-off," Jimli says, cracking his knuckles. "Let’s see if you’ve got
+          what it takes to keep up with a dwarf!"
+        </p>
+        <button id="close-modal-button">Let’s dance!</button>
+      </div>
+    </div>
+
     <header>
       <h2 id="location-title">The Desert of Rhythms</h2>
       <h1 id="page-title">Mimic the Dancing Lizard!</h1>
     </header>
     <div id="big-container">
-      <!-- <h1>Mimic the Dancing Lizard!</h1> -->
       <div id="columns">
         <div class="column" id="left-column">
           <div id="sequence-container">
@@ -35,12 +60,17 @@
         <div class="column" id="center-column">
           <div id="game-container">
             <div id="instructions">
-              <p id="first-instruction">Use the arrow keys to mimic the lizard's dance.</p><p id="follow">←-- Follow the
-              sequence closely! <span class="red">(on the LEFT)</span></p>
+              <p id="first-instruction">
+                Use the arrow keys to mimic the lizard's dance.
+              </p>
+              <p id="follow">
+                ←-- Follow the sequence closely!
+                <span class="red">(on the LEFT)</span>
+              </p>
               <p id="recording-instructions">
                 You can play many times, but
-                <span class="red">ONLY your 2 first scores</span>will be recorded
-                and sent.
+                <span class="red">ONLY your 2 first scores</span> will be
+                recorded and sent.
               </p>
             </div>
             <div id="player-sequence-container">
@@ -54,8 +84,6 @@
             <div id="turn-counter">0 / 30</div>
           </div>
           <button id="start-button">START GAME</button>
-          </div>
-          
         </div>
       </div>
     </div>

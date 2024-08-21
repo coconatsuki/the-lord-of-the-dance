@@ -10,6 +10,15 @@ const backToCalendarLink = document.getElementById("back-to-calendar");
 let spawnRate = 1000; // Start with 1 second
 const minSpawnRate = 300; // Set a minimum spawn rate to prevent overwhelming difficulty
 
+// Modal Elements
+const narrativeModal = document.getElementById("narrative-modal");
+const closeModalButton = document.getElementById("close-modal-button");
+
+// Start Game when close modal button is clicked
+closeModalButton.addEventListener("click", () => {
+  narrativeModal.style.display = "none"; // Hide the modal
+});
+
 startButton.addEventListener("click", startGame);
 
 function startGame() {
