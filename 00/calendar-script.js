@@ -35,7 +35,7 @@ function createDaySquare(dayNumber, date) {
   dateSpan.classList.add("day-date");
   dateSpan.textContent = date;
 
-  let gamesInPlace = [1, 2, 5];
+  let gamesInPlace = [1, 2, 3, 5];
 
   // Lock future days
   // switch commenting the 2 following lines to test:
