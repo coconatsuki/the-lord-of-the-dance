@@ -13,33 +13,36 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
-    <title>The Enchanted Forest - Setting Forth</title>
+    <title>The Desert of Rhythms - The Dune Dash</title>
     <link rel="stylesheet" href="../shared-files/dice-roll-styles.css" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
-      <h2 id="location-title">The Enchanted Forest</h2>
-      <h1 id="page-title">Setting Forth</h1>
+      <h2 id="location-title">The Desert of Rhythms</h2>
+      <h1 id="page-title">The Dune Dash</h1>
     </header>
     <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
-    <audio id="game-music" src="./fantasy-music.mp3"></audio>
+    <audio id="game-music" src="./desert-music.mp3"></audio>
 
     <!-- Modal for Initial Narrative -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <p>
-          The sun is just rising over the peaks of Stonehelm as Jimli, with a
-          heart full of dreams and a bag full of snacks, takes his first step
-          beyond the safety of his home. The ancient forest looms ahead, full of
-          mysteries and spirits who watch over the land.<br /><br />
-          As he enters the forest, Jimli recalls the stories his grandfather
-          told him about the ancient spirits dwelling in these woods. "Right,"
-          he mutters, gripping his trusty axe —not that he'll need it, of
-          course, but it's comforting. "Let's see if the spirits are in a
-          dancing mood today."
+          The familiar coolness of the Enchanted Forest fades behind Jimli as he
+          marches forward. Slowly, the trees thin out, giving way to rocky
+          outcrops and eventually, the endless sea of sand. 'So, this is it, eh?
+          The great Desert of Rhythms,' he mutters. 'Looks like I'm about to
+          find out what it feels like to have sand in places sand was never
+          meant to be.' <br /><br />As Jimli steps into the desert, the heat
+          hits him like a forge blast. 'Never thought I'd miss the cold of the
+          mountains,' he grumbles. 'At least there you could keep your beard
+          from catching fire!' <br /><br />
+          With a deep breath and a muttered prayer to the spirits, Jimli sets
+          off into the heart of the desert, hoping the sun doesn't turn his
+          journey into a roasted dwarf buffet."
         </p>
-        <button id="start-game-button">Enter the Forest</button>
+        <button id="start-game-button">Go deeper into the Desert</button>
       </div>
     </div>
 
@@ -47,7 +50,7 @@
       <div id="narrative-column">
         <p id="narrative-text"></p>
         <div id="dice-instruction" class="hidden">
-          Now, roll the dice for Mistriva =>
+          How well can Jimli handle the relentless heat? =>
         </div>
       </div>
 
@@ -71,7 +74,6 @@
       <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
     </footer>
 
-    <audio id="game-music" src="./fantasy-music.mp3"></audio>
     <audio id="dice-sound" src="../shared-files/dice-roll.mp3"></audio>
     <script src="../shared-files/dice-roll-script.js"></script>
     <script src="../shared-files/sendEmail.js"></script>
