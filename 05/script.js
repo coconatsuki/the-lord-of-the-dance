@@ -156,22 +156,22 @@ function endGame() {
       "Oh no! Jimli couldn’t mimic a single move. If he can't keep up with a lizard, the elves will laugh him off the dance floor! Better practice those steps, Jimli!";
   } else if (level >= 1 && level <= 5) {
     message =
-      "Well, Jimli managed to mimic a few steps, but it’s not looking good. The lizard isn’t impressed, and neither will be the elves. Time to step it up!";
+      "Well, Jimli managed to mimic a few steps, but it’s not looking good. The lizard isn't impressed, and neither will be the elves. Time to step it up!";
   } else if (level >= 6 && level <= 10) {
     message =
-      "Jimli’s got some moves, but let’s be honest… he’s still struggling. The lizard’s giving him a puzzled look. He’s going to need more practice before facing those elves!";
+      "Jimli’s got some moves, but let’s be honest… he’s still struggling. The lizard's giving him a puzzled look. He’s going to need more practice before facing those elves!";
   } else if (level >= 11 && level <= 13) {
     message =
-      "Jimli is really getting into the groove! The lizard is actually impressed, and there’s hope yet for the Elven Festival. Keep those feet moving, Jimli!";
+      "Jimli is really getting into the groove! The lizard is actually impressed, and there's hope yet for the Elven Festival. Keep those feet moving, Jimli!";
   } else if (level >= 14 && level <= 20) {
     message =
-      "Wow, Jimli! You’re on fire! The lizard can barely keep up with you now. If you keep this up, the elves might have to take notice of your dance skills!";
+      "Wow, Jimli! You're on fire! The lizard can barely keep up with you now. If you keep this up, the elves might have to take notice of your dance skills!";
   } else if (level >= 21 && level <= 29) {
     message =
-      "Incredible, Jimli! You’ve almost perfected the lizard’s dance. Even the lizard is clapping for you! The Elven Festival better watch out, Jimli’s on his way!";
+      "Incredible, Jimli! You’ve almost perfected the lizard's dance. Even the lizard is clapping for you! The Elven Festival better watch out, Jimli's on his way!";
   } else if (level === 30) {
     message =
-      "Unbelievable, Jimli! You’ve mastered the lizard’s dance perfectly! The lizard is bowing to your superior moves, and the elves won’t know what hit them at the festival!";
+      "Unbelievable, Jimli! You've mastered the lizard's dance perfectly! The lizard is bowing to your superior moves, and the elves won't know what hit them at the festival!";
   }
 
   alert(message);
