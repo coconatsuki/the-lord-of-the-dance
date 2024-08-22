@@ -14,7 +14,8 @@
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
     ></script>
     <title>The Enchanted Forest - Setting Forth</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../shared-files/dice-roll-styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
@@ -22,10 +23,12 @@
       <h1 id="page-title">Setting Forth</h1>
     </header>
     <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+    <audio id="game-music" src="./fantasy-music.mp3"></audio>
 
-    <div id="content">
-      <div id="narrative-column">
-        <p id="narrative-text">
+    <!-- Modal for Initial Narrative -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p>
           The sun is just rising over the peaks of Stonehelm as Jimli, with a
           heart full of dreams and a bag full of snacks, takes his first step
           beyond the safety of his home. The ancient forest looms ahead, full of
@@ -36,7 +39,13 @@
           course, but it's comforting. "Let's see if the spirits are in a
           dancing mood today."
         </p>
-        <button id="next-button">Next</button>
+        <button id="start-game-button">Enter the Forest</button>
+      </div>
+    </div>
+
+    <div id="content" class="hidden">
+      <div id="narrative-column">
+        <p id="narrative-text"></p>
         <div id="dice-instruction" class="hidden">
           Now, roll the dice for Mistriva =>
         </div>

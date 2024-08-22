@@ -12,7 +12,8 @@ function startDiceGame({
   let diceRolling = false; // Track whether the dice is currently rolling
   let typingInProgress = false; // Track whether the typewriter effect is in progress
 
-  const nextButton = document.getElementById("next-button");
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("content");
   const diceInstructionDiv = document.getElementById("dice-instruction");
   const diceArea = document.getElementById("dice-area");
   const dice = document.getElementById("dice");
@@ -20,31 +21,35 @@ function startDiceGame({
   const previousResults = document.querySelectorAll(".result-square");
   const diceSound = document.getElementById("dice-sound");
   const typewriterSound = document.getElementById("typewriter-sound");
+  const gameMusic = document.getElementById("game-music");
+  const backToCalendarLink = document.getElementById("back-to-calendar");
+
+  // Hide previous results initially
+  document.getElementById("previous-results").style.display = "none";
 
   // Ensure the dice is disabled on page load
   diceArea.classList.add("disabled");
+  backToCalendarLink.classList.add("disabled-blur");
   diceArea.style.cursor = "not-allowed";
 
   // Typewriter effect function with optional sound
   function typeWriter(element, text, delay = 25, playSound = true, callback) {
     let i = 0;
 
-    // Function to play and loop the sound
     function playTypewriterSound() {
       if (playSound) {
         typewriterSound.play();
         typewriterSound.addEventListener("ended", () => {
           if (i < text.length) {
-            typewriterSound.currentTime = 0; // Reset sound to the beginning
-            typewriterSound.play(); // Play again if typing is not complete
+            typewriterSound.currentTime = 0;
+            typewriterSound.play();
           }
         });
       }
     }
 
-    // Start playing the sound when typing starts
     playTypewriterSound();
-    typingInProgress = true; // Mark typing as in progress
+    typingInProgress = true;
 
     function typing() {
       if (i < text.length) {
@@ -52,56 +57,47 @@ function startDiceGame({
         i++;
         setTimeout(typing, delay);
       } else {
-        // Stop the sound when typing is complete
         if (playSound) {
           typewriterSound.pause();
-          typewriterSound.currentTime = 0; // Reset sound for the next section
+          typewriterSound.currentTime = 0;
         }
-        typingInProgress = false; // Mark typing as complete
-        if (callback) callback(); // Call the callback function if provided
+        typingInProgress = false;
+        if (callback) callback();
       }
     }
     typing();
   }
 
-  // Initialize the first narrative text with the typewriter effect
-  function startFirstNarrative() {
+  // Function to hide the modal, play music, and reveal the content
+  function hideModal() {
+    modal.style.display = "none"; // Hide the modal
+    content.classList.remove("hidden"); // Show the main content
+    gameMusic.play(); // Play the background music
+    startSecondNarrative(); // Start the narrative after modal is dismissed
+  }
+
+  // Add event listener to the modal button to hide the modal and start the game
+  document
+    .getElementById("start-game-button")
+    .addEventListener("click", hideModal);
+
+  // Start narrative 2 after the modal is dismissed
+  function startSecondNarrative() {
     typeWriter(
       document.getElementById("narrative-text"),
-      narrativeText[0],
+      narrativeText[0], // Display the second narrative (first one is in the modal)
       25,
-      false, // Don't play sound on load
+      true, // Play sound for typewriter effect
       () => {
-        nextButton.style.display = "flex"; // Show the "Next" button after typing is done
+        diceInstructionDiv.classList.remove("hidden"); // Show dice instructions
+        diceArea.classList.remove("disabled"); // Enable the dice area
+        diceArea.style.cursor = "grab"; // Change cursor to grab
+        gameInProgress = true; // Mark game as in progress
       }
     );
   }
 
-  // Trigger the first narrative on load
-  window.addEventListener("DOMContentLoaded", startFirstNarrative);
-
-  // Handle "Next" button click
-  nextButton.addEventListener("click", () => {
-    nextButton.style.display = "none";
-
-    if (currentStep === 0 && !typingInProgress) {
-      currentStep++;
-      typeWriter(
-        document.getElementById("narrative-text"),
-        narrativeText[currentStep],
-        25,
-        true,
-        () => {
-          diceInstructionDiv.classList.remove("hidden");
-          diceArea.classList.remove("disabled"); // Enable the dice area
-          diceArea.style.cursor = "grab"; // Set grab cursor
-          gameInProgress = true; // Mark game as in progress
-        }
-      );
-    }
-  });
-
-  // Handle Dice Rolling Logic
+  // Handle dice rolling logic
   diceArea.addEventListener("click", () => {
     if (
       diceArea.classList.contains("disabled") ||
@@ -111,10 +107,9 @@ function startDiceGame({
       return;
 
     diceInstructionDiv.classList.add("hidden");
-
     rolls++;
-    diceRolling = true; // Mark dice as rolling
-    diceSound.play(); // Play the dice sound
+    diceRolling = true;
+    diceSound.play(); // Play dice roll sound
 
     // Shake effect on click
     diceArea.classList.add("shake");
@@ -137,6 +132,7 @@ function startDiceGame({
 
       if (rolls === 1) {
         previousLabel.classList.remove("hidden");
+        document.getElementById("previous-results").style.display = "block"; // Show the container
       }
 
       if (rolls < 3) {
@@ -150,19 +146,19 @@ function startDiceGame({
           () => {
             diceInstructionDiv.classList.remove("hidden");
             diceInstructionDiv.textContent = diceInstructions[rolls];
-            diceRolling = false; // Re-enable the dice for the next roll
+            diceRolling = false;
             diceArea.classList.remove("disabled");
-            diceArea.style.cursor = "grab"; // Set grab cursor
+            diceArea.style.cursor = "grab";
           }
         );
       } else {
         diceArea.classList.add("disabled");
-        diceArea.style.cursor = "default"; // Reset cursor when disabled
-        gameInProgress = false; // Mark game as finished
-        diceRolling = false; // Reset rolling status
+        diceArea.style.cursor = "default";
+        gameInProgress = false;
+        diceRolling = false;
         diceInstructionDiv.classList.add("hidden");
 
-        // Display the final message based on the totalScore
+        // Display the final message based on totalScore
         let finalMessage = "";
 
         if (totalScore === 0) {
@@ -179,22 +175,16 @@ function startDiceGame({
           alert(finalMessage);
         }, 500);
 
+        backToCalendarLink.classList.remove("disabled-blur");
+
         // Send email with the score
         sendEmail(totalScore, gameNumber, gameName, () => {
           console.log(`Email sent for game ${gameNumber}.`);
         });
       }
-    }, 1500); // Stop after 1.5 seconds
+    }, 1500);
 
-    diceArea.classList.add("disabled"); // Disable the dice during the roll
-    diceArea.style.cursor = "not-allowed"; // Set not-allowed cursor during rolling
-  });
-
-  // Disable the "Back to Calendar" link during the game
-  document.getElementById("back-to-calendar").addEventListener("click", (e) => {
-    if (gameInProgress || typingInProgress) {
-      e.preventDefault(); // Prevent navigation if the game is in progress or typing
-      alert("Finish the game before returning to the calendar.");
-    }
+    diceArea.classList.add("disabled");
+    diceArea.style.cursor = "not-allowed";
   });
 }

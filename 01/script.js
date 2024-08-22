@@ -1,5 +1,4 @@
 const narrativeText = [
-  "The sun is just rising over the peaks of Stonehelm as Jimli, with a heart full of dreams and a bag full of snacks, takes his first step beyond the safety of his home. The ancient forest looms ahead, full of mysteries and spirits who watch over the land.<br /><br />As he enters the forest, Jimli recalls the stories his grandfather told him about the ancient spirits dwelling in these woods. 'Right,' he mutters, gripping his trusty axe—not that he’ll need it, of course, but it’s comforting. 'Let’s see if the spirits are in a dancing mood today.'",
   "First, Jimli approaches the River Spirit, Mistriva, who is said to control the flow of time itself. The river glows with an ethereal blue light, and as Jimli kneels before it, he whispers, 'Uh, great Mistriva... I hope this humble dwarf’s prayer doesn’t... um, dam up your waters?'",
   "Next, he finds the Elder Oak, home to the Tree Spirit, Sylvas, guardian of knowledge and wisdom. Jimli places a hand on the ancient bark, 'Sylvas, keeper of leaves and... uh, bark. Might you lend a dancing dwarf some wisdom?'",
   "Finally, Jimli comes upon the Stone of Echoes, a massive boulder said to house Kragrok, the Spirit of Earth and Stone. The rock’s surface is smooth and warm, and Jimli kneels beside it. 'Kragrok, mighty boulder of... er, boulderness, I don’t suppose you’d fancy a dance yourself? Just... you know, keep the ground steady for me?'",
@@ -18,7 +17,7 @@ const finalMessages = [
   `Total score: {score}\n\nThe spirits are practically throwing a party for Jimli! Mistriva's waters are dancing, Sylvas's branches are bowing with wisdom, and Kragrok is rolling stones out of the way like they're pebbles.\n\nJimli's steps feel lighter and he starts believing he's invincible. Just don't trip on your beard, Jimli!`,
 ];
 
-// Initialize the game with specific data
+// Initialize the game
 startDiceGame({
   narrativeText,
   diceInstructions,

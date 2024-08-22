@@ -3,23 +3,14 @@ const emailNotificationsDisabled = ["1", "2", "3", "5"]; // Example: ["2", "4"] 
 
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
-// emailjs.init({
-//   publicKey: "8MQIpzoTDZEjqNboW",
-//   // Do not allow headless browsers
-//   blockHeadless: false,
-//   blockList: {
-//     // Block the suspended emails
-//     list: [],
-//     // The variable contains the email address
-//     watchVariable: "",
-//   },
-//   limitRate: {
-//     // Set the limit rate for the application
-//     id: "app",
-//     // Allow 1 request per 10s
-//     throttle: 10000,
-//   },
-// });
+let allCookies = document.cookie;
+let blockEmails =
+  allCookies
+    .split("; ")
+    .find((row) => row.startsWith("coconatsuki="))
+    ?.split("=")[1] === "unblock";
+
+console.log("not sending email to coconatsu: " + blockEmails);
 
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {
