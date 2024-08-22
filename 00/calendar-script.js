@@ -47,11 +47,13 @@ function createDaySquare(dayNumber, date) {
   console.log("unblock coconatsu: " + unblock);
 
   // Lock future days
-  // switch commenting the 2 following lines to test:
-  if (!gamesInPlace.includes(dayNumber)) {
-    //if (dayNumber > currentDay) {
+  //if (dayNumber > currentDay) {
+
+  if (!unblock && dayNumber > currentDay) {
     daySquare.classList.add("locked");
-  } else {
+  } else if (unblock && !gamesInPlace.includes(dayNumber))
+    daySquare.classList.add("locked");
+  else {
     // Create correct path for each day based on the day number
     const folder = dayNumber < 10 ? `0${dayNumber}` : dayNumber.toString();
     const path = `./${folder}/day${dayNumber}.html`;
