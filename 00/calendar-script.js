@@ -37,6 +37,15 @@ function createDaySquare(dayNumber, date) {
 
   let gamesInPlace = [1, 2, 3, 5];
 
+  let allCookies = document.cookie;
+  let unblock =
+    allCookies
+      .split("; ")
+      .find((row) => row.startsWith("coconatsuki="))
+      ?.split("=")[1] === "unblock";
+
+  console.log("unblock coconatsu: " + unblock);
+
   // Lock future days
   // switch commenting the 2 following lines to test:
   if (!gamesInPlace.includes(dayNumber)) {
