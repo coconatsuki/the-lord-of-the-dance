@@ -1,6 +1,6 @@
 const totalDays = 14; // Total days (including the last special day)
-let currentDay = parseInt(localStorage.getItem("currentDay")) || 1; // Track current day
-let totalPoints = parseInt(localStorage.getItem("totalPoints")) || 0;
+let currentDay = 1; // Set current day
+let totalPoints = 0;
 
 // Update days left and points display
 document.getElementById("days-left").textContent = totalDays - currentDay;
@@ -35,7 +35,7 @@ function createDaySquare(dayNumber, date) {
   dateSpan.classList.add("day-date");
   dateSpan.textContent = date;
 
-  let gamesInPlace = [1, 2, 3, 4, 5];
+  let gamesInPlace = [1, 2, 3, 4, 5, 6];
 
   let allCookies = document.cookie;
   let unblock =
@@ -46,14 +46,13 @@ function createDaySquare(dayNumber, date) {
 
   console.log("unblock coconatsu: " + unblock);
 
-  // Lock future days
-  //if (dayNumber > currentDay) {
-
-  if (!unblock && dayNumber > currentDay) {
+  // Lock future days (but not for me)
+  // if (!unblock && dayNumber > currentDay) {
+  //   daySquare.classList.add("locked");
+  // } else if (unblock && !gamesInPlace.includes(dayNumber))
+  if (!gamesInPlace.includes(dayNumber)) {
     daySquare.classList.add("locked");
-  } else if (unblock && !gamesInPlace.includes(dayNumber))
-    daySquare.classList.add("locked");
-  else {
+  } else {
     // Create correct path for each day based on the day number
     const folder = dayNumber < 10 ? `0${dayNumber}` : dayNumber.toString();
     const path = `./${folder}/day${dayNumber}.html`;
@@ -72,7 +71,3 @@ function createDaySquare(dayNumber, date) {
 for (let i = 1; i <= totalDays; i++) {
   createDaySquare(i, dates[i - 1]);
 }
-
-// Store progress in local storage
-localStorage.setItem("currentDay", currentDay);
-localStorage.setItem("totalPoints", totalPoints);

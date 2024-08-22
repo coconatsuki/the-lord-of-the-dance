@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <title>The Desert of Rhythms - Mirage or Oasis?</title>
+    <link rel="stylesheet" href="../shared-files/layout.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="background-image"></div>
+    <header id="header-section">
+      <h2 id="location-title">The Desert of Rhythms</h2>
+      <h1 id="page-title">Mirage or Oasis?</h1>
+    </header>
+    <div id="counter-container">
+      <div id="time-text">Time</div>
+      <div id="time-counter">0 / 3 min</div>
+    </div>
+
+    <div id="start-screen">
+      <div id="left-column">
+        <p id="narrative-text">
+          After a day of trekking through the relentless heat, Jimli's eyes are
+          playing tricks on him. The wavering air ahead seems to shimmer with
+          the promise of water. An oasis?
+          <br /><br />"If this is another blasted mirage," Jimli grumbles, "I'm
+          going to ask the elves to dance on top of it, just to make sure it's
+          real!" <br /><br />As he approaches, the scene before him shifts
+          slightly —enough to make him hesitate. "No fooling a dwarf with a dry
+          throat," Jimli mutters. It's a test of both his eyes and his patience,
+          as he tries to discern truth from trickery.
+        </p>
+      </div>
+
+      <div id="right-column">
+        <div id="instructions">
+          <p id="instruction-1">
+            Find how many differences they are between the 2 pictures.
+          </p>
+          <p id="instruction-2">
+            The <span class="red">closest</span> you are to the actual number,
+            the more points you get.
+          </p>
+          <p id="instruction-3">
+            You can play many times, but
+            <span class="red">ONLY</span> the
+            <span class="red">your first score</span>
+            will be recorded.
+          </p>
+        </div>
+        <button id="start-button">START GAME</button>
+      </div>
+    </div>
+    <div id="picture-container" class="hidden">
+      <div id="game-container" class="hidden">
+        <img
+          id="oasis-image"
+          src="./two_oasis_scenes.png"
+          alt="Spot the Difference"
+        />
+      </div>
+    </div>
+
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <audio id="game-music" src="./nature-ambient.mp3"></audio>
+    <script src="../shared-files/sendEmail.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
