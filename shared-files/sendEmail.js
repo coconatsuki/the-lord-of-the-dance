@@ -10,8 +10,6 @@ let blockEmails =
     .find((row) => row.startsWith("coconatsuki="))
     ?.split("=")[1] === "unblock";
 
-console.log("not sending email to coconatsu: " + blockEmails);
-
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {
   fetch("https://ipapi.co/json/")
@@ -35,7 +33,11 @@ function fetchGeolocationData(callback) {
 function sendEmail(score, gameNumber, gameName, callback) {
   // Check if email notifications are disabled for this game
   if (emailNotificationsDisabled.includes(gameNumber) || blockEmails) {
-    console.log(`Email notifications are disabled for game ${gameNumber}.`);
+    if (blockEmails) {
+      console.log("not sending email to coconatsu: " + blockEmails);
+    } else {
+      console.log(`Email notifications are disabled for game ${gameNumber}.`);
+    }
     return;
   }
 
