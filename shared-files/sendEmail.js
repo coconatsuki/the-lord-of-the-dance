@@ -34,7 +34,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
   // Check if email notifications are disabled for this game
   if (emailNotificationsDisabled.includes(gameNumber) || blockEmails) {
     if (blockEmails) {
-      console.log("not sending email to coconatsu: " + blockEmails);
+      console.log(`not sending email to coconatsu`);
     } else {
       console.log(`Email notifications are disabled for game ${gameNumber}.`);
     }
