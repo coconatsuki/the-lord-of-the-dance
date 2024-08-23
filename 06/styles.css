@@ -10,6 +10,10 @@
   z-index: -1;
 }
 
+img {
+  max-height: 100%;
+}
+
 #start-screen,
 #picture-container {
   display: flex;
@@ -89,8 +93,8 @@
 #game-container {
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 43px;
 }
 
@@ -112,10 +116,7 @@
   border: 2px solid #d0d090;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  position: absolute;
-  top: 10px;
   margin: 0;
-  right: 20px;
   padding: 1em;
 }
 

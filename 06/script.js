@@ -8,16 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const backgroundImage = document.getElementById("background-image");
   const header = document.getElementById("header-section");
   const gameMusic = document.getElementById("game-music");
-  const oasisImage = document.getElementById("oasis-image");
+  const oasisLeftImage = document.getElementById("oasis-left-image");
+  const oasisRightImage = document.getElementById("oasis-right-image");
 
   // Array to store image sets and corresponding number of differences
   const imageSets = [
-    { imagePath: "./oasis-set1.jpeg", differences: 4 }, // Example image paths
-    { imagePath: "./oasis-set2.jpeg", differences: 7 },
-    { imagePath: "./oasis-set3.jpeg", differences: 13 },
-    { imagePath: "./oasis-set4.jpeg", differences: 16 },
-    { imagePath: "./oasis-set5.jpeg", differences: 23 },
-    { imagePath: "./oasis-set6.jpeg", differences: 9 },
+    {
+      leftImagePath: "./oasis-set1-left.jpeg",
+      rightImagePath: "./oasis-set1-right.jpeg",
+      differences: 4,
+    },
+    {
+      leftImagePath: "./oasis-set2-left.jpeg",
+      rightImagePath: "./oasis-set2-right.jpeg",
+      differences: 16,
+    },
+    {
+      leftImagePath: "./oasis-set3-left.jpeg",
+      rightImagePath: "./oasis-set3-right.jpeg",
+      differences: 11,
+    },
+    {
+      leftImagePath: "./oasis-set4-left.jpeg",
+      rightImagePath: "./oasis-set4-right.jpeg",
+      differences: 7,
+    },
+    {
+      leftImagePath: "./oasis-set5-left.jpeg",
+      rightImagePath: "./oasis-set5-right.jpeg",
+      differences: 14,
+    },
   ];
 
   let totalDifferences = 10; // Default, will be updated after random selection
@@ -29,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Randomly select an image set
     const randomIndex = Math.floor(Math.random() * imageSets.length);
     const selectedSet = imageSets[randomIndex];
-    oasisImage.src = selectedSet.imagePath; // Set the image source
+    oasisLeftImage.src = selectedSet.leftImagePath; // Set the image source
+    oasisRightImage.src = selectedSet.rightImagePath; // Set the image source
     totalDifferences = selectedSet.differences; // Update the total differences
 
     // Hide the start screen and show the game screen

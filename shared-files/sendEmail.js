@@ -71,7 +71,6 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log("Sending mail to that country: ", emailParams.player_country);
 
-      /*
       emailjs
         .send("service_e4om8hl", "template_qnkk33d", emailParams)
         .then((response) => {
@@ -85,7 +84,6 @@ function sendEmail(score, gameNumber, gameName, callback) {
         .catch((error) => {
           console.error("Failed to send email:", error);
         });
-        */
     }
   });
 }
