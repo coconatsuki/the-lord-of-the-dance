@@ -19,21 +19,27 @@
 }
 
 .column {
-  width: 33%;
   padding: 15px;
+  margin-bottom: 44px;
 }
 
 #left-column {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 32%;
+}
+
+#empty-column {
+  width: 24%;
 }
 
 #right-column {
+  width: 43%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: self-end;
+  align-items: center;
 }
 
 #narrative-text {
@@ -48,14 +54,14 @@
 }
 
 #start-button {
-  margin-top: 1em;
+  margin-top: 2em;
+  font-size: 2em;
 }
 
 #instructions {
   background-color: rgba(30, 30, 30, 0.9);
   padding: 1em;
   border-radius: 8px;
-  /* width: 60%; */
 }
 
 #instruction-1 {

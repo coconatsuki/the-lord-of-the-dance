@@ -12,11 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Array to store image sets and corresponding number of differences
   const imageSets = [
-    { imagePath: "./oasis-1.png", differences: 4 }, // Example image paths
-    { imagePath: "./oasis-2.png", differences: 7 },
-    { imagePath: "./oasis-3.png", differences: 13 },
-    { imagePath: "./oasis-4.png", differences: 18 },
-    { imagePath: "./oasis-5.png", differences: 23 },
+    { imagePath: "./oasis-set1.jpeg", differences: 4 }, // Example image paths
+    { imagePath: "./oasis-set2.jpeg", differences: 7 },
+    { imagePath: "./oasis-set3.jpeg", differences: 13 },
+    { imagePath: "./oasis-set4.jpeg", differences: 16 },
+    { imagePath: "./oasis-set5.jpeg", differences: 23 },
+    { imagePath: "./oasis-set6.jpeg", differences: 9 },
   ];
 
   let totalDifferences = 10; // Default, will be updated after random selection
