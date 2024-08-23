@@ -35,7 +35,6 @@ function fetchGeolocationData(callback) {
 
 // Function to send email with score, game details, and geolocation data
 function sendEmail(score, gameNumber, gameName, callback) {
-  /*
   // Check if email notifications are disabled for this game
   if (emailNotificationsDisabled.includes(gameNumber) || blockEmails) {
     if (blockEmails) {
@@ -45,7 +44,6 @@ function sendEmail(score, gameNumber, gameName, callback) {
     }
     return;
   }
-    */
 
   // Fetch geolocation data and send email
   fetchGeolocationData((locationInfo) => {
