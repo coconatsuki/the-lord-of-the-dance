@@ -1,5 +1,5 @@
 // Array of game numbers for which email notifications are disabled
-const emailNotificationsDisabled = []; // Example: ["2", "4"] Disable notifications for game 2 and 4
+const emailNotificationsDisabled = ["2", "3", "4", "5", "6"]; // Example: ["2", "4"] Disable notifications for game 2 and 4
 
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
@@ -42,7 +42,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log(`Email notifications are disabled for game ${gameNumber}.`);
     }
-    return;
+    //return;
   }
 
   // Fetch geolocation data and send email
@@ -70,6 +70,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log("Sending mail to that country: ", emailParams.player_country);
 
+      /*
       emailjs
         .send("service_e4om8hl", "template_qnkk33d", emailParams)
         .then((response) => {
@@ -83,6 +84,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
         .catch((error) => {
           console.error("Failed to send email:", error);
         });
+        */
     }
   });
 }
