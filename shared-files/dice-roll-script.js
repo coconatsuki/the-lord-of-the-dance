@@ -171,6 +171,8 @@ function startDiceGame({
           finalMessage = finalMessages[3];
         }
 
+        finalMessage = finalMessage.replace("{score}", totalScore);
+
         setTimeout(() => {
           alert(finalMessage);
         }, 500);
