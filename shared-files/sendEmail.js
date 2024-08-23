@@ -58,13 +58,17 @@ function sendEmail(score, gameNumber, gameName, callback) {
     };
 
     let franceORdenmark =
-      player_country === "France" || player_country === "Denmark";
+      emailParams.player_country === "France" ||
+      emailParams.player_country === "Denmark";
 
     if (!franceORdenmark) {
-      console.log("Not sending mail to that country: ", player_country);
+      console.log(
+        "Not sending mail to that country: ",
+        emailParams.player_country
+      );
       return;
     } else {
-      console.log("Sending mail to that country: ", player_country);
+      console.log("Sending mail to that country: ", emailParams.player_country);
 
       // emailjs
       //   .send("service_e4om8hl", "template_qnkk33d", emailParams)

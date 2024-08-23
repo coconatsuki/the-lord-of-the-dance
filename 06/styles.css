@@ -18,30 +18,31 @@
   justify-content: space-between;
 }
 
+.column {
+  width: 33%;
+  padding: 15px;
+}
+
 #left-column {
-  flex: 1;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 #right-column {
-  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: self-end;
-  padding: 3em 2em;
 }
 
 #narrative-text {
   font-size: 1.2em;
   line-height: 1.5;
   background-color: rgba(30, 30, 30, 0.9);
-  padding: 22px;
+  padding: 18px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin: 0;
   max-width: 100%;
   text-align: justify;
 }
@@ -54,11 +55,13 @@
   background-color: rgba(30, 30, 30, 0.9);
   padding: 1em;
   border-radius: 8px;
+  /* width: 60%; */
 }
 
 #instruction-1 {
   font-size: 1.5em;
-  color: #a8e6a3;
+  line-height: 35px;
+  color: yellow;
   text-align: center;
   margin-top: 0;
 }
