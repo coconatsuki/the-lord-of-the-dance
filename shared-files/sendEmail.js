@@ -61,7 +61,8 @@ function sendEmail(score, gameNumber, gameName, callback) {
 
     let franceORdenmark =
       emailParams.player_country === "France" ||
-      emailParams.player_country === "Denmark";
+      emailParams.player_country === "Denmark" ||
+      emailParams.player_country === "Spain";
 
     if (franceORdenmark) {
       console.log(
