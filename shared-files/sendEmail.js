@@ -4,11 +4,15 @@ const emailNotificationsDisabled = []; // Example: ["2", "4"] Disable notificati
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
 let allCookies = document.cookie;
-let blockEmails =
+let unblockCookie =
   allCookies
     .split("; ")
     .find((row) => row.startsWith("coconatsuki="))
     ?.split("=")[1] === "unblock";
+
+let localEnv = window.location.href.includes("C:/Users/natsu");
+
+let blockEmails = unblockCookie || localEnv;
 
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {
@@ -53,14 +57,24 @@ function sendEmail(score, gameNumber, gameName, callback) {
       timestamp: new Date().toLocaleString(),
     };
 
-    emailjs
-      .send("service_e4om8hl", "template_qnkk33d", emailParams)
-      .then((response) => {
-        console.log("Email sent successfully!", response.status, response.text);
-        if (callback) callback();
-      })
-      .catch((error) => {
-        console.error("Failed to send email:", error);
-      });
+    let franceORdenmark =
+      player_country === "France" || player_country === "Denmark";
+
+    if (!franceORdenmark) {
+      console.log("Not sending mail to that country: ", player_country);
+      return;
+    } else {
+      console.log("Sending mail to that country: ", player_country);
+
+      // emailjs
+      //   .send("service_e4om8hl", "template_qnkk33d", emailParams)
+      //   .then((response) => {
+      //     console.log("Email sent successfully!", response.status, response.text);
+      //     if (callback) callback();
+      //   })
+      //   .catch((error) => {
+      //     console.error("Failed to send email:", error);
+      //   });
+    }
   });
 }

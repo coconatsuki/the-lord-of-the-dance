@@ -8,17 +8,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const backgroundImage = document.getElementById("background-image");
   const header = document.getElementById("header-section");
   const gameMusic = document.getElementById("game-music");
+  const oasisImage = document.getElementById("oasis-image");
 
-  let totalDifferences = 10; // Set the correct number of differences
+  // Array to store image sets and corresponding number of differences
+  const imageSets = [
+    { imagePath: "./oasis-1.png", differences: 4 }, // Example image paths
+    { imagePath: "./oasis-2.png", differences: 7 },
+    { imagePath: "./oasis-3.png", differences: 13 },
+    { imagePath: "./oasis-4.png", differences: 18 },
+    { imagePath: "./oasis-5.png", differences: 23 },
+  ];
+
+  let totalDifferences = 10; // Default, will be updated after random selection
   let timeLimit = 120; // 2 minutes in seconds
   let timerInterval;
 
   // Start the game when the button is clicked
   startButton.addEventListener("click", () => {
+    // Randomly select an image set
+    const randomIndex = Math.floor(Math.random() * imageSets.length);
+    const selectedSet = imageSets[randomIndex];
+    oasisImage.src = selectedSet.imagePath; // Set the image source
+    totalDifferences = selectedSet.differences; // Update the total differences
+
+    // Hide the start screen and show the game screen
     startScreen.classList.add("hidden");
     backgroundImage.classList.add("hidden");
     header.classList.add("hidden");
-    // Disable "Back to Calendar" link
     backToCalendarLink.classList.add("disabled-blur");
     gameContainer.classList.remove("hidden");
     pictureContainer.classList.remove("hidden");
@@ -92,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     alert(`You found ${playerGuess} differences. Your score is: ${score}`);
 
+    // Reset to start screen
     startScreen.classList.remove("hidden");
     backgroundImage.classList.remove("hidden");
     header.classList.remove("hidden");

@@ -38,13 +38,16 @@ function createDaySquare(dayNumber, date) {
   let gamesInPlace = [1, 2, 3, 4, 5, 6];
 
   let allCookies = document.cookie;
-  let unblock =
+  let unblockCookie =
     allCookies
       .split("; ")
       .find((row) => row.startsWith("coconatsuki="))
       ?.split("=")[1] === "unblock";
+  let localEnv = window.location.href.includes("C:/Users/natsu");
 
-  console.log("unblock coconatsu: " + unblock);
+  let unblock = unblockCookie || localEnv;
+
+  console.log("unblockCookie: ", unblockCookie, " / localEnv: ", localEnv);
 
   // Lock future days (but not for me)
   if (!unblock && dayNumber > currentDay) {
