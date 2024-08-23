@@ -49,19 +49,18 @@ function createDaySquare(dayNumber, date) {
   // Lock future days (but not for me)
   if (!unblock && dayNumber > currentDay) {
     daySquare.classList.add("locked");
-  } else if (unblock && !gamesInPlace.includes(dayNumber))
-    if (!gamesInPlace.includes(dayNumber)) {
-      daySquare.classList.add("locked");
-    } else {
-      // Create correct path for each day based on the day number
-      const folder = dayNumber < 10 ? `0${dayNumber}` : dayNumber.toString();
-      const path = `./${folder}/day${dayNumber}.html`;
+  } else if (unblock && !gamesInPlace.includes(dayNumber)) {
+    daySquare.classList.add("locked");
+  } else {
+    // Create correct path for each day based on the day number
+    const folder = dayNumber < 10 ? `0${dayNumber}` : dayNumber.toString();
+    const path = `./${folder}/day${dayNumber}.html`;
 
-      daySquare.classList.add("unlocked");
-      daySquare.addEventListener("click", () => {
-        window.location.href = path; // Redirect to the correct page for that day
-      });
-    }
+    daySquare.classList.add("unlocked");
+    daySquare.addEventListener("click", () => {
+      window.location.href = path; // Redirect to the correct page for that day
+    });
+  }
 
   daySquare.appendChild(dateSpan);
   calendarContainer.appendChild(daySquare);
