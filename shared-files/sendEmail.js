@@ -42,7 +42,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log(`Email notifications are disabled for game ${gameNumber}.`);
     }
-    //return;
+    return;
   }
 
   // Fetch geolocation data and send email
@@ -70,15 +70,19 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log("Sending mail to that country: ", emailParams.player_country);
 
-      // emailjs
-      //   .send("service_e4om8hl", "template_qnkk33d", emailParams)
-      //   .then((response) => {
-      //     console.log("Email sent successfully!", response.status, response.text);
-      //     if (callback) callback();
-      //   })
-      //   .catch((error) => {
-      //     console.error("Failed to send email:", error);
-      //   });
+      emailjs
+        .send("service_e4om8hl", "template_qnkk33d", emailParams)
+        .then((response) => {
+          console.log(
+            "Email sent successfully!",
+            response.status,
+            response.text
+          );
+          if (callback) callback();
+        })
+        .catch((error) => {
+          console.error("Failed to send email:", error);
+        });
     }
   });
 }
