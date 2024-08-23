@@ -1,6 +1,6 @@
 const totalDays = 14; // Total days (including the last special day)
 let currentDay = 1; // Set current day
-let totalPoints = 0;
+let totalPoints = 6;
 
 // Update days left and points display
 document.getElementById("days-left").textContent = totalDays - currentDay;
