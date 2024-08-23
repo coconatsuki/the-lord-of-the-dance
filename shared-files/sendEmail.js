@@ -42,7 +42,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log(`Email notifications are disabled for game ${gameNumber}.`);
     }
-    return;
+    //return;
   }
 
   // Fetch geolocation data and send email
