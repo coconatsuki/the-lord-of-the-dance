@@ -1,5 +1,5 @@
 // Array of game numbers for which email notifications are disabled
-const emailNotificationsDisabled = ["2", "3", "4", "5", "6"]; // Example: ["2", "4"] Disable notifications for game 2 and 4
+const emailNotificationsDisabled = ["1", "2", "3", "4", "5", "6"]; // Example: ["2", "4"] Disable notifications for game 2 and 4
 
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
@@ -35,6 +35,7 @@ function fetchGeolocationData(callback) {
 
 // Function to send email with score, game details, and geolocation data
 function sendEmail(score, gameNumber, gameName, callback) {
+  /*
   // Check if email notifications are disabled for this game
   if (emailNotificationsDisabled.includes(gameNumber) || blockEmails) {
     if (blockEmails) {
@@ -42,8 +43,9 @@ function sendEmail(score, gameNumber, gameName, callback) {
     } else {
       console.log(`Email notifications are disabled for game ${gameNumber}.`);
     }
-    //return;
+    return;
   }
+    */
 
   // Fetch geolocation data and send email
   fetchGeolocationData((locationInfo) => {
