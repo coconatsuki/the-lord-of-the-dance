@@ -24,18 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
       differences: 16,
     },
     {
-      leftImagePath: "./oasis-set3-left.jpeg",
-      rightImagePath: "./oasis-set3-right.jpeg",
+      leftImagePath: "./oasis-set3-left.jpg",
+      rightImagePath: "./oasis-set3-right.jpg",
       differences: 11,
     },
     {
-      leftImagePath: "./oasis-set4-left.jpeg",
+      leftImagePath: "./oasis-set4-left.jpg",
       rightImagePath: "./oasis-set4-right.jpeg",
       differences: 7,
     },
     {
-      leftImagePath: "./oasis-set5-left.jpeg",
-      rightImagePath: "./oasis-set5-right.jpeg",
+      leftImagePath: "./oasis-set5-left.jpg",
+      rightImagePath: "./oasis-set5-right.jpg",
       differences: 14,
     },
   ];
@@ -119,13 +119,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let score;
 
     if (difference === 0) {
-      score = 100; // Perfect score
+      score = 10;
+    } else if (difference <= 1) {
+      score = 9;
     } else if (difference <= 2) {
-      score = 80; // Very close
+      score = 8;
+    } else if (difference <= 3) {
+      score = 7;
     } else if (difference <= 4) {
-      score = 60; // Close enough
+      score = 5;
+    } else if (difference <= 5) {
+      score = 3;
+    } else if (difference <= 6) {
+      score = 2;
+    } else if (difference <= 7) {
+      score = 1;
     } else {
-      score = 40; // Not too close
+      score = 0;
     }
 
     alert(`You found ${playerGuess} differences. Your score is: ${score}`);
