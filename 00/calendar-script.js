@@ -2,6 +2,9 @@ const totalDays = 14; // Total days (including the last special day)
 let currentDay = 1; // Set current day
 let totalPoints = 6;
 
+// Day1: 31 (6/10)/
+// let questScore = {day1: 6, day2: 0}
+
 // Update days left and points display
 document.getElementById("days-left").textContent = totalDays - currentDay;
 document.getElementById("total-points").textContent = totalPoints;
@@ -35,7 +38,7 @@ function createDaySquare(dayNumber, date) {
   dateSpan.classList.add("day-date");
   dateSpan.textContent = date;
 
-  let gamesInPlace = [1, 2, 3, 4, 5, 6];
+  let gamesInPlace = [1, 2, 3, 4, 5, 6, 7];
 
   let allCookies = document.cookie;
   let unblockCookie =

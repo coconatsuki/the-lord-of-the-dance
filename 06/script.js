@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     alert(
-      `You found ${playerGuess} differences. Your score is: ${score} /10\n\n${message}`
+      `You found ${playerGuess} differences. Your score is: ${score}/10\n\n${message}`
     );
 
     // Reset to start screen
