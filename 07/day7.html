@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <title>The Mountains of Melody - The Climb</title>
+    <link rel="stylesheet" href="../shared-files/dice-roll-styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <h2 id="location-title">The Mountains of Melody</h2>
+      <h1 id="page-title">The Climb</h1>
+    </header>
+    <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+    <audio id="game-music" src="./desert-music.mp3"></audio>
+
+    <!-- Modal for Initial Narrative -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p>
+          The familiar coolness of the Enchanted Forest fades behind Jimli as he
+          marches forward. Slowly, the trees thin out, giving way to rocky
+          outcrops and eventually, the endless sea of sand. 'So, this is it, eh?
+          The great Desert of Rhythms,' he mutters. 'Looks like I'm about to
+          find out what it feels like to have sand in places sand was never
+          meant to be.' <br /><br />As Jimli steps into the desert, the heat
+          hits him like a forge blast. 'Never thought I'd miss the cold of the
+          mountains,' he grumbles. 'At least there you could keep your beard
+          from catching fire!' <br /><br />
+          With a deep breath and a muttered prayer to the spirits, Jimli sets
+          off into the heart of the desert, hoping the sun doesn't turn his
+          journey into a roasted dwarf buffet."
+        </p>
+        <button id="start-game-button">Go deeper into the Desert</button>
+      </div>
+    </div>
+
+    <div id="content" class="hidden">
+      <div id="narrative-column">
+        <p id="narrative-text"></p>
+        <div id="dice-instruction" class="hidden">
+          How well can Jimli handle the relentless heat? =>
+        </div>
+      </div>
+
+      <div id="dice-column">
+        <div id="dice-label">D20 Dice</div>
+        <div id="dice-area">
+          <div id="dice" class="disabled">Roll</div>
+        </div>
+        <div id="previous-results">
+          <div id="previous-label" class="hidden">Previous results:</div>
+          <div class="result-container">
+            <div class="result-square hidden"></div>
+            <div class="result-square hidden"></div>
+            <div class="result-square hidden"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <audio id="dice-sound" src="../shared-files/dice-roll.mp3"></audio>
+    <script src="../shared-files/dice-roll-script.js"></script>
+    <script src="../shared-files/sendEmail.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

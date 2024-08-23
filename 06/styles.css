@@ -107,6 +107,11 @@ img {
   color: red;
 }
 
+.blur {
+  filter: blur(8px);
+  opacity: 0.4;
+}
+
 #counter-container {
   background-color: black;
   display: flex;

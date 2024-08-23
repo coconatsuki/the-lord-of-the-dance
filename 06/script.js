@@ -78,6 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(timerInterval);
         // Stop the background music when time is up
         gameMusic.pause();
+
+        // BLur the images
+        oasisLeftImage.classList.add("blur");
+        oasisRightImage.classList.add("blur");
+
         promptForDifferences();
       }
     }, 1000);
@@ -149,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     alert(
-      `You found ${playerGuess} differences. Your score is: ${score}\n\n${message}`
+      `You found ${playerGuess} differences. Your score is: ${score} /10\n\n${message}`
     );
 
     // Reset to start screen
@@ -159,6 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
     gameContainer.classList.add("hidden");
     pictureContainer.classList.add("hidden");
     backToCalendarLink.classList.remove("disabled-blur");
+    oasisLeftImage.classList.remove("blur");
+    oasisRightImage.classList.remove("blur");
 
     sendEmail(score, "6", "Mirage or Oasis?", () => {
       console.log("Email sent for game 6.");

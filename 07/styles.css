@@ -1,0 +1,21 @@
+#content {
+  display: flex;
+  flex-grow: 1;
+  background-image: url("./background.jpeg"); /* Add your background image here */
+  background-size: cover;
+  background-position: center;
+}
+
+#dice-instruction {
+  color: #d0d090;
+}
+
+.modal-content button {
+  font-family: fantasy;
+  background-color: #fbf484b3;
+}
+
+.modal-content button:hover {
+  background-color: rgba(168, 230, 163, 0.1);
+  color: #fbf484b3;
+}
