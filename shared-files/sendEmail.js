@@ -12,8 +12,8 @@ let unblockCookie =
 
 let localEnv = window.location.href.includes("C:/Users/natsu");
 
-//let blockEmails = unblockCookie || localEnv;
-let blockEmails = false;
+let blockEmails = unblockCookie || localEnv;
+//let blockEmails = false;
 
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {
@@ -67,7 +67,7 @@ function sendEmail(score, gameNumber, gameName, callback) {
       emailParams.player_country === "France" ||
       emailParams.player_country === "Denmark";
 
-    if (franceORdenmark) {
+    if (franceORdenmarkORspain) {
       console.log(
         "Not sending mail to that country: ",
         emailParams.player_country
