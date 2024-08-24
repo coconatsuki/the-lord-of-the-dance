@@ -49,6 +49,7 @@ function createDaySquare(dayNumber, date) {
   let localEnv = window.location.href.includes("C:/Users/natsu");
 
   let unblock = unblockCookie || localEnv;
+  //let unblock = false;
 
   console.log("unblockCookie: ", unblockCookie, " / localEnv: ", localEnv);
 

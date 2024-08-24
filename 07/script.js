@@ -5,7 +5,7 @@ const narrativeText = [
 ];
 
 const diceInstructions = [
-  "Can Jimli save his snacks —and his balance? =>",
+  "Can Jimli save his snacks —and balance? =>",
   "Can Jimli dodge the rocks and keep climbing? =>",
   "Can Jimli shake off the mountain's lullaby? =>",
 ];
