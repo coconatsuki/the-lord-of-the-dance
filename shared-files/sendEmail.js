@@ -58,10 +58,14 @@ function sendEmail(score, gameNumber, gameName, callback) {
       timestamp: new Date().toLocaleString(),
     };
 
-    let franceORdenmark =
+    let franceORdenmarkORspain =
       emailParams.player_country === "France" ||
       emailParams.player_country === "Denmark" ||
       emailParams.player_country === "Spain";
+
+    let franceORdenmark =
+      emailParams.player_country === "France" ||
+      emailParams.player_country === "Denmark";
 
     if (franceORdenmark) {
       console.log(
