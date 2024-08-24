@@ -1,20 +1,20 @@
 const narrativeText = [
-  "After hours of trudging through the burning sands, Jimli feels the weight of the desert sun pressing down on him. Sweat trickles down his face, and his beard feels like it's been dipped in lava. <br /><br />He pauses to take a swig of water from his flask, only to find it's already dangerously low. He wipes his forehead, glancing up at the sky. 'Right,' he says, determination setting in. 'Time to see if this old dwarf can keep his cool in this blasted heat, or if I'll be looking like a cooked turkey by sundown.'",
-  "The dunes seem to grow taller with every step. Jimli climbs yet another sandy peak, only to be greeted by… more sand. 'Ah, of course,' he grunts. 'More sand. Why not? I've not seen enough of it yet today!'<br /><br /> He stumbles slightly as the ground shifts beneath him, barely keeping his balance. 'Alright, sand. Let's see if you can outrun a dwarf!'",
-  "The sun begins to dip lower in the sky, casting long shadows across the desert. Jimli's mouth feels like a dry riverbed, and his water flask is completely empty. <br /><br />Just as despair starts to creep in, he spots something shimmering on the horizon. 'Is that…?' He squints, hoping it's not another trick of the desert. 'An oasis? Or just more sand playing games with my eyes?' <br /><br />His legs ache, and his beard feels crisped from the heat. 'Come on, spirits… just this once, let a dwarf find something besides sand out here!'",
+  "The further Jimli climbs, the louder the mountain's melody becomes. It's a haunting tune that seems to blend with the wind, making every echo feel alive.<br /><br />Suddently, a screech cuts through the music. A large eagle swoops down from the heights above, its eyes gleaming with hunger.“Oi! Get your beak off my snacks!” Jimli growls, swinging his axe to fend off the bird.<br /><br />The eagle dodges and dives again. The mountain's melody seems to grow faster, more intense, as if matching the tension of the moment.",
+  "Jimli moves cautiously as the path narrows... The music seems to dance along the rocks, and with each step, loose stones tumble down the slope, joining the mountain's song.<br /><br />Suddenly, a larger boulder ahead begins to shift, rumbling ominously as the mountain's rhythm quickens. The ground shakes beneath Jimli's feet, and the boulder breaks free, tumbling toward him with the sound of a drumroll in the mountain's song.",
+  "As Jimli climbs higher, the air grows colder, and the mountain's song changes too. The melodies become slower, more drawn out, like a lullaby carried on the wind. Jimli's breath fogs in the air, and his fingers start to stiffen from the cold. “I never thought I'd miss the heat of the desert,” he mutters through chattering teeth.<br /><br />With exhaustion setting in, the mountain's lullaby seems to pull him into a trance. He begins to daydream of a warm dwarven hall, a roaring fire, and a hot bowl of stew.<br /><br />The music lulls him further, making his eyelids heavy. But falling asleep on a cliffside wouldn't be... the best idea.",
 ];
 
 const diceInstructions = [
-  "How well can Jimli handle the relentless heat? =>",
-  "How fast can Jimli navigates the dunes? =>",
-  "Can Jimli finds the hidden oasis? =>",
+  "Can Jimli save his snacks —and his balance? =>",
+  "Can Jimli dodge the rocks and keep climbing? =>",
+  "Can Jimli shake off the mountain's lullaby? =>",
 ];
 
 const finalMessages = [
-  `Total score: 0\n\nJimli's beard is singed, his boots are full of sand, and the oasis? A cruel mirage.\n\nNo water, no luck, and certainly no relief. But hey, at least he's got some stories to tell—if he survives this blasted heat!`,
-  `Total score: {score}\n\nJimli's beard survived—barely. The heat almost got to him, the dunes were a nightmare, and that oasis? It was just a puddle.\n\nStill, a dwarf's got to take what he can get. Perhaps he'l find a better shade of luck tomorrow.`,
-  `Total score: {score}\n\nJimli handled the heat like a seasoned warrior, the dunes weren't too much trouble, and the oasis—well, it wasn't just a mirage!\n\nHe's got water, he's got shade, and his beard is only mildly frazzled. All in all, not a bad day for a dwarf in a desert!`,
-  `Total score: {score}\n\nJimli is practically dancing through the desert! The heat didn't stand a chance, the dunes were more like hills, and that oasis? A hidden paradise.\n\nHe's refreshed, recharged, and his beard is glistening in the sunlight!`,
+  `Total score: 0\n\nJimli's climb has been nothing short of a disaster. The eagle got away with his snacks, the boulder nearly flattened him, and the mountain's lullaby almost sent him plummeting off the cliff.\n\nHe may have made it up a few feet, but his pride —and his rations— are in tatters. Still, he's alive. And for a dwarf, that's something.`,
+  `Total score: {score}\n\nJimli's climb was rough, to say the least. He managed to save some of his snacks from that blasted eagle, but a few boulders gave him more than a bruised ego. And the mountain's lullaby? It had him nodding off more than once.\n\nNot the most graceful ascent, but at least he's still hanging on—barely.`,
+  `Total score: {score}\n\nJimli handled the climb better than most dwarves would! The eagle barely got a peck, the rocks were more of an inconvenience than a danger, and the mountain's lullaby? It couldn't lull him to sleep.\n\nHe's tired, sore, but determined. With any luck, the summit isn't too far off.`,
+  `Total score: {score}\n\nJimli scaled the mountain like a dwarf possessed! The eagle flew away empty-beaked, the boulders rolled harmlessly past, and the mountain's lullaby? It might as well have been a dwarven drinking song.\n\nHe's nearing the summit, stronger than ever, with his beard flowing gloriously in the melodic winds.`,
 ];
 
 // Initialize the game

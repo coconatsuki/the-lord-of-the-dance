@@ -90,6 +90,10 @@
   background-color: black;
 }
 
+.hidden {
+  display: none;
+}
+
 h1 {
   color: #d0d090;
   margin-top: 0;
@@ -119,7 +123,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("fireflies.jpeg"); /* Your background image */
+  background-image: url("fireflies.jpeg");
   background-size: cover;
   background-position: center;
   z-index: -1;

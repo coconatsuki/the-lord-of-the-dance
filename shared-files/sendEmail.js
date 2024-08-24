@@ -12,7 +12,8 @@ let unblockCookie =
 
 let localEnv = window.location.href.includes("C:/Users/natsu");
 
-let blockEmails = unblockCookie || localEnv;
+//let blockEmails = unblockCookie || localEnv;
+let blockEmails = false;
 
 // Function to fetch geolocation data
 function fetchGeolocationData(callback) {

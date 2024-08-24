@@ -2,6 +2,9 @@ let timeLeft = 60; // Game time limit
 let score = 0;
 let gameInterval;
 const fireflySound = document.getElementById("firefly-sound");
+const fireflyMusic = document.getElementById("firefly-music");
+fireflyMusic.volume = 0.8;
+
 const gameArea = document.getElementById("game-area");
 const timerDisplay = document.getElementById("timer");
 const scoreDisplay = document.getElementById("score");
@@ -17,12 +20,15 @@ const closeModalButton = document.getElementById("close-modal-button");
 // Start Game when close modal button is clicked
 closeModalButton.addEventListener("click", () => {
   narrativeModal.style.display = "none"; // Hide the modal
+  fireflyMusic.play();
 });
 
 startButton.addEventListener("click", startGame);
 
 function startGame() {
   // Disable and blur the Start button and Back to Calendar link
+  fireflyMusic.volume = 0.3;
+  gameArea.classList.remove("hidden");
   startButton.disabled = true;
   startButton.classList.add("disabled-blur");
   backToCalendarLink.classList.add("disabled-blur");
@@ -85,6 +91,8 @@ function spawnFirefly() {
 
 function endGame() {
   clearInterval(gameInterval);
+  fireflyMusic.volume = 0.8;
+  gameArea.classList.add("hidden");
 
   let finalMessage;
 
