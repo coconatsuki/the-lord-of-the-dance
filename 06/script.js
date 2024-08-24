@@ -75,15 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTimeDisplay(timeElapsed);
 
       if (timeElapsed >= timeLimit) {
-        clearInterval(timerInterval);
-        // Stop the background music when time is up
-        gameMusic.pause();
-
         // BLur the images
         oasisLeftImage.classList.add("blur");
         oasisRightImage.classList.add("blur");
 
-        promptForDifferences();
+        clearInterval(timerInterval);
+        // Stop the background music when time is up
+        gameMusic.pause();
+
+        setTimeout(() => {
+          promptForDifferences();
+        }, 600);
       }
     }, 1000);
   }
@@ -94,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const seconds = timeElapsed % 60;
     timeCounter.textContent = `${minutes}:${seconds
       .toString()
-      .padStart(2, "0")} / 2:00`;
+      .padStart(2, "0:00")} / 2:00`;
   }
 
   // Prompt for the number of differences found
