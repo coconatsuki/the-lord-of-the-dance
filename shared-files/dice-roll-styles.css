@@ -9,6 +9,24 @@ body {
   height: 100vh;
 }
 
+#content {
+  display: flex;
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+#background-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
 header {
   width: 100%;
   text-align: center;
@@ -18,6 +36,7 @@ header {
   align-items: center;
   position: relative;
   border-bottom: 1px dashed #3d443e;
+  background-color: rgba(30, 30, 30, 0.9);
 }
 
 #location-title {

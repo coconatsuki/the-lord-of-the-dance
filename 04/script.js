@@ -11,10 +11,10 @@ const diceInstructions = [
 ];
 
 const finalMessages = [
-  `Total score: 0\n\nJimli's beard is singed, his boots are full of sand, and the oasis? A cruel mirage.\n\nNo water, no luck, and certainly no relief. But hey, at least he's got some stories to tell—if he survives this blasted heat!`,
-  `Total score: {score}\n\nJimli's beard survived—barely. The heat almost got to him, the dunes were a nightmare, and that oasis? It was just a puddle.\n\nStill, a dwarf's got to take what he can get. Perhaps he'l find a better shade of luck tomorrow.`,
-  `Total score: {score}\n\nJimli handled the heat like a seasoned warrior, the dunes weren't too much trouble, and the oasis—well, it wasn't just a mirage!\n\nHe's got water, he's got shade, and his beard is only mildly frazzled. All in all, not a bad day for a dwarf in a desert!`,
-  `Total score: {score}\n\nJimli is practically dancing through the desert! The heat didn't stand a chance, the dunes were more like hills, and that oasis? A hidden paradise.\n\nHe's refreshed, recharged, and his beard is glistening in the sunlight!`,
+  `Total score: 0/60\n\nJimli's beard is singed, his boots are full of sand, and the oasis? A cruel mirage.\n\nNo water, no luck, and certainly no relief. But hey, at least he's got some stories to tell—if he survives this blasted heat!`,
+  `Total score: {score}/60\n\nJimli's beard survived—barely. The heat almost got to him, the dunes were a nightmare, and that oasis? It was just a puddle.\n\nStill, a dwarf's got to take what he can get. Perhaps he'l find a better shade of luck tomorrow.`,
+  `Total score: {score}/60\n\nJimli handled the heat like a seasoned warrior, the dunes weren't too much trouble, and the oasis—well, it wasn't just a mirage!\n\nHe's got water, he's got shade, and his beard is only mildly frazzled. All in all, not a bad day for a dwarf in a desert!`,
+  `Total score: {score}/60\n\nJimli is practically dancing through the desert! The heat didn't stand a chance, the dunes were more like hills, and that oasis? A hidden paradise.\n\nHe's refreshed, recharged, and his beard is glistening in the sunlight!`,
 ];
 
 // Initialize the game

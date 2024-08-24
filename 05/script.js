@@ -9,6 +9,7 @@ const startButton = document.getElementById("start-button");
 const backToCalendarLink = document.getElementById("back-to-calendar");
 const instruction = document.getElementById("instruction");
 const turnCounter = document.getElementById("turn-counter");
+const gameMusic = document.getElementById("game-music");
 
 // Modal Elements
 const narrativeModal = document.getElementById("narrative-modal");
@@ -16,6 +17,7 @@ const closeModalButton = document.getElementById("close-modal-button");
 
 // Hide modal and allow game interaction
 closeModalButton.addEventListener("click", () => {
+  gameMusic.play();
   narrativeModal.style.display = "none";
 });
 
@@ -35,6 +37,9 @@ const colors = {
 startButton.addEventListener("click", startGame);
 
 function startGame() {
+  gameMusic.volume = 0.3;
+  feedbackDisplay.textContent = ``;
+
   startButton.disabled = true;
   startButton.classList.add("disabled-blur");
   backToCalendarLink.classList.add("disabled-blur");
@@ -150,6 +155,7 @@ function playSound(direction) {
 
 function endGame() {
   let message = "";
+  gameMusic.volume = 1;
 
   if (level === 0) {
     message =
@@ -174,7 +180,9 @@ function endGame() {
       "Unbelievable, Jimli! You've mastered the lizard's dance perfectly! The lizard is bowing to your superior moves, and the elves won't know what hit them at the festival!";
   }
 
-  alert(message);
+  setTimeout(() => {
+    alert(message);
+  }, 500);
 
   sendEmail(level, "5", "Mimic the dancing lizard", () => {
     console.log("Email sent for game 5.");

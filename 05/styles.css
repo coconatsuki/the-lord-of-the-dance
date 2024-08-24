@@ -25,6 +25,14 @@ body {
   z-index: -1;
 }
 
+.modal-content button {
+  background-color: #d0c744;
+}
+
+.modal-content button:hover {
+  color: #d0c744;
+}
+
 #big-container {
   padding: 1%;
   width: 100%;
@@ -141,13 +149,15 @@ h1 {
 
 #game-info {
   border: 1px dashed #d0d090;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1em 1em 0.5em 1em;
   margin-top: 15px;
+  width: 70%;
+  text-align: center;
 }
 
 #feedback {
-  margin-top: 10px;
+  margin: 10px 0;
   font-size: 18px;
 }
 
@@ -162,7 +172,7 @@ h1 {
 #instructions {
   padding: 0.7em 0.5em;
   font-size: 18px;
-  color: springgreen;
+  color: #d0c744;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px dashed #d0d090;
@@ -204,6 +214,10 @@ h1 {
 
 #instruction {
   font-size: 22px;
-  color: springgreen;
+  color: #ffcc66;
   margin: 0;
+}
+
+#page-title {
+  color: #ffcc66;
 }

@@ -1,24 +1,6 @@
-#content {
-  display: flex;
-  flex-grow: 1;
-  background-size: cover;
-  background-position: center; */
-}
-
 #background-image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-image: url("./background.jpeg");
-  background-size: cover;
   background-position: bottom;
-  z-index: -1;
-}
-
-header {
-  background-color: rgba(30, 30, 30, 0.9);
 }
 
 #dice-instruction {
@@ -33,4 +15,16 @@ header {
 .modal-content button:hover {
   background-color: rgba(168, 230, 163, 0.1);
   color: #fbf484b3;
+}
+
+#page-title,
+#previous-label,
+#dice-instruction,
+#dice-label,
+.modal-content button:hover {
+  color: #abb0f3;
+}
+
+.modal-content button {
+  background-color: #abb0f3;
 }
