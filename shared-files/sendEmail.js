@@ -1,5 +1,5 @@
 // Array of game numbers for which email notifications are disabled
-const emailNotificationsDisabled = ["1", "2"]; // Example: ["2", "4"] Disable notifications for game 2 and 4
+const emailNotificationsDisabled = ["1"]; // Example: ["2", "4"] Disable notifications for game 2 and 4
 
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
 
