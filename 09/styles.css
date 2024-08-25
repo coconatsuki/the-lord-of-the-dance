@@ -1,0 +1,147 @@
+#page-title,
+.modal-content button:hover,
+#start-game:hover {
+  color: #abb0f3;
+}
+
+.modal-content button:hover {
+  margin-top: 17px;
+}
+
+.modal-content button,
+#next-button,
+#start-game {
+  background-color: #abb0f3;
+}
+
+#next-button:hover,
+#close-modal-button:hover {
+  background-color: rgba(168, 230, 163, 0.1);
+  border: 2px solid #abb0f3;
+}
+
+#start-game:hover {
+  background-color: rgb(18 21 18 / 40%);
+  border: 2px solid #abb0f3;
+}
+
+.modal-content {
+  width: 100%;
+  height: 80%;
+  text-align: justify;
+  padding: 1em 3em 1em 1em;
+}
+
+.modal-content p {
+  margin-top: 0;
+}
+
+.story-part {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.section-text {
+  width: 80%;
+}
+
+img {
+  max-width: 250px;
+  max-height: 250px;
+  margin-right: 1em;
+}
+
+#background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-position: top;
+  z-index: -1;
+}
+
+#main-screen {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 32.4px;
+}
+
+/* ----------- Counter -------------*/
+
+#counter-container {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #abb0f3;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  position: absolute;
+  top: 10px;
+  margin: 0;
+  right: 20px;
+  padding: 1em;
+}
+
+#turn-text {
+  font-size: 18px;
+  color: #abb0f3;
+  margin-bottom: 10px;
+}
+
+#time-counter {
+  font-size: 30px;
+  font-weight: bold;
+  color: #abb0f3;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* ------- Instructions and Game ------- */
+
+#instructions-container {
+  width: 70%;
+  background-color: rgba(30, 30, 30, 0.9);
+  padding: 1.5em;
+  border-radius: 12px;
+  text-align: center;
+  margin: auto;
+}
+
+#instruction-1,
+#instruction-2,
+#instruction-3 {
+  font-size: 1.3em;
+  line-height: 1.5;
+  color: #fff;
+}
+
+#instruction-1 {
+  color: yellow;
+  margin-top: 0;
+}
+
+#start-game {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  background-color: #abb0f3;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #abb0f3;
+}
+
+.hidden {
+  display: none !important;
+}

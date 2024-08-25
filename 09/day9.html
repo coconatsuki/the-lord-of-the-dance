@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <title>The Mountains of Melody - The Hungry Dwarf</title>
+    <link rel="stylesheet" href="../shared-files/layout.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="background-image"></div>
+    <header id="header-section">
+      <h2 id="location-title">The Mountains of Melody</h2>
+      <h1 id="page-title">The Hungry Dwarf</h1>
+      <div id="counter-container" class="hidden">
+        <div id="turn-text">Time</div>
+        <div id="time-counter">0:15</div>
+      </div>
+    </header>
+
+    <!-- Modal for Initial Narrative -->
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div id="story-part-1" class="story-part">
+          <img src="../08/shrine-square.jpeg" alt="Jimli is hungry" />
+          <p class="section-text">
+            At the edge of the Mountains of Melody, Jimli stumbles forward, each
+            step heavier than the last. The climb had been brutal, and the
+            Shrine of Wisdom had drained both his patience and his stomach.<br /><br />Now,
+            with nothing left but the growls of his belly to keep him company,
+            he trudges on, desperate for a morsel of food.
+          </p>
+        </div>
+        <div id="story-part-2" class="story-part hidden">
+          <img src="../08/shrine-square.jpeg" alt="Jimli is hungry" />
+          <p class="section-text">
+            "Blasted elves and their riddles," Jimli mutters. "All that thinking
+            and no time for eating. I swear if I see another stone tablet,
+            I'll…" He pauses mid-grumble as something catches his eye.<br /><br />
+            There, just off the path —berries! Real, juicy berries! "By my
+            beard, am I dreaming, or has my luck finally turned?" He squints,
+            rubs his eyes, and to his astonishment, the berries don't disappear.
+          </p>
+        </div>
+        <div id="story-part-3" class="story-part hidden">
+          <img src="../08/shrine-square.jpeg" alt="Jimli is hungry" />
+          <p class="section-text">
+            Driven by hunger, Jimli lunges forward, snatching one up and popping
+            it into his mouth. The sweet taste brings him back to life, but it
+            only makes him hungrier. More!" he demands, eyes darting around.
+            "There must be more!"<br /><br />He spots another cluster of berries
+            a bit farther off and dashes towards them, fueled by a newfound
+            energy.
+          </p>
+        </div>
+        <div id="story-part-4" class="story-part hidden">
+          <img src="../08/shrine-square.jpeg" alt="Jimli is hungry" />
+          <p class="section-text">
+            But there's a hitch: while arriving at the Dancing Elves' Festival
+            on an empty stomach is out of the question, Jimli can't afford to
+            dawdle either. The 'Mix and Match' contest kicks off on the first
+            day, and if he's late, he'll miss his chance to show those elves how
+            a dwarf really moves!<br /><br />"Right," he mutters with
+            determination. "Time to eat like a proper dwarf. No berry is safe
+            from me!"
+          </p>
+        </div>
+        <button id="next-button">Next Page</button>
+        <button id="close-modal-button" class="hidden">Begin the test</button>
+      </div>
+    </div>
+
+    <div id="main-screen">
+      <div id="instructions-container" class="hidden">
+        <div id="instructions">
+          <p id="instruction-1"></p>
+          <p id="instruction-2"></p>
+          <p id="instruction-3"></p>
+        </div>
+        <button id="start-game">START GAME</button>
+      </div>
+
+      <div id="game-container" class="hidden"></div>
+    </div>
+
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+    <audio id="game-music" src=""></audio>
+    <script src="../shared-files/sendEmail.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
