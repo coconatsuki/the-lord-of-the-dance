@@ -1,15 +1,20 @@
 const typewriterSound = document.getElementById("typewriter-sound");
 const narrativeModal = document.getElementById("modal");
+backToCalendarLink = document.getElementById("back-to-calendar");
 const instructionContainer = document.getElementById("instructions-container");
 const narrativeMusic = new Audio("./narrative-music.mp3");
 const snakeMusic = new Audio("./snake-music.mp3");
 const buzzSound = new Audio("./buzz.mp3");
 const biteSound = new Audio("./eat.mp3");
 
-// Loop the narrative music
+let loopNarrativeMusic = true; // Flag to control whether the music should loop
+
+// Loop the narrative music only if the flag is set to true
 narrativeMusic.addEventListener("ended", function () {
-  narrativeMusic.currentTime = 0;
-  narrativeMusic.play();
+  if (loopNarrativeMusic) {
+    narrativeMusic.currentTime = 0;
+    narrativeMusic.play();
+  }
 });
 
 // Typewriter effect function with looping sound
@@ -93,4 +98,12 @@ document.getElementById("close-modal-button").addEventListener("click", () => {
   // gameMusic.play();
   typewriterSound.pause(); // Play again if typing is not complete
   narrativeModal.style.display = "none";
+});
+
+// Event listener for the Start Game button
+document.getElementById("start-game").addEventListener("click", () => {
+  loopNarrativeMusic = false; // Stop looping the music
+  narrativeMusic.pause(); // Pause the narrative music
+  backToCalendarLink.classList.add("disabled-blur");
+  // Start the game logic here
 });

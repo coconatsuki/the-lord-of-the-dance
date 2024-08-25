@@ -21,9 +21,15 @@
   border: 2px solid #abb0f3;
 }
 
+#start-game {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 #start-game:hover {
+  transform: scale(1.03);
   background-color: rgb(18 21 18 / 40%);
   border: 2px solid #abb0f3;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 .modal-content {
