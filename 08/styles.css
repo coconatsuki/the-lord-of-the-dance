@@ -51,6 +51,7 @@ img {
   max-width: 250px;
   max-height: 250px;
   margin-right: 1em;
+  border-radius: 10px;
 }
 
 #background-image {
