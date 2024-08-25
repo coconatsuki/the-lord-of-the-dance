@@ -4,7 +4,8 @@
   color: #abb0f3;
 }
 
-.modal-content button:hover {
+.modal-content button:hover,
+#start-game:hover {
   margin-top: 17px;
 }
 
@@ -115,9 +116,7 @@ img {
   margin: auto;
 }
 
-#instruction-1,
-#instruction-2,
-#instruction-3 {
+.instruction {
   font-size: 1.3em;
   line-height: 1.5;
   color: #fff;
@@ -145,4 +144,8 @@ footer a {
 
 .hidden {
   display: none !important;
+}
+
+.highlight {
+  font-weight: 800;
 }

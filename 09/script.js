@@ -1,5 +1,16 @@
 const typewriterSound = document.getElementById("typewriter-sound");
 const narrativeModal = document.getElementById("modal");
+const instructionContainer = document.getElementById("instructions-container");
+const narrativeMusic = new Audio("./narrative-music.mp3");
+const snakeMusic = new Audio("./snake-music.mp3");
+const buzzSound = new Audio("./buzz.mp3");
+const biteSound = new Audio("./eat.mp3");
+
+// Loop the narrative music
+narrativeMusic.addEventListener("ended", function () {
+  narrativeMusic.currentTime = 0;
+  narrativeMusic.play();
+});
 
 // Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
@@ -59,6 +70,7 @@ function showNextPart(partIndex) {
     if (partIndex === storyParts.length - 1) {
       document.getElementById("next-button").classList.add("hidden");
       document.getElementById("close-modal-button").classList.remove("hidden");
+      instructionContainer.classList.remove("hidden");
     }
   }
 }
@@ -67,6 +79,11 @@ let currentPart = 0; // Start with the first part
 
 // Event listener for the Next Page button
 document.getElementById("next-button").addEventListener("click", () => {
+  if (currentPart === 0) {
+    narrativeMusic.play();
+    narrativeMusic.volume = 0.8;
+  }
+
   currentPart++;
   showNextPart(currentPart);
 });
