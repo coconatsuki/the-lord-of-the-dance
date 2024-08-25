@@ -11,12 +11,23 @@ const timeCounter = document.getElementById("time-counter");
 // Sound effects for correct and incorrect answers
 const correctAnswerSound = new Audio("./correct-answer.mp3");
 const wrongAnswerSound = new Audio("./wrong-answer.mp3");
+const gameMusic = new Audio("./wind-chimes.mp3");
+const backToCalendarLink = document.getElementById("back-to-calendar");
 
 let currentQuestionIndex = 0;
 let score = 0;
 let timerInterval;
-let timeLimit = 10; // 10 seconds per question
+let timeLimit = 15; // 15 seconds per question
 let totalQuestions = 10;
+let spareTimeScore = 0; // Track unused time for spareTimeScore
+
+// Function to shuffle the array of questions or answers
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 // Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
@@ -84,6 +95,11 @@ let currentPart = 0; // Start with the first part
 
 // Event listener for the Next Page button
 document.getElementById("next-button").addEventListener("click", () => {
+  if (currentPart === 0) {
+    gameMusic.play();
+    gameMusic.volume = 0.8;
+  }
+
   currentPart++;
   showNextPart(currentPart);
 });
@@ -104,9 +120,13 @@ document.getElementById("start-quiz").addEventListener("click", () => {
 });
 
 function startQuiz() {
+  backToCalendarLink.classList.add("disabled-blur");
   currentQuestionIndex = 0;
   score = 0;
-  timeLimit = 10; // Reset timer
+  spareTimeScore = 0; // Reset spare time score
+  gameMusic.volume = 0.5;
+  timeLimit = 15; // Set timer to 15 seconds per question
+  shuffleArray(questions); // Shuffle the questions array
   showQuestion();
   startTimer();
 }
@@ -130,32 +150,45 @@ function showQuestion() {
   const question = questions[currentQuestionIndex];
   questionContainer.textContent = question.question;
 
+  // Shuffle the answers before displaying them
+  const shuffledAnswers = [...question.answers];
+  shuffleArray(shuffledAnswers);
+
   answersContainer.innerHTML = "";
-  question.answers.forEach((answer, index) => {
+  shuffledAnswers.forEach((answer, index) => {
     const button = document.createElement("button");
     button.classList.add("answer-button");
     button.textContent = answer;
-    button.addEventListener("click", () => handleAnswerClick(index));
+
+    // Check if the current answer matches the correct answer
+    const isCorrectAnswer =
+      question.answers.indexOf(answer) === question.correctAnswer;
+
+    button.addEventListener("click", () =>
+      handleAnswerClick(button, isCorrectAnswer)
+    );
     answersContainer.appendChild(button);
   });
 }
 
-function handleAnswerClick(selectedIndex) {
-  const question = questions[currentQuestionIndex];
+function handleAnswerClick(button, isCorrectAnswer) {
   clearInterval(timerInterval);
+
+  // Calculate spare time score
+  const timeRemaining = parseInt(timeCounter.textContent.split(":")[1], 10);
+  spareTimeScore += timeRemaining;
 
   // Disable all buttons
   const buttons = document.querySelectorAll(".answer-button");
   buttons.forEach((button) => (button.disabled = true));
 
-  // Highlight correct and wrong answers
-  if (selectedIndex === question.correctAnswer) {
+  // Highlight the selected button based on whether it is correct or not
+  if (isCorrectAnswer) {
     score++;
-    buttons[selectedIndex].classList.add("correct");
+    button.classList.add("correct");
     correctAnswerSound.play();
   } else {
-    buttons[selectedIndex].classList.add("wrong");
-    buttons[question.correctAnswer].classList.add("correct");
+    button.classList.add("wrong");
     wrongAnswerSound.play();
   }
 
@@ -173,8 +206,60 @@ function nextQuestion() {
   }
 }
 
+function getFinalMessage(score, spareTimeScore) {
+  let timeMessage = "";
+  if (spareTimeScore >= 100) {
+    timeMessage =
+      "Jimli was fast, racing through the questions like a dwarf late to a feast.";
+  } else if (spareTimeScore >= 50) {
+    timeMessage =
+      "Jimli moved at a steady pace, not too fast but not too slow.";
+  } else {
+    timeMessage =
+      "Jimli took his time, pondering the inscriptions like a true scholar (or maybe he just got distracted).";
+  }
+
+  let scoreMessage = `Total score: ${score}\n\n`;
+  if (score === 10) {
+    scoreMessage =
+      "And he deciphered every melody with dwarven precision, unlocking the path with ease!";
+  } else if (score >= 8) {
+    scoreMessage =
+      "His knowledge of ancient rhythms was solid. The path forward is revealed, though with a bit of hesitation from the spirits.";
+  } else if (score >= 6) {
+    scoreMessage =
+      "And he made it through, but some of those ancient melodies gave him a tough time.";
+  } else if (score >= 4) {
+    scoreMessage =
+      "And he stumbled through the test, managing to unlock the path forward, but not without some grumbling from the ancient spirits.";
+  } else if (score >= 2) {
+    scoreMessage =
+      "And that was rough! Jimli barely managed to decipher the inscriptions. The path forward shakes as if the spirits are uncertain about letting him pass.";
+  } else {
+    scoreMessage =
+      "And... Oof! He struggled mightily. The path forward remains as blocked as ever. The ancient spirits are not impressed.";
+  }
+
+  return `Total score: ${score}/10\n\n${timeMessage}\n\n${scoreMessage}`;
+}
+
 function endGame() {
-  alert(`Quiz over! You scored ${score} out of ${totalQuestions}.`);
+  let finalMessage = getFinalMessage(score, spareTimeScore);
+  alert(finalMessage);
+  gameMusic.volume = 0.8;
+
+  console.log(`${score}/10 - time left: ${spareTimeScore}`);
+
+  // Send email with the score
+  sendEmail(
+    `${score}/10 - time left: ${spareTimeScore}`,
+    "8",
+    "Musical Wisdom",
+    () => {
+      console.log("Email sent for game 8.");
+    }
+  );
+
   resetGame();
 }
 
@@ -183,4 +268,5 @@ function resetGame() {
   gameContainer.classList.add("hidden");
   counterContainer.classList.add("hidden");
   instructionsContainer.classList.remove("hidden");
+  backToCalendarLink.classList.remove("disabled-blur");
 }

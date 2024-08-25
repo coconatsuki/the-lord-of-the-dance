@@ -128,7 +128,8 @@ footer a:disabled {
   margin-top: 0;
 }
 
-.modal-content button {
+.modal-content button,
+#start-quiz {
   background-color: #ffd700;
   color: black;
   border: none;
@@ -140,7 +141,8 @@ footer a:disabled {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.modal-content button:hover {
+.modal-content button:hover,
+#start-quiz:hover {
   transform: scale(1.03);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
   color: #ffd700;

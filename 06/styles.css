@@ -141,3 +141,7 @@ img {
   color: #d0d090;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
+
+footer a {
+  color: #d0c744;
+}

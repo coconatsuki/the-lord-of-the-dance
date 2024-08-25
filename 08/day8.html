@@ -24,7 +24,7 @@
       <h1 id="page-title">Musical Wisdom?</h1>
       <div id="counter-container" class="hidden">
         <div id="turn-text">Time</div>
-        <div id="time-counter">0 / 3 min</div>
+        <div id="time-counter">0:15</div>
       </div>
     </header>
 
@@ -96,7 +96,9 @@
         <div id="instructions">
           <p id="instruction-1">
             Upon the ancient stone tablets, 10 questions will appear. For each
-            of them, you'll have ONLY 10 seconds to choose the correct answer.
+            of them, you'll have
+            <span class="highlight">ONLY 15 seconds</span> to choose the correct
+            answer.
           </p>
           <p id="instruction-2">
             Once all 10 questions have been answered, the path ahead may reveal
@@ -121,7 +123,9 @@
     </footer>
 
     <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
-    <audio id="game-music" src=""></audio>
+    <audio id="game-music" src="wind-chimes.mp3"></audio>
+    <audio src="correct-answer.mp3"></audio>
+    <audio src="wrong-answer.mp3"></audio>
     <script src="questions.js"></script>
     <script src="../shared-files/sendEmail.js"></script>
     <script src="script.js"></script>
