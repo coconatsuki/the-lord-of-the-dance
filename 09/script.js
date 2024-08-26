@@ -1,13 +1,23 @@
 const typewriterSound = document.getElementById("typewriter-sound");
 const narrativeModal = document.getElementById("modal");
-backToCalendarLink = document.getElementById("back-to-calendar");
 const instructionContainer = document.getElementById("instructions-container");
 const narrativeMusic = new Audio("./narrative-music.mp3");
 const snakeMusic = new Audio("./snake-music.mp3");
 const buzzSound = new Audio("./buzz.mp3");
 const biteSound = new Audio("./eat.mp3");
+const gameContainer = document.getElementById("game-container");
+const counterContainer = document.getElementById("counter-container");
+const timeCounter = document.getElementById("time-counter");
+const scoreText = document.getElementById("score-text");
+const scoreCounter = document.getElementById("score-container");
 
 let loopNarrativeMusic = true; // Flag to control whether the music should loop
+let snake = [{ x: 10, y: 10 }];
+let direction = { x: 0, y: 0 };
+let food = { x: 15, y: 15 };
+let snakeSpeed = 200;
+let score = 0;
+let timerInterval;
 
 // Loop the narrative music only if the flag is set to true
 narrativeMusic.addEventListener("ended", function () {
@@ -75,7 +85,6 @@ function showNextPart(partIndex) {
     if (partIndex === storyParts.length - 1) {
       document.getElementById("next-button").classList.add("hidden");
       document.getElementById("close-modal-button").classList.remove("hidden");
-      instructionContainer.classList.remove("hidden");
     }
   }
 }
@@ -85,7 +94,7 @@ let currentPart = 0; // Start with the first part
 // Event listener for the Next Page button
 document.getElementById("next-button").addEventListener("click", () => {
   if (currentPart === 0) {
-    narrativeMusic.play();
+    fadeInAudio(narrativeMusic, 500);
     narrativeMusic.volume = 0.8;
   }
 
@@ -95,15 +104,189 @@ document.getElementById("next-button").addEventListener("click", () => {
 
 // Hide modal and allow game interaction
 document.getElementById("close-modal-button").addEventListener("click", () => {
-  // gameMusic.play();
-  typewriterSound.pause(); // Play again if typing is not complete
+  typewriterSound.pause(); // Stop typewriter sound
+  instructionContainer.classList.remove("hidden");
   narrativeModal.style.display = "none";
 });
 
+// Gradually decrease volume
+function fadeOutAudio(audioElement, duration) {
+  let volume = audioElement.volume;
+  const step = volume / (duration / 50); // Decrease volume over time
+
+  const fadeOutInterval = setInterval(() => {
+    volume = Math.max(0, volume - step); // Decrease volume, ensuring it doesn't go below 0
+    audioElement.volume = volume;
+
+    if (volume <= 0) {
+      clearInterval(fadeOutInterval); // Stop when volume reaches 0
+      audioElement.pause(); // Pause the audio when it's completely faded out
+    }
+  }, 50);
+}
+
+// Gradually increase volume
+function fadeInAudio(audioElement, duration, targetVolume = 0.8) {
+  let volume = 0;
+  audioElement.volume = volume;
+  audioElement.play();
+  const step = targetVolume / (duration / 50); // Increase volume over time
+
+  const fadeInInterval = setInterval(() => {
+    volume = Math.min(targetVolume, volume + step); // Increase volume, ensuring it doesn't exceed targetVolume
+    audioElement.volume = volume;
+
+    if (volume >= targetVolume) {
+      clearInterval(fadeInInterval); // Stop when volume reaches targetVolume
+    }
+  }, 50);
+}
+
 // Event listener for the Start Game button
-document.getElementById("start-game").addEventListener("click", () => {
+document.getElementById("start-game").addEventListener("click", startGame);
+
+function startGame() {
   loopNarrativeMusic = false; // Stop looping the music
-  narrativeMusic.pause(); // Pause the narrative music
-  backToCalendarLink.classList.add("disabled-blur");
-  // Start the game logic here
-});
+  fadeOutAudio(narrativeMusic, 1000); // Gradually fade out narrative music over 1 second
+  fadeInAudio(snakeMusic, 1000); // Gradually fade in snake music over 1 second
+
+  // Show game container and start timer
+  instructionContainer.classList.add("hidden");
+  gameContainer.classList.remove("hidden");
+  counterContainer.classList.remove("hidden");
+  scoreCounter.classList.remove("hidden");
+
+  // Initialize the snake game
+  snake = [{ x: 10, y: 10 }];
+  direction = { x: 0, y: 0 };
+  placeFood();
+  score = 0;
+
+  document.addEventListener("keydown", changeDirection);
+  timerInterval = setInterval(updateGame, snakeSpeed);
+
+  // Start the game timer
+  let timeRemaining = 90;
+  const timer = setInterval(() => {
+    timeRemaining--;
+    timeCounter.textContent = `1:${
+      timeRemaining < 10 ? "0" : ""
+    }${timeRemaining}`;
+    if (timeRemaining <= 0) {
+      clearInterval(timer);
+      endGame();
+    }
+  }, 1000);
+}
+
+function placeFood() {
+  const maxX = gameContainer.clientWidth / 30; // Adjust for grid size (30px)
+  const maxY = gameContainer.clientHeight / 30; // Adjust for grid size (30px)
+  food.x = Math.floor(Math.random() * maxX);
+  food.y = Math.floor(Math.random() * maxY);
+}
+
+function changeDirection(e) {
+  switch (e.key) {
+    case "ArrowUp":
+      if (direction.y === 0) direction = { x: 0, y: -1 };
+      break;
+    case "ArrowDown":
+      if (direction.y === 0) direction = { x: 0, y: 1 };
+      break;
+    case "ArrowLeft":
+      if (direction.x === 0) direction = { x: -1, y: 0 };
+      break;
+    case "ArrowRight":
+      if (direction.x === 0) direction = { x: 1, y: 0 };
+      break;
+  }
+}
+
+function updateGame() {
+  moveSnake();
+  if (checkCollision()) {
+    buzzSound.play();
+    endGame();
+  } else if (checkFoodCollision()) {
+    biteSound.play();
+    growSnake();
+    placeFood();
+    score++;
+    if (snakeSpeed > 50) snakeSpeed -= 10;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateGame, snakeSpeed);
+  }
+  drawGame();
+}
+
+function moveSnake() {
+  const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+  snake.unshift(head);
+  snake.pop();
+}
+
+function checkCollision() {
+  const head = snake[0];
+  if (
+    head.x < 0 ||
+    head.y < 0 ||
+    head.x >= gameContainer.clientWidth / 30 || // Adjusted for grid size
+    head.y >= gameContainer.clientHeight / 30 // Adjusted for grid size
+  ) {
+    return true;
+  }
+  for (let i = 1; i < snake.length; i++) {
+    if (snake[i].x === head.x && snake[i].y === head.y) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function checkFoodCollision() {
+  const head = snake[0];
+  return (
+    Math.floor(head.x) === Math.floor(food.x) &&
+    Math.floor(head.y) === Math.floor(food.y)
+  );
+}
+
+function growSnake() {
+  const tail = { ...snake[snake.length - 1] };
+  snake.push(tail);
+  score++;
+  scoreText.textContent = `Score: ${score}`; // Update score display
+}
+
+function drawGame() {
+  gameContainer.innerHTML = "";
+  snake.forEach((segment) => {
+    const snakeElement = document.createElement("div");
+    snakeElement.style.gridRowStart = segment.y + 1;
+    snakeElement.style.gridColumnStart = segment.x + 1;
+    snakeElement.classList.add("snake");
+    gameContainer.appendChild(snakeElement);
+  });
+
+  const foodElement = document.createElement("div");
+  foodElement.style.gridRowStart = food.y + 1;
+  foodElement.style.gridColumnStart = food.x + 1;
+  foodElement.classList.add("food");
+  gameContainer.appendChild(foodElement);
+}
+
+function endGame() {
+  clearInterval(timerInterval);
+  snakeMusic.pause();
+  fadeInAudio(narrativeMusic, 1000);
+  alert(`Game over! You scored ${score} points.`);
+  resetGame();
+}
+
+function resetGame() {
+  gameContainer.classList.add("hidden");
+  counterContainer.classList.add("hidden");
+  scoreCounter.classList.add("hidden");
+  instructionContainer.classList.remove("hidden");
+}

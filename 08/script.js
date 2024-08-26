@@ -21,6 +21,12 @@ let timeLimit = 15; // 15 seconds per question
 let totalQuestions = 10;
 let spareTimeScore = 0; // Track unused time for spareTimeScore
 
+// Loop the narrative music only if the flag is set to true
+gameMusic.addEventListener("ended", function () {
+  gameMusic.currentTime = 0;
+  gameMusic.play();
+});
+
 // Function to shuffle the array of questions or answers
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
