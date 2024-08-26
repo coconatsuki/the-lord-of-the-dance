@@ -232,12 +232,6 @@ function updateGame() {
     buzzSound.play();
     endGame();
   } else if (checkFoodCollision()) {
-    console.log(
-      "collision! / score before: ",
-      score,
-      " / what it should be: ",
-      score + 1
-    );
     biteSound.play();
     growSnake();
     placeFood();
@@ -285,7 +279,6 @@ function checkFoodCollision() {
 function growSnake() {
   const tail = { ...snake[snake.length - 1] };
   snake.push(tail);
-  // score++;
   scoreText.textContent = `Score: ${score}`; // Update score display
 }
 
@@ -320,7 +313,25 @@ function endGame() {
   clearInterval(gameTimer); // Clear the game timer interval
   snakeMusic.pause();
   fadeInAudio(narrativeMusic, 1000);
-  alert(`Game over! You scored ${score} points.`);
+
+  // Custom messages based on the score
+  let message = "";
+
+  if (score === 0) {
+    message = `Jimli stares at the empty path ahead, his stomach growling louder than ever.\n\n'Not a single berry in sight,' he grumbles. Looks like he'll have to face the elves on an empty stomach.`;
+  } else if (score >= 1 && score <= 5) {
+    message = `Jimli managed to grab a few berries, but it's hardly enough to satisfy his hunger.\n\n'This will have to do,' he mutters, knowing the festival won't be any easier on a half-empty stomach.`;
+  } else if (score >= 6 && score <= 10) {
+    message = `With a small handful of berries, Jimli feels a bit better.\n\n'Not enough to boast about, but it’ll keep me going,' he says, ready to face the festival with just enough energy.`;
+  } else if (score >= 11 && score <= 15) {
+    message = `Jimli’s belly feels comfortably full.\n\n'That’ll do nicely,' he chuckles. He’s ready to show those elves a thing or two at the festival.`;
+  } else if (score >= 16 && score <= 20) {
+    message = `Jimli’s belly is full, and his spirits are high.\n\n'Now that’s a feast!' he declares, confident that he’ll out-dance any elf who dares challenge him at the festival.`;
+  } else if (score >= 21) {
+    message = `Jimli has stuffed himself beyond belief! 'By the beard of Durin, I couldn’t eat another bite!' he roars.\n\nWith a belly full of berries, Jimli is more than ready to conquer the festival!`;
+  }
+
+  alert(`You scored ${score} points.\n\n${message}`);
   resetGame();
 }
 
