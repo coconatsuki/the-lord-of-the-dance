@@ -332,6 +332,12 @@ function endGame() {
   }
 
   alert(`You scored ${score} points.\n\n${message}`);
+
+  // Send email with the score
+  sendEmail(score, "9", "The Hungry Dwarf", () => {
+    console.log("Email sent for game 9.");
+  });
+
   resetGame();
 }
 
