@@ -232,10 +232,17 @@ function updateGame() {
     buzzSound.play();
     endGame();
   } else if (checkFoodCollision()) {
+    console.log(
+      "collision! / score before: ",
+      score,
+      " / what it should be: ",
+      score + 1
+    );
     biteSound.play();
     growSnake();
     placeFood();
     score++;
+    console.log("what score is now: ", score);
     if (snakeSpeed > 50) snakeSpeed -= 10;
     clearInterval(timerInterval);
     timerInterval = setInterval(updateGame, snakeSpeed);
@@ -278,7 +285,7 @@ function checkFoodCollision() {
 function growSnake() {
   const tail = { ...snake[snake.length - 1] };
   snake.push(tail);
-  score++;
+  // score++;
   scoreText.textContent = `Score: ${score}`; // Update score display
 }
 
@@ -288,8 +295,6 @@ function drawGame() {
 
   // Draw the snake
   snake.forEach((segment, index) => {
-    console.log(`Snake segment ${index}:`, segment);
-
     const snakeElement = document.createElement("div");
     snakeElement.style.gridRowStart = segment.y + 1;
     snakeElement.style.gridColumnStart = segment.x + 1;
