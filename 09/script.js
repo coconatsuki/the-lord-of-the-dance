@@ -10,14 +10,20 @@ const counterContainer = document.getElementById("counter-container");
 const timeCounter = document.getElementById("time-counter");
 const scoreText = document.getElementById("score-text");
 const scoreCounter = document.getElementById("score-container");
+const footer = document.getElementById("footer");
+const header = document.getElementById("header-section");
+const scoresAndGameContainer = document.getElementById("scores-and-game");
 
 let loopNarrativeMusic = true; // Flag to control whether the music should loop
 let snake = [{ x: 10, y: 10 }];
 let direction = { x: 0, y: 0 };
 let food = { x: 15, y: 15 };
-let snakeSpeed = 200;
+let initialSnakeSpeed = 200; // Initial snake speed
+let snakeSpeed = initialSnakeSpeed;
 let score = 0;
 let timerInterval;
+let gameTimer;
+let gameActive = false; // Flag to check if the game is active
 
 // Loop the narrative music only if the flag is set to true
 narrativeMusic.addEventListener("ended", function () {
@@ -26,6 +32,16 @@ narrativeMusic.addEventListener("ended", function () {
     narrativeMusic.play();
   }
 });
+
+// Function to handle snakeMusic replay during the game
+function handleSnakeMusic() {
+  snakeMusic.addEventListener("ended", function () {
+    if (gameActive) {
+      snakeMusic.currentTime = 0;
+      snakeMusic.play();
+    }
+  });
+}
 
 // Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
@@ -42,7 +58,6 @@ function typeWriter(element, text, delay = 25) {
     });
   }
 
-  // Start playing the sound when typing starts
   playSound();
 
   function typing() {
@@ -146,42 +161,50 @@ function fadeInAudio(audioElement, duration, targetVolume = 0.8) {
 document.getElementById("start-game").addEventListener("click", startGame);
 
 function startGame() {
+  gameActive = true; // Set the game as active
+  handleSnakeMusic(); // Start handling snakeMusic replay during the game
+
   loopNarrativeMusic = false; // Stop looping the music
   fadeOutAudio(narrativeMusic, 1000); // Gradually fade out narrative music over 1 second
   fadeInAudio(snakeMusic, 1000); // Gradually fade in snake music over 1 second
 
-  // Show game container and start timer
+  // Show scoresAndGameContainer and start timer
   instructionContainer.classList.add("hidden");
-  gameContainer.classList.remove("hidden");
-  counterContainer.classList.remove("hidden");
-  scoreCounter.classList.remove("hidden");
+  header.classList.add("hidden");
+  footer.classList.add("hidden");
+  scoresAndGameContainer.classList.remove("hidden");
 
-  // Initialize the snake game
+  // Reset the snake speed and other game state
+  snakeSpeed = initialSnakeSpeed;
   snake = [{ x: 10, y: 10 }];
   direction = { x: 0, y: 0 };
-  placeFood();
   score = 0;
+  placeFood();
 
   document.addEventListener("keydown", changeDirection);
   timerInterval = setInterval(updateGame, snakeSpeed);
 
-  // Start the game timer
-  let timeRemaining = 90;
-  const timer = setInterval(() => {
-    timeRemaining--;
-    timeCounter.textContent = `1:${
-      timeRemaining < 10 ? "0" : ""
-    }${timeRemaining}`;
-    if (timeRemaining <= 0) {
-      clearInterval(timer);
+  // Start the game timer with correct minute and second format
+  let totalTime = 90; // Total time in seconds (1:30 = 90 seconds)
+  gameTimer = setInterval(() => {
+    totalTime--;
+
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime % 60;
+    timeCounter.textContent = `Time: ${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
+
+    if (totalTime <= 0) {
+      clearInterval(gameTimer);
       endGame();
     }
   }, 1000);
 }
 
 function placeFood() {
-  const maxX = gameContainer.clientWidth / 30; // Adjust for grid size (30px)
-  const maxY = gameContainer.clientHeight / 30; // Adjust for grid size (30px)
+  const maxX = 22; // Number of columns
+  const maxY = 18; // Number of rows
   food.x = Math.floor(Math.random() * maxX);
   food.y = Math.floor(Math.random() * maxY);
 }
@@ -231,8 +254,8 @@ function checkCollision() {
   if (
     head.x < 0 ||
     head.y < 0 ||
-    head.x >= gameContainer.clientWidth / 30 || // Adjusted for grid size
-    head.y >= gameContainer.clientHeight / 30 // Adjusted for grid size
+    head.x >= 22 || // Number of columns
+    head.y >= 18 // Number of rows
   ) {
     return true;
   }
@@ -260,24 +283,36 @@ function growSnake() {
 }
 
 function drawGame() {
+  // Clear the previous frame
   gameContainer.innerHTML = "";
-  snake.forEach((segment) => {
+
+  // Draw the snake
+  snake.forEach((segment, index) => {
+    console.log(`Snake segment ${index}:`, segment);
+
     const snakeElement = document.createElement("div");
     snakeElement.style.gridRowStart = segment.y + 1;
     snakeElement.style.gridColumnStart = segment.x + 1;
+
     snakeElement.classList.add("snake");
     gameContainer.appendChild(snakeElement);
   });
 
+  // Draw the food
   const foodElement = document.createElement("div");
+
+  // Ensure correct placement of the food
   foodElement.style.gridRowStart = food.y + 1;
   foodElement.style.gridColumnStart = food.x + 1;
+
   foodElement.classList.add("food");
   gameContainer.appendChild(foodElement);
 }
 
 function endGame() {
+  gameActive = false; // Set the game as inactive
   clearInterval(timerInterval);
+  clearInterval(gameTimer); // Clear the game timer interval
   snakeMusic.pause();
   fadeInAudio(narrativeMusic, 1000);
   alert(`Game over! You scored ${score} points.`);
@@ -285,8 +320,25 @@ function endGame() {
 }
 
 function resetGame() {
-  gameContainer.classList.add("hidden");
-  counterContainer.classList.add("hidden");
-  scoreCounter.classList.add("hidden");
+  // Reset game state
+  clearInterval(timerInterval); // Clear the snake movement interval
+  clearInterval(gameTimer); // Clear the game timer interval
+
+  // Reset the timer display
+  timeCounter.textContent = "Time: 1:30";
+
+  // Hide game elements and show instructions again
+  scoresAndGameContainer.classList.add("hidden");
   instructionContainer.classList.remove("hidden");
+  footer.classList.remove("hidden");
+  header.classList.remove("hidden");
+
+  snake = [{ x: 10, y: 10 }];
+  direction = { x: 0, y: 0 };
+  food = { x: 15, y: 15 };
+  initialSnakeSpeed = 200; // Initial snake speed
+  snakeSpeed = initialSnakeSpeed;
+
+  // Remove event listener for snake movement to prevent duplication on restart
+  document.removeEventListener("keydown", changeDirection);
 }

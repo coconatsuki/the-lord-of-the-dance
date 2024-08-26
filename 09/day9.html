@@ -22,10 +22,6 @@
     <header id="header-section">
       <h2 id="location-title">The Mountains of Melody</h2>
       <h1 id="page-title">The Hungry Dwarf</h1>
-      <div id="counter-container" class="hidden">
-        <div id="turn-text">Time</div>
-        <div id="time-counter">1:30</div>
-      </div>
     </header>
 
     <!-- Modal for Initial Narrative -->
@@ -104,14 +100,20 @@
         <button id="start-game">START GAME</button>
       </div>
 
-      <div id="score-container" class="hidden">
-        <p id="score-text">Score: 0</p>
+      <div id="scores-and-game" class="hidden">
+        <div id="counters-wrapper">
+          <div id="counter-container">
+            <div id="time-counter">Time: 1:30</div>
+          </div>
+          <div id="score-container">
+            <p id="score-text">Score: 0</p>
+          </div>
+        </div>
+        <div id="game-container"></div>
       </div>
-
-      <div id="game-container" class="hidden"></div>
     </div>
 
-    <footer>
+    <footer id="footer">
       <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
     </footer>
 
