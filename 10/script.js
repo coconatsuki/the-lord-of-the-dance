@@ -23,17 +23,23 @@ const gameMusic = new Audio("game-music.mp3");
 const finishSound = new Audio("finish.mp3");
 
 function startGame() {
+  // Clean up any remaining arrows from the previous game
+  activeArrows.forEach((arrow) => gameContainer.removeChild(arrow));
+  activeArrows = [];
+
   gameActive = true;
   score = 0;
   combo = 0;
+  scoreElement.textContent = score;
+  comboElement.textContent = combo;
   comboMultiplier = 1;
   timeLeft = 90;
   arrowSpeed = 2.5;
   arrowInterval = 3500;
-  activeArrows = [];
   lastArrowPosition = null;
 
   // Start game music
+  gameMusic.currentTime = 0;
   gameMusic.play();
   gameMusic.loop = true;
 
