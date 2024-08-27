@@ -171,7 +171,10 @@ function endGame() {
   gameMusic.pause();
   finishSound.play();
 
-  alert(`Game over! Your final score is ${score}`);
+  setTimeout(() => {
+    alert(`Game over! Your final score is ${score}`);
+  }, 600);
+
   startGameBtn.style.display = "block"; // Show start button again
 }
 
