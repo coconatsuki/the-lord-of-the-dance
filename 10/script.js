@@ -3,7 +3,7 @@ let combo = 0;
 let comboMultiplier = 1;
 let timeLeft = 90; // 1 minute and 30 seconds
 let arrowSpeed = 2.5; // Base speed
-let arrowInterval = 2500; // Slower initial spawn rate
+let arrowInterval = 3500; // Slower initial spawn rate
 let activeArrows = [];
 let gameActive = false; // Game starts as inactive
 let timerInterval;
@@ -29,7 +29,7 @@ function startGame() {
   comboMultiplier = 1;
   timeLeft = 90;
   arrowSpeed = 2.5;
-  arrowInterval = 2500;
+  arrowInterval = 3500;
   activeArrows = [];
   lastArrowPosition = null;
 
@@ -44,12 +44,14 @@ function startGame() {
   difficultyInterval = setInterval(() => {
     if (!gameActive) return;
 
-    arrowSpeed += 0.1; // Slower speed increase
-    arrowInterval = Math.max(arrowInterval - 50, 1500); // Slower spawn rate decrease, capped at 1500ms
+    arrowSpeed += 0.5; // Slower speed increase
+    arrowInterval = Math.max(arrowInterval - 10, 3450); // Slower spawn rate decrease, capped at 3000ms
+
+    console.log("timeLeft: ", timeLeft, " / arrow Interval: ", arrowInterval);
 
     // Restart the arrow spawning with the updated interval
     spawnArrow();
-  }, 20000); // Increase difficulty every 20 seconds for a more gradual progression
+  }, 10000); // Increase difficulty every 10 seconds for a more gradual progression
 
   // Start arrow spawning
   spawnArrow();
