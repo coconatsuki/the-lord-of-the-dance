@@ -3,6 +3,170 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <title>The Valley of Steps - The Dance of Arrows</title>
+    <link rel="stylesheet" href="../shared-files/layout.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="background-image"></div>
+    <header id="header-section">
+      <h2 id="location-title">The Valley of Steps</h2>
+      <h1 id="page-title">The Dance of Arrows</h1>
+    </header>
+
+    <!-- Modal for Initial Narrative -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div id="story-part-1" class="story-part">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">
+            After what felt like an eternity, Jimli finally descends into the
+            Valley of Steps. The biting cold of the mountains is behind him. The
+            ground beneath his boots no longer crunches with snow but feels
+            unsettlingly soft, almost too perfect.The trees here are tall and
+            elegant, their leaves whispering in a language Jimli doesn't
+            understand.<br /><br />The whole place reeks of elves.
+          </p>
+        </div>
+
+        <div id="story-part-2" class="story-part hidden">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">
+            "Bah, what kind of place is this? Not a single decent stone to kick.
+            Feels like I'm walkin' on fancy cake." Jimli mutters to himself as
+            he presses forward, alert to the strange noises echoing from the
+            surrounding forest. Birds? No, something... else. The sound of
+            delicate chimes floats on the breeze, along with a scent that's
+            suspiciously... floral.<br /><br />Finally, he sees it — Standing in
+            front of a massive stone portal is an elf. Tall, slender, and
+            annoyingly smug.
+          </p>
+        </div>
+        <div id="story-part-3" class="story-part hidden">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">
+            "Ah, a dwarf. How quaint," the elf sneers, looking down at Jimli as
+            if he were something scraped off his boot. "I see the legends of
+            your kind's persistence aren't exaggerated. But I'm afraid
+            persistence alone won't get you through this gate."<br /><br />Jimli
+            snorts. "And what, pray tell, will get me through, pointy-ears?" The
+            elf straightens, flicking his long hair behind his shoulder with an
+            air of practiced superiority. "Only those who can master the
+            graceful Dance of Arrows may pass," he says, gesturing to the ground
+            in front of the portal.
+          </p>
+        </div>
+        <div id="story-part-4" class="story-part hidden">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">
+            Intricate patterns of arrows are carved into the stone, glowing
+            faintly. Jimli glares, his fists clenching at his sides. "Grace...
+            bah! Who needs that? I've got rhythm where it counts!" The elf
+            chuckles softly, clearly unconvinced. "We shall see, dwarf. But
+            don't be too disheartened when you fail —few outsiders, if any, have
+            ever succeeded."<br /><br />"Well, make some room in yer elvish
+            history books," Jimli mutters. With that, he plants his feet on the
+            first glowing arrow, preparing to follow the rhythm.
+          </p>
+        </div>
+        <button id="next-button">Next Page</button>
+        <button id="close-modal-button" class="hidden">
+          Accept the Challenge
+        </button>
+      </div>
+    </div>
+
+    <div id="main-screen">
+      <div id="instructions-container" class="hidden">
+        <div id="instructions">
+          <p id="instruction-1" class="instruction">
+            <span class="highlight">Controls:</span> Hit the Arrow Keys JUST as
+            the floating arrows align with the bottom.<br />The closer your
+            timing, the better your score!
+          </p>
+          <p id="instruction-2" class="instruction">
+            <span class="highlight">Keep the Rhythm:</span> The arrows will
+            speed up as you dance. Don't lose your focus —those elvish eyes are
+            watching!
+          </p>
+          <p id="instruction-3" class="instruction">
+            <span class="highlight">Combo Magic:</span> Rack up combos by
+            hitting consecutive arrows perfectly.<br />The longer your combo,
+            the more you'll impress that smug elf!
+          </p>
+        </div>
+        <button id="start-game">START GAME</button>
+      </div>
+
+      <div id="scores-and-game" class="hidden">
+        <div id="game-container">
+          <div id="arrow-indicators">
+            <div class="arrow-indicator" id="left-arrow-indicator">
+              <img src="left-arrow.svg" alt="Left Arrow" />
+            </div>
+            <div class="arrow-indicator" id="up-arrow-indicator">
+              <img src="up-arrow.svg" alt="Up Arrow" />
+            </div>
+            <div class="arrow-indicator" id="down-arrow-indicator">
+              <img src="down-arrow.svg" alt="Down Arrow" />
+            </div>
+            <div class="arrow-indicator" id="right-arrow-indicator">
+              <img src="right-arrow.svg" alt="Right Arrow" />
+            </div>
+          </div>
+        </div>
+
+        <div id="counters-wrapper">
+          <div id="score-container">Score: <span id="score">0</span></div>
+          <div id="combo-container">Combo: <span id="combo">0</span></div>
+          <div id="feedback-container"></div>
+          <div id="timer-container"><span id="timer">Time: 1:30</span></div>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+    <audio id="game-music" src="./narrative-music.mp3"></audio>
+    <script src="../shared-files/sendEmail.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dance of Arrows</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -10,7 +174,6 @@
     <button id="start-game-btn">Start Game</button>
 
     <div id="game-container">
-      <!-- Arrow Indicators in the center -->
       <div id="arrow-indicators">
         <div class="arrow-indicator" id="left-arrow-indicator">
           <img src="left-arrow.svg" alt="Left Arrow" />
@@ -34,4 +197,4 @@
 
     <script src="script.js"></script>
   </body>
-</html>
+</html> -->
