@@ -5,20 +5,60 @@ let timeLeft = 90; // 1 minute and 30 seconds
 let arrowSpeed = 4; // Increased base speed
 let arrowInterval = 800; // Faster initial spawn rate
 let activeArrows = [];
-let gameActive = true;
+let gameActive = false; // Game starts as inactive
+let timerInterval;
+let difficultyInterval;
+let arrowSpawnInterval;
+
 const gameContainer = document.getElementById("game-container");
 const scoreElement = document.getElementById("score");
 const comboElement = document.getElementById("combo");
 const feedbackContainer = document.getElementById("feedback-container");
 const timerElement = document.getElementById("timer");
+const startGameBtn = document.getElementById("start-game-btn");
 
-// Sound effect
+// Sound effects
 const hitSound = new Audio("hit.mp3");
 const gameMusic = new Audio("game-music.mp3");
 const finishSound = new Audio("finish.mp3");
 
-// Start game timer
-const timerInterval = setInterval(updateTimer, 1000);
+function startGame() {
+  gameActive = true;
+  score = 0;
+  combo = 0;
+  comboMultiplier = 1;
+  timeLeft = 90;
+  arrowSpeed = 4;
+  arrowInterval = 800;
+  activeArrows = [];
+
+  // Start game music
+  gameMusic.play();
+  gameMusic.loop = true;
+
+  // Start game timer
+  timerInterval = setInterval(updateTimer, 1000);
+
+  // Difficulty progression
+  difficultyInterval = setInterval(() => {
+    if (!gameActive) return;
+
+    arrowSpeed += 0.3; // Increase speed more aggressively
+    arrowInterval = Math.max(arrowInterval - 100, 250); // Faster arrow spawn with a cap at 250ms
+  }, 3000);
+
+  // Arrow spawning
+  arrowSpawnInterval = setInterval(() => {
+    if (!gameActive) return;
+
+    const arrowTypes = ["left", "up", "down", "right"];
+    const randomType =
+      arrowTypes[Math.floor(Math.random() * arrowTypes.length)];
+    createArrow(randomType);
+  }, arrowInterval);
+
+  startGameBtn.style.display = "none"; // Hide start button
+}
 
 function updateTimer() {
   if (!gameActive) return;
@@ -121,28 +161,19 @@ function feedback(text) {
   setTimeout(() => (feedbackContainer.textContent = ""), 500);
 }
 
-// Difficulty progression (more aggressive)
-const difficultyInterval = setInterval(() => {
-  if (!gameActive) return;
-
-  arrowSpeed += 0.3; // Increase speed more aggressively
-  arrowInterval = Math.max(arrowInterval - 100, 250); // Faster arrow spawn with a cap at 250ms
-}, 3000);
-
-// Arrow spawning
-const arrowSpawnInterval = setInterval(() => {
-  if (!gameActive) return;
-
-  const arrowTypes = ["left", "up", "down", "right"];
-  const randomType = arrowTypes[Math.floor(Math.random() * arrowTypes.length)];
-  createArrow(randomType);
-}, arrowInterval);
-
 function endGame() {
   gameActive = false;
-  clearInterval(arrowSpawnInterval);
+  clearInterval(timerInterval);
   clearInterval(difficultyInterval);
+  clearInterval(arrowSpawnInterval);
+
+  // Stop game music and play finish sound
+  gameMusic.pause();
+  finishSound.play();
+
   alert(`Game over! Your final score is ${score}`);
+  startGameBtn.style.display = "block"; // Show start button again
 }
 
 document.addEventListener("keydown", handleKeyPress);
+startGameBtn.addEventListener("click", startGame);
