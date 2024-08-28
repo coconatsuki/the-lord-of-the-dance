@@ -315,6 +315,8 @@ button#pick-outfit:hover {
   transform: rotateY(180deg);
   color: black;
   font-size: 1.1em;
+  padding: 0.5em;
+  border-radius: 8px;
 }
 
 .flipped {
