@@ -81,6 +81,12 @@ function startDiceGame({
     .getElementById("start-game-button")
     .addEventListener("click", hideModal);
 
+  // Loop the game music
+  gameMusic.addEventListener("ended", function () {
+    gameMusic.currentTime = 0;
+    gameMusic.play();
+  });
+
   // Start narrative 2 after the modal is dismissed
   function startSecondNarrative() {
     typeWriter(
@@ -161,9 +167,9 @@ function startDiceGame({
         // Display the final message based on totalScore
         let finalMessage = "";
 
-        if (totalScore === 0) {
+        if (totalScore >= 0 && totalScore < 10) {
           finalMessage = finalMessages[0];
-        } else if (totalScore >= 1 && totalScore <= 20) {
+        } else if (totalScore >= 10 && totalScore <= 20) {
           finalMessage = finalMessages[1];
         } else if (totalScore >= 21 && totalScore <= 40) {
           finalMessage = finalMessages[2];
