@@ -22,10 +22,6 @@
     <header id="header-section">
       <h2 id="location-title">The Dancing Elves' Festival</h2>
       <h1 id="page-title">Dress the Dancer</h1>
-      <div id="counter-container" class="hidden">
-        <div id="turn-text">Time</div>
-        <div id="time-counter">0:15</div>
-      </div>
     </header>
 
     <!-- Modal for Initial Narrative -->
@@ -34,7 +30,7 @@
         <div id="story-part-1" class="story-part">
           <img
             class="narrative-img"
-            src="./narrative-square.jpg"
+            src="./dressing-square.jpg"
             alt="Jimli arrives at Valley of Steps"
           />
           <p class="section-text">WIP</p>
@@ -43,7 +39,7 @@
         <div id="story-part-2" class="story-part hidden">
           <img
             class="narrative-img"
-            src="./narrative-square.jpg"
+            src="./dressing-square.jpg"
             alt="Jimli arrives at Valley of Steps"
           />
           <p class="section-text">
@@ -57,7 +53,7 @@
         <div id="story-part-3" class="story-part hidden">
           <img
             class="narrative-img"
-            src="./narrative-square.jpg"
+            src="./dressing-square.jpg"
             alt="Jimli arrives at Valley of Steps"
           />
           <p class="section-text">WIP</p>
@@ -65,7 +61,7 @@
         <div id="story-part-4" class="story-part hidden">
           <img
             class="narrative-img"
-            src="./narrative-square.jpg"
+            src="./dressing-square.jpg"
             alt="Jimli arrives at Valley of Steps"
           />
           <p class="section-text">WIP</p>
@@ -88,8 +84,43 @@
         <button id="start-game">START GAME</button>
       </div>
 
-      <div id="game-container">
-        <!-- The clues and the options would come here -->
+      <div id="game-container" class="hidden">
+        <div id="counter-container" class="hidden">
+          <div id="turn-text">Time</div>
+          <div id="time-counter">0:15</div>
+        </div>
+        <div id="clothing-options">
+          <h2>Choose Your Outfit:</h2>
+          <div id="categories">
+            <!-- Clothing categories will go here -->
+          </div>
+        </div>
+        <button id="pick-outfit" disabled>
+          Pick the Outfit<br />(stop timer)
+        </button>
+        <div id="clues-container">
+          <h2 id="clues-title">Clues:</h2>
+          <div class="clue-card" data-clue="1">
+            <div class="clue-back">👂 Click to eavesdrop on Eladrin</div>
+            <div class="clue-front">Clue 1 content goes here</div>
+          </div>
+          <div class="clue-card" data-clue="2">
+            <div class="clue-back">👂 Click to eavesdrop on Faelwen</div>
+            <div class="clue-front">Clue 2 content goes here</div>
+          </div>
+          <div class="clue-card" data-clue="3">
+            <div class="clue-back">👂 Click to eavesdrop on Luthien</div>
+            <div class="clue-front">Clue 3 content goes here</div>
+          </div>
+          <div class="clue-card" data-clue="4">
+            <div class="clue-back">👂 Click to eavesdrop on Maeglin</div>
+            <div class="clue-front">Clue 4 content goes here</div>
+          </div>
+          <div class="clue-card" data-clue="5">
+            <div class="clue-back">👂 Click to eavesdrop on Aelinor</div>
+            <div class="clue-front">Clue 5 content goes here</div>
+          </div>
+        </div>
       </div>
     </div>
 
