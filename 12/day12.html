@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <title>The Dancing Elves' Festival - Dress the Dancer</title>
+    <link rel="stylesheet" href="../shared-files/layout.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="background-image"></div>
+    <header id="header-section">
+      <h2 id="location-title">The Dancing Elves' Festival</h2>
+      <h1 id="page-title">Dress the Dancer</h1>
+      <div id="counter-container" class="hidden">
+        <div id="turn-text">Time</div>
+        <div id="time-counter">0:15</div>
+      </div>
+    </header>
+
+    <!-- Modal for Initial Narrative -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div id="story-part-1" class="story-part">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">WIP</p>
+        </div>
+
+        <div id="story-part-2" class="story-part hidden">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">
+            The elf leads Jimli to a grand wardrobe filled with a dizzying array
+            of elven clothing options—tunics, robes, trousers, belts, hats, and
+            more, all in various colors, fabrics, and styles. Jimli is
+            instructed to pick out five items to create a suitable outfit for
+            the festival.
+          </p>
+        </div>
+        <div id="story-part-3" class="story-part hidden">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">WIP</p>
+        </div>
+        <div id="story-part-4" class="story-part hidden">
+          <img
+            class="narrative-img"
+            src="./narrative-square.jpg"
+            alt="Jimli arrives at Valley of Steps"
+          />
+          <p class="section-text">WIP</p>
+        </div>
+        <button id="next-button">Next Page</button>
+        <button id="close-modal-button" class="hidden">
+          Get "properly" dressed
+        </button>
+      </div>
+    </div>
+
+    <div id="main-screen">
+      <div id="instructions-container" class="hidden">
+        <div id="instructions">
+          <p id="instruction-1" class="instruction">WIP</p>
+          <p id="instruction-2" class="instruction">WIP</p>
+
+          <p id="instruction-3" class="instruction">WIP</p>
+        </div>
+        <button id="start-game">START GAME</button>
+      </div>
+
+      <div id="game-container">
+        <!-- The clues and the options would come here -->
+      </div>
+    </div>
+
+    <footer id="footer">
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+    <audio id="game-music" src="./narrative-music.mp3"></audio>
+    <script src="../shared-files/sendEmail.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

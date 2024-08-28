@@ -38,7 +38,7 @@ function createDaySquare(dayNumber, date) {
   dateSpan.classList.add("day-date");
   dateSpan.textContent = date;
 
-  let gamesInPlace = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  let gamesInPlace = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   let allCookies = document.cookie;
   let unblockCookie =
