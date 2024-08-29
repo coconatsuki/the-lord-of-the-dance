@@ -1,0 +1,41 @@
+#background-image {
+  background-image: url("./background.jpeg");
+  background-position: top;
+}
+
+#dice-instruction {
+  color: #d0d090;
+  line-height: 1.5;
+}
+
+.modal-content button {
+  font-family: fantasy;
+  background-color: #cb8fb5;
+}
+
+.modal-content button:hover {
+  background-color: rgba(168, 230, 163, 0.1);
+  color: #cb8fb5;
+}
+
+#page-title,
+#previous-label,
+#dice-instruction,
+#dice-label,
+.modal-content button:hover {
+  color: #cb8fb5;
+}
+
+.modal-content button {
+  background-color: #cb8fb5;
+}
+
+footer a {
+  color: #cb8fb5;
+}
+
+#narrative-text {
+  font-size: 1.3em;
+  line-height: 1.7;
+  background-color: rgba(30, 30, 30, 0.95);
+}

@@ -9,9 +9,9 @@ const answersContainer = document.getElementById("answers-container");
 const timeCounter = document.getElementById("time-counter");
 
 // Sound effects for correct and incorrect answers
-const correctAnswerSound = new Audio("./correct-answer.mp3");
-const wrongAnswerSound = new Audio("./wrong-answer.mp3");
-const gameMusic = new Audio("./wind-chimes.mp3");
+const correctAnswerSound = new Audio("../08/correct-answer.mp3");
+const wrongAnswerSound = new Audio("../08/wrong-answer.mp3");
+const gameMusic = new Audio("./game-music.mp3");
 const backToCalendarLink = document.getElementById("back-to-calendar");
 
 let currentQuestionIndex = 0;
@@ -216,34 +216,34 @@ function getFinalMessage(score, spareTimeScore) {
   let timeMessage = "";
   if (spareTimeScore >= 100) {
     timeMessage =
-      "Jimli was fast, racing through the questions like a dwarf late to a feast.";
+      "Jimli answered with the speed of a dwarf eager to prove himself, not a moment wasted!";
   } else if (spareTimeScore >= 50) {
     timeMessage =
-      "Jimli moved at a steady pace, not too fast but not too slow.";
+      "Jimli moved at a thoughtful pace, carefully considering each question before answering.";
   } else {
     timeMessage =
-      "Jimli took his time, pondering the inscriptions like a true scholar (or maybe he just got distracted).";
+      "Jimli took his time, perhaps too much of it, as he pondered over each question with a furrowed brow.";
   }
 
-  let scoreMessage = `Total score: ${score}\n\n`;
+  let scoreMessage;
   if (score === 10) {
     scoreMessage =
-      "And he deciphered every melody with dwarven precision, unlocking the path with ease!";
+      "Lady Elowen is thoroughly impressed! 'You know more about elves than some elves themselves!' she exclaims, her admiration evident. 'With a connection like this, our dance will be truly magical!'";
   } else if (score >= 8) {
     scoreMessage =
-      "His knowledge of ancient rhythms was solid. The path forward is revealed, though with a bit of hesitation from the spirits.";
+      "'Impressive,' Elowen says with a warm smile. 'You have a solid grasp of elven lore. We're well on our way to a graceful performance!'";
   } else if (score >= 6) {
     scoreMessage =
-      "And he made it through, but some of those ancient melodies gave him a tough time.";
+      "'Not bad at all,' Elowen nods approvingly. 'You may not know everything, but your heart is in the right place. We'll make a fine pair on the dance floor.'";
   } else if (score >= 4) {
     scoreMessage =
-      "And he stumbled through the test, managing to unlock the path forward, but not without some grumbling from the ancient spirits.";
+      "Elowen chuckles softly. 'Well, we might need a bit more practice, but I can see your potential. Let's hope the judges appreciate effort as much as skill!'";
   } else if (score >= 2) {
     scoreMessage =
-      "And that was rough! Jimli barely managed to decipher the inscriptions. The path forward shakes as if the spirits are uncertain about letting him pass.";
+      "Elowen raises an eyebrow, though she tries to keep her smile. 'That was... something. But don't worry, Jimli. We'll find our rhythm on the dance floor, even if it takes a bit of work.'";
   } else {
     scoreMessage =
-      "And... Oof! He struggled mightily. The path forward remains as blocked as ever. The ancient spirits are not impressed.";
+      "Elowen sighs, though she quickly hides it behind a reassuring smile. 'Well, we may not win the trivia round, but we'll give it our best in the dance! Don't worry, I'll lead you through the steps.'";
   }
 
   return `Total score: ${score}/10\n\n${timeMessage}\n\n${scoreMessage}`;
@@ -259,10 +259,10 @@ function endGame() {
   // Send email with the score
   sendEmail(
     `${score}/10 - time left: ${spareTimeScore}`,
-    "8",
-    "Musical Wisdom",
+    "13",
+    "Know your partner",
     () => {
-      console.log("Email sent for game 8.");
+      console.log("Email sent for game 13.");
     }
   );
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <title>The Dancing Elves' Festival - The Mix and Match Challenge</title>
+    <link rel="stylesheet" href="../shared-files/dice-roll-styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="background-image"></div>
+
+    <header>
+      <h2 id="location-title">The Dancing Elves' Festival</h2>
+      <h1 id="page-title">The Mix and Match Challenge</h1>
+    </header>
+    <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+    <audio id="game-music" src="./narrative-music.mp3"></audio>
+
+    <!-- Modal for Initial Narrative -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p>
+          The grand moment has arrived. As the sun sets, casting a golden hue
+          over the festival grounds, the festival's organizers announce the
+          start of the contest. The elves who aren't participating form a wide
+          circle, their excited murmurs dying down as the jury take their seats
+          at the edge of the area. Jimli's heart races as the participants are
+          asked to step forward. <br /><br />
+          This is it, the moment Jimli has dreamed of! With three songs to
+          impress the judges, the stakes couldn't be higher. Each song will test
+          the dancers' skill, connection, and style, starting with a slow rhythm
+          that will gradually speed up to a dizzying pace. Jimli glances at his
+          partner, the graceful Elowen, who meets his gaze with a reassuring
+          smile. "Win or lose," he mutters to himself, "I'll still be the
+          best-dressed dwarf here —and the only one with enough sense to bring a
+          keg!" The humor in his words steadies his nerves, but deep down, he
+          knows this is his moment. The music begins, and with it, the first
+          test of his abilities.
+        </p>
+        <button id="start-game-button">Impress the judges!</button>
+      </div>
+    </div>
+
+    <div id="content" class="hidden">
+      <div id="narrative-column">
+        <p id="narrative-text"></p>
+        <div id="dice-instruction" class="hidden">
+          Can Jimli match the elves' elegance, or will his heavy footwork betray
+          him? =>
+        </div>
+      </div>
+
+      <div id="dice-column">
+        <div id="dice-label">D20 Dice</div>
+        <div id="dice-area">
+          <div id="dice" class="disabled">Roll</div>
+        </div>
+        <div id="previous-results">
+          <div id="previous-label" class="hidden">Previous results:</div>
+          <div class="result-container">
+            <div class="result-square hidden"></div>
+            <div class="result-square hidden"></div>
+            <div class="result-square hidden"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <a id="back-to-calendar" href="../calendar.html">Back to Calendar</a>
+    </footer>
+
+    <audio id="dice-sound" src="../shared-files/dice-roll.mp3"></audio>
+    <script src="../shared-files/dice-roll-script.js"></script>
+    <script src="../shared-files/sendEmail.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -225,7 +225,7 @@ function getFinalMessage(score, spareTimeScore) {
       "Jimli took his time, pondering the inscriptions like a true scholar (or maybe he just got distracted).";
   }
 
-  let scoreMessage = `Total score: ${score}\n\n`;
+  let scoreMessage;
   if (score === 10) {
     scoreMessage =
       "And he deciphered every melody with dwarven precision, unlocking the path with ease!";

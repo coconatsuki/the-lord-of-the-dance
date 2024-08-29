@@ -5,24 +5,24 @@ footer {
 #page-title,
 .modal-content button:hover,
 #start-quiz:hover {
-  color: #abb0f3;
+  color: #cb8fb5;
 }
 
 .modal-content button,
 #next-button,
 #start-quiz {
-  background-color: #abb0f3;
+  background-color: #cb8fb5;
 }
 
 #next-button:hover,
 #close-modal-button:hover {
   background-color: rgba(168, 230, 163, 0.1);
-  border: 2px solid #abb0f3;
+  border: 2px solid #cb8fb5;
 }
 
 #start-quiz:hover {
   background-color: rgb(18 21 18 / 40%);
-  border: 2px solid #abb0f3;
+  border: 2px solid #cb8fb5;
 }
 
 .modal-content {
@@ -60,7 +60,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("./background.jpg");
+  background-image: url("./background.jpeg");
   background-size: cover;
   background-position: top;
   z-index: -1;
@@ -73,6 +73,19 @@ img {
   margin-bottom: 32.4px;
 }
 
+.modal-content button,
+#start-quiz {
+  margin-top: 60px;
+}
+
+.modal-content button:hover {
+  margin-top: 57px;
+}
+
+#start-quiz:hover {
+  margin-top: 17px;
+}
+
 /* ----------- Counter -------------*/
 
 #counter-container {
@@ -81,7 +94,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #abb0f3;
+  border: 2px solid #cb8fb5;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   position: absolute;
@@ -93,14 +106,14 @@ img {
 
 #turn-text {
   font-size: 18px;
-  color: #abb0f3;
+  color: #cb8fb5;
   margin-bottom: 10px;
 }
 
 #time-counter {
   font-size: 30px;
   font-weight: bold;
-  color: #abb0f3;
+  color: #cb8fb5;
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
@@ -132,7 +145,7 @@ img {
   padding: 10px 20px;
   font-size: 1.5em;
   cursor: pointer;
-  background-color: #abb0f3;
+  background-color: #cb8fb5;
   border: none;
   border-radius: 8px;
   color: black;
@@ -180,8 +193,8 @@ img {
 
 .answer-button:hover {
   background-color: rgb(18 21 18 / 40%);
-  border: 2px solid #abb0f3;
-  color: #abb0f3;
+  border: 2px solid #cb8fb5;
+  color: #cb8fb5;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
@@ -204,5 +217,5 @@ img {
 }
 
 footer a {
-  color: #abb0f3;
+  color: #cb8fb5;
 }
