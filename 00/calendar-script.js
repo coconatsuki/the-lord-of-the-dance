@@ -5,7 +5,7 @@ let totalPoints = 32;
 // Day1: 31 (6/10) / Day2: 17 (6/10) / Dat3: 124 (10/10) / Day4: 32 (5/10) / Day5: 12 (5/10)
 // let questScore = {day1: 6, day2: 6, day3: 10, day4: 5, day5: 5}
 
-let winTheContest = "false";
+let winTheContest = "true";
 // Update days left and points display
 document.getElementById("days-left").textContent = totalDays - currentDay;
 document.getElementById("total-points").textContent = totalPoints;
@@ -84,7 +84,7 @@ function createFinalSquare(outcome) {
   finalDaySquare.setAttribute("id", "final-day-square");
 
   const folder = totalDays + 1;
-  const path = `./${folder}/day${folder}.html`;
+  const path = `./${folder}/${outcome}.html?points=${totalPoints}`;
   finalDaySquare.addEventListener("click", () => {
     window.location.href = path;
   });
