@@ -120,7 +120,8 @@ footer p {
 }
 
 /* Styling the last day square differently */
-.day-square:last-child {
+#contest-square,
+#final-day-square {
   height: 140px;
   font-size: 2em;
   background-color: rgba(168, 230, 163, 0.2);
@@ -129,6 +130,12 @@ footer p {
   background-size: cover;
 }
 
-.unlocked.day-square:last-child .day-date {
+#contest-square.unlocked .day-date {
   display: none;
+}
+
+/* ----------- FINAL DAY SQUARE --------------- */
+
+#final-day-square {
+  width: 280px;
 }
