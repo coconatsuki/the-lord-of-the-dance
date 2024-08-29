@@ -107,6 +107,14 @@
   margin-top: 0;
 }
 
+.marker {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2em;
+  color: yellow;
+}
+
 #start-game {
   padding: 10px 20px;
   font-size: 1.5em;
@@ -191,7 +199,7 @@ footer a {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 40%;
+  width: 42.5%;
   background-color: rgb(27 24 26 / 29%);
   border-radius: 10px;
   justify-content: space-evenly;
@@ -249,10 +257,14 @@ button.category-option.selected {
 }
 
 button#pick-outfit {
+  position: absolute;
+  top: 20px;
+  left: 45%;
+  margin: 0;
   line-height: 30px;
   height: fit-content;
   align-self: flex-start;
-  margin-top: 1em;
+  /* margin-top: 1em; */
   background-color: black;
   color: yellow;
   border: 2px solid;
@@ -282,7 +294,6 @@ button#pick-outfit:hover {
 
 .clue-card {
   background-color: rgba(0, 0, 0, 0.6);
-  border: 2px solid #cb8fb5;
   border-radius: 8px;
   padding: 2em;
   margin-bottom: 15px;
@@ -309,15 +320,28 @@ button#pick-outfit:hover {
 .clue-back {
   color: #fff;
   background-color: rgb(0 0 0 / 54%);
+  display: flex;
+  align-items: baseline;
+}
+
+.ear {
+  font-size: 2em;
+  margin-top: 0.15em;
 }
 
 .clue-front {
-  background-color: #cb8fb5;
+  background-color: #d2a5c1eb;
+  border: 2px solid #eaea3680;
   transform: rotateY(180deg);
   color: black;
-  font-size: 1.1em;
-  padding: 0.5em;
+  font-size: 1.3em;
+  padding: 2.1em 0.5em;
+  line-height: 30px;
   border-radius: 8px;
+  font-family: "Sevillana", cursive;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
 }
 
 .flipped {

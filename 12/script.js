@@ -3,7 +3,7 @@ const narrativeModal = document.getElementById("modal");
 const instructionContainer = document.getElementById("instructions-container");
 const startGameButton = document.getElementById("start-game");
 const gameContainer = document.getElementById("game-container");
-const timeCounter = document.getElementById("counter-container");
+const timeCounter = document.getElementById("time-counter");
 const gameMusic = new Audio("./narrative-music.mp3");
 const footer = document.getElementById("footer");
 const header = document.getElementById("header-section");
@@ -130,7 +130,30 @@ function fadeOutAudio(audioElement, duration) {
 
 // -------------------------- Game Logic --------------------------------- \\
 
+let timerInterval; // Store the interval ID globally
+let selectedOptions = {}; // Global to track selected options
+let selectedPuzzle;
+let spareTime;
+
 startGameButton.addEventListener("click", startGame);
+
+// Finalize selection when the timer runs out or the player picks the outfit
+function finalizeSelection(feedback) {
+  alert(`Outfit evaluation: ${feedback}`);
+
+  // Reset the game state for replay
+  resetGame();
+}
+
+function handleHalfNaked() {
+  if (Object.keys(selectedOptions).length === categories.length) {
+    finalizeSelection(selectedPuzzle.evaluation(selectedOptions, spareTime));
+  } else {
+    alert(
+      `"My dear dwarf, you can't expect to join the festival half-dressed! We elves have standards, you know.\nPut on a proper outfit before you think about stepping onto our dance floor!"\n\n(Pick up one item per category before stopping the timer)`
+    );
+  }
+}
 
 function startGame() {
   // Hide instructions and show the game
@@ -138,37 +161,26 @@ function startGame() {
   header.classList.add("hidden");
   footer.classList.add("hidden");
   gameContainer.classList.remove("hidden");
-  timeCounter.classList.remove("hidden");
 
   // Start the game timer and initialize game logic
   initializeGame();
 }
 
 function initializeGame() {
-  const categories = ["Top", "Bottom", "Cloak", "Belt", "Hat"];
-  const options = {
-    Top: ["Red Velvet Shirt", "Silk Blouse", "Cotton Shirt", "Linen Vest"],
-    Bottom: [
-      "Silk Trousers",
-      "Leather Pants",
-      "Cotton Trousers",
-      "Linen Pants",
-    ],
-    Cloak: ["Velvet Cloak", "Leather Jacket", "Cotton Cloak", "Linen Jacket"],
-    Belt: ["Gold Belt", "Leather Belt", "Simple Rope Belt", "Silver Belt"],
-    Hat: ["Velvet Hat", "Straw Hat", "Leather Cap", "Silk Hat"],
-  };
+  selectedOptions = {}; // Reset selected options
 
-  let selectedOptions = {};
+  // Clear any previous categories
+  categoriesDiv.innerHTML = "";
 
   // Select a random puzzle
-  const selectedPuzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
+  selectedPuzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
 
   // Display clues in the clue cards
   document.querySelectorAll(".clue-card").forEach((card, index) => {
     if (selectedPuzzle.clues[index]) {
       card.querySelector(".clue-front").textContent =
         selectedPuzzle.clues[index];
+      card.classList.remove("flipped"); // Reset clue cards
     }
   });
 
@@ -213,11 +225,6 @@ function initializeGame() {
 
     // Store selected option
     selectedOptions[category] = option;
-
-    // Enable button when all categories are selected
-    if (Object.keys(selectedOptions).length === categories.length) {
-      pickOutfitBtn.disabled = false;
-    }
   }
 
   // Clue card flip logic
@@ -228,74 +235,45 @@ function initializeGame() {
   });
 
   // Button to stop timer and evaluate the outfit
-  pickOutfitBtn.addEventListener("click", () => {
-    if (Object.keys(selectedOptions).length === categories.length) {
-      selectedPuzzle.evaluation(selectedOptions);
-    } else {
-      alert(
-        `"My dear dwarf, you can't expect to join the festival half-dressed! We elves have standards, you know.\nPut on a proper outfit before you think about stepping onto our dance floor!"\n\n(Pick up one item per category before stopping the timer)`
-      );
-    }
-  });
+  pickOutfitBtn.addEventListener("click", handleHalfNaked);
 
   // Timer logic
   let timeLeft = 300;
-  const timeCounter = document.getElementById("time-counter");
-  const timerInterval = setInterval(() => {
+  updateTimerDisplay(); // Initial timer display
+  timerInterval = setInterval(() => {
     if (timeLeft > 0) {
       timeLeft--;
+      if (timeLeft === 10) {
+        forceSelection();
+      }
       updateTimerDisplay();
     } else {
       clearInterval(timerInterval);
-      forceSelection();
+      finalizeSelection(selectedPuzzle.evaluation(selectedOptions));
     }
   }, 1000);
 
   function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
+    spareTime = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
     timeCounter.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   }
 
-  // Force selection when timer runs out
+  // Warn the player when 10 seconds remain
   function forceSelection() {
-    document.querySelectorAll(".clue-card").forEach((card) => {
-      card.style.display = "none"; // Hide clues
-    });
-
-    if (Object.keys(selectedOptions).length !== categories.length) {
-      alert("Time's up! You have 10 seconds to finish your selection.");
-      setTimeout(() => {
-        selectedPuzzle.evaluation(selectedOptions);
-      }, 10000);
-    }
+    alert("Time's almost up! You have 10 seconds to finish your selection.");
   }
+}
 
-  function evaluateCombination(selectedOptions, correctCombination) {
-    let correctCount = 0;
-    for (let category in correctCombination) {
-      if (selectedOptions[category] === correctCombination[category]) {
-        correctCount++;
-      }
-    }
+function resetGame() {
+  clearInterval(timerInterval); // Clear the timer interval
+  instructionContainer.classList.remove("hidden");
+  header.classList.remove("hidden");
+  footer.classList.remove("hidden");
+  gameContainer.classList.add("hidden");
 
-    // Provide feedback based on the number of correct items
-    let feedback;
-    if (correctCount === 5) {
-      feedback = "Perfection! You’ve nailed the elven fashion!";
-    } else if (correctCount >= 3) {
-      feedback =
-        "Not bad, not bad at all! A few tweaks, and you’d be the talk of the festival.";
-    } else {
-      feedback = "Oh dear... Perhaps fashion isn't your strong suit after all.";
-    }
+  pickOutfitBtn.removeEventListener("click", handleHalfNaked);
 
-    alert(`Outfit evaluation: ${feedback}`);
-
-    instructionContainer.classList.remove("hidden");
-    header.classList.remove("hidden");
-    footer.classList.remove("hidden");
-    gameContainer.classList.add("hidden");
-    timeCounter.classList.add("hidden");
-  }
+  // Prepare for next game
 }

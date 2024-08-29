@@ -1,3 +1,48 @@
+const categories = ["Top", "Bottom", "Cloak", "Belt", "Hat"];
+const options = {
+  Top: ["Red Velvet Shirt", "Silk Blouse", "Cotton Shirt", "Linen Vest"],
+  Bottom: ["Silk Trousers", "Leather Pants", "Cotton Trousers", "Linen Pants"],
+  Cloak: ["Velvet Cloak", "Leather Jacket", "Cotton Cloak", "Linen Jacket"],
+  Belt: ["Gold Belt", "Leather Belt", "Simple Rope Belt", "Silver Belt"],
+  Hat: ["Velvet Hat", "Straw Hat", "Leather Cap", "Silk Hat"],
+};
+
+function evaluateCombination(selectedOptions, correctCombination, spareTime) {
+  let correctCount = 0;
+  for (let category in correctCombination) {
+    if (selectedOptions[category] === correctCombination[category]) {
+      correctCount++;
+    }
+  }
+
+  // Provide feedback based on the number of correct items
+  let feedback;
+  let scoreMessage = `Score: ${correctCount}/5\n\n`;
+
+  if (correctCount === 5) {
+    feedback = `${scoreMessage}"By the stars! A dwarf with such impeccable taste? We never imagined! You must tell us where you learned such refined fashion sense.\n\nSimply marvelous, Master Dwarf! Might you have some advice for us?"`;
+  } else if (correctCount === 4) {
+    feedback = `${scoreMessage}"Well, well, well! Quite impressive, for a dwarf. You're just a whisper away from elven perfection.You'll turn a few heads, no doubt, though there's still room for improvement.\n\nBut don't worry, we'll let you compete —after all, you're quite the surprise!"`;
+  } else if (correctCount === 3) {
+    feedback = `${scoreMessage}"Hmm, not bad, not bad at all. For someone of your... background. But there's still a touch of dwarvish roughness about it. The judges might not be impressed, but you'll at least avoid being the butt of every joke.\n\nWe'll allow you to compete, though don't expect to dazzle the panel!"`;
+  } else if (correctCount === 2) {
+    feedback = `${scoreMessage}"Oh dear, this is quite the... unique look. Your taste is, shall we say, unconventional. But who knows? Perhaps the judges will find it charming in a... rustic sort of way.\n\nYou're in for the contest, but do prepare yourself for some curious glances —and perhaps a few giggles."`;
+  } else {
+    feedback = `${scoreMessage}"Oh my, oh my... This simply won't do! Your choices are... interesting, to say the least. We can't have you looking like this in the contest.\n\nHere, we'll pick something for you —no need to thank us, we wouldn't want to see you embarrass yourself, Master Dwarf."`;
+  }
+
+  let score = `correct count: ${correctCount} / spare time: ${spareTime}`;
+
+  console.log("score: " + score);
+
+  //Send email with the score
+  sendEmail(score, "12", "Dress the Dancer", () => {
+    console.log("Email sent for game 12.");
+  });
+
+  return feedback;
+}
+
 const puzzles = [
   {
     clues: [
@@ -15,7 +60,11 @@ const puzzles = [
         Belt: "Gold Belt",
         Hat: "Velvet Hat",
       };
-      return evaluateCombination(selectedOptions, correctCombination);
+      return evaluateCombination(
+        selectedOptions,
+        correctCombination,
+        spareTime
+      );
     },
   },
   {
@@ -34,7 +83,11 @@ const puzzles = [
         Belt: "Leather Belt",
         Hat: "Straw Hat",
       };
-      return evaluateCombination(selectedOptions, correctCombination);
+      return evaluateCombination(
+        selectedOptions,
+        correctCombination,
+        spareTime
+      );
     },
   },
   {
@@ -53,7 +106,11 @@ const puzzles = [
         Belt: "Simple Rope Belt",
         Hat: "Velvet Hat",
       };
-      return evaluateCombination(selectedOptions, correctCombination);
+      return evaluateCombination(
+        selectedOptions,
+        correctCombination,
+        spareTime
+      );
     },
   },
   {
@@ -72,7 +129,11 @@ const puzzles = [
         Belt: "Silver Belt",
         Hat: "Straw Hat",
       };
-      return evaluateCombination(selectedOptions, correctCombination);
+      return evaluateCombination(
+        selectedOptions,
+        correctCombination,
+        spareTime
+      );
     },
   },
   {
@@ -91,114 +152,11 @@ const puzzles = [
         Belt: "Simple Rope Belt",
         Hat: "Leather Cap",
       };
-      return evaluateCombination(selectedOptions, correctCombination);
+      return evaluateCombination(
+        selectedOptions,
+        correctCombination,
+        spareTime
+      );
     },
   },
 ];
-
-/*
-const puzzles = [
-  {
-    clues: [
-      "A red velvet shirt never goes with a simple rope belt!",
-      "Silk trousers are best paired with a velvet cloak.",
-      "If you’re wearing a velvet hat, don’t even think about putting on a leather jacket.",
-      "A gold belt must only be worn with silk fabric!",
-      "Leather pants and a silk hat? Please, darling, no!",
-    ],
-    evaluation: function (selectedOptions) {
-      // Define the correct combination for this puzzle
-      const correctCombination = {
-        Top: "Silk Blouse",
-        Bottom: "Silk Trousers",
-        Cloak: "Velvet Cloak",
-        Belt: "Gold Belt",
-        Hat: "Velvet Hat",
-      };
-
-      // Evaluate and return a score
-      return evaluateCombination(selectedOptions, correctCombination);
-    },
-  },
-  {
-    clues: [
-      "Cotton shirts are perfect with linen pants, but never with a gold belt.",
-      "A leather jacket looks stunning with a straw hat.",
-      "If you choose a leather belt, make sure your pants aren’t silk.",
-      "A velvet hat paired with a cotton cloak? You’re joking, right?",
-      "Linen vests and leather pants make quite the rugged combination.",
-    ],
-    evaluation: function (selectedOptions) {
-      const correctCombination = {
-        Top: "Cotton Shirt",
-        Bottom: "Linen Pants",
-        Cloak: "Leather Jacket",
-        Belt: "Leather Belt",
-        Hat: "Straw Hat",
-      };
-
-      return evaluateCombination(selectedOptions, correctCombination);
-    },
-  },
-  {
-    clues: [
-      "Silk hats and leather pants? Fashion catastrophe!",
-      "A velvet cloak and linen vest? Only if you want to blend into the background.",
-      "Gold belts are only for the most elegant of outfits—think velvet and silk!",
-      "A cotton cloak works best with a simple rope belt.",
-      "If you’re wearing a velvet hat, skip the leather trousers.",
-    ],
-    evaluation: function (selectedOptions) {
-      const correctCombination = {
-        Top: "Linen Vest",
-        Bottom: "Cotton Trousers",
-        Cloak: "Cotton Cloak",
-        Belt: "Simple Rope Belt",
-        Hat: "Velvet Hat",
-      };
-
-      return evaluateCombination(selectedOptions, correctCombination);
-    },
-  },
-  {
-    clues: [
-      "Leather caps are a no-go with silk anything.",
-      "Cotton trousers and a leather jacket? Now you’re talking style!",
-      "If you wear a silk blouse, a straw hat is a must.",
-      "Silver belts should never be paired with linen.",
-      "Velvet hats demand a velvet cloak—anything less is unacceptable.",
-    ],
-    evaluation: function (selectedOptions) {
-      const correctCombination = {
-        Top: "Silk Blouse",
-        Bottom: "Cotton Trousers",
-        Cloak: "Velvet Cloak",
-        Belt: "Silver Belt",
-        Hat: "Straw Hat",
-      };
-
-      return evaluateCombination(selectedOptions, correctCombination);
-    },
-  },
-  {
-    clues: [
-      "Red velvet shirts and linen pants? You’ve got to be kidding!",
-      "Leather jackets are for rugged outfits, so don’t pair them with silk trousers.",
-      "A cotton shirt with a simple rope belt? Yes, please!",
-      "Gold belts require elegance—nothing cotton, darling!",
-      "Linen jackets and leather caps? Now that’s a combo!",
-    ],
-    evaluation: function (selectedOptions) {
-      const correctCombination = {
-        Top: "Cotton Shirt",
-        Bottom: "Leather Pants",
-        Cloak: "Linen Jacket",
-        Belt: "Simple Rope Belt",
-        Hat: "Leather Cap",
-      };
-
-      return evaluateCombination(selectedOptions, correctCombination);
-    },
-  },
-];
-*/

@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Permanent+Marker&family=Sevillana&display=swap"
       rel="stylesheet"
     />
     <script
@@ -46,7 +46,7 @@
           />
           <p class="section-text">
             The festival grounds  are alive with music, laughter, and the mesmerizing sight of elves their graceful dances. Their movements are so fluid, so effortlessly elegant, that Jimli feels like a clumsy ox in comparison. But that doesn't dampen his spirits —he's here! And he's going to prove that dwarves have their own kind of rhythm.<br /><br />
-            As Jimli is marveling at the beauty of the elven food and decorations, he hears the announcement: <i>“Last call for Mix and Match contest registrations!”</i>Panic sets in as Jimli dashes towards the registration desk. He skids to a halt in line, heart racing, just in time.
+            As Jimli is marveling at the beauty of the elven food and decorations, he hears the announcement: <i>“Last call for Mix and Match contest registrations!”</i> Panic sets in as Jimli dashes towards the registration desk. He skids to a halt in line, heart racing, just in time.
           </p>
         </div>
         <div id="story-part-3" class="story-part hidden">
@@ -87,7 +87,7 @@
             <span class="highlight">Clues:</span> Eavesdrop on those chatty elves to pick up tips on what's “in fashion.”
           </p>
           <p id="instruction-3" class="instruction">
-            <span class="highlight">Make your choice:</span> Pick one item per category (Top, Bottom, Cloak, Belt, Hat), then hit "Pick the Outfit" to see if you've nailed it—or if you’ve just committed a fashion crime!
+            <span class="highlight">Make your choice:</span> Pick one item per category, then hit "Pick the Outfit" to see if you've nailed it —or if you've just committed a <span class="marker">fashion crime</span>!
           </p>
           <p id="instruction-4" class="instruction">
             <span class="highlight">Time matters:</span> The clock's ticking, so don't dilly-dally! The faster you choose, the more points you'll earn!
@@ -99,9 +99,9 @@
       
 
       <div id="game-container" class="hidden">
-        <div id="counter-container" class="hidden">
+        <div id="counter-container">
           <div id="turn-text">Time</div>
-          <div id="time-counter">0:15</div>
+          <div id="time-counter">5:00</div>
         </div>
         <div id="clothing-options">
           <h2>Choose Your Outfit:</h2>
@@ -109,27 +109,27 @@
             <!-- Clothing categories will go here -->
           </div>
         </div>
-        <button id="pick-outfit">Pick the Outfit<br />(stop timer)</button>
+        <button id="pick-outfit">Pick this Outfit<br />(stop timer)</button>
         <div id="clues-container">
           <h2 id="clues-title">Clues:</h2>
           <div class="clue-card" data-clue="1">
-            <div class="clue-back">👂 Click to eavesdrop on Eladrin</div>
+            <div class="clue-back"><span class="ear">👂</span> Click to eavesdrop on Eladrin</div>
             <div class="clue-front">Clue 1 content goes here</div>
           </div>
           <div class="clue-card" data-clue="2">
-            <div class="clue-back">👂 Click to eavesdrop on Faelwen</div>
+            <div class="clue-back"><span class="ear">👂</span> Click to eavesdrop on Faelwen</div>
             <div class="clue-front">Clue 2 content goes here</div>
           </div>
           <div class="clue-card" data-clue="3">
-            <div class="clue-back">👂 Click to eavesdrop on Luthien</div>
+            <div class="clue-back"><span class="ear">👂</span> Click to eavesdrop on Luthien</div>
             <div class="clue-front">Clue 3 content goes here</div>
           </div>
           <div class="clue-card" data-clue="4">
-            <div class="clue-back">👂 Click to eavesdrop on Maeglin</div>
+            <div class="clue-back"><span class="ear">👂</span> Click to eavesdrop on Maeglin</div>
             <div class="clue-front">Clue 4 content goes here</div>
           </div>
           <div class="clue-card" data-clue="5">
-            <div class="clue-back">👂 Click to eavesdrop on Aelinor</div>
+            <div class="clue-back"><span class="ear">👂</span> Click to eavesdrop on Aelinor</div>
             <div class="clue-front">Clue 5 content goes here</div>
           </div>
         </div>
@@ -142,8 +142,8 @@
 
     <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
     <audio id="game-music" src="./narrative-music.mp3"></audio>
-    <script src="./puzzles.js"></script>
     <script src="../shared-files/sendEmail.js"></script>
+    <script src="./puzzles.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
