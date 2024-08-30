@@ -3,12 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Defeat Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload the font to speed up the load time -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    /></noscript>
+    <title>Defeat</title>
+    <link rel="stylesheet" href="../00/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <h1>DEFEAT!</h1>
-    <p id="points-display">Total Points:</p>
+    <div id="intro-screen">
+      <h1 id="intro-text" class="grey-qo-regular">The final result!</h1>
+      <button id="start-story-btn">Did you win a prize?</button>
+    </div>
 
+    <div id="backstory-page" class="hidden">
+      <audio id="typewriter-sound" src="../00/typewriter.mp3"></audio>
+      <audio id="game-music" src="./defeat-music.mp3"></audio>
+      <header>
+        <h1 id="backstory-title" class="grey-qo-regular">
+          The Lord of the Dance
+        </h1>
+      </header>
+      <div id="content-container">
+        <div id="left-side">
+          <img
+            src="./jimli-loser.jpg"
+            alt="Jimli, the Dancing Dwarf"
+            id="jimli-img"
+          />
+        </div>
+        <div id="right-side">
+          <div id="story-part-1" class="story-part">
+            <p class="section-title">A Heavy Heart</p>
+            <p class="section-text">
+              The morning sun barely penetrates the heavy cloud hanging over
+              Jimli's spirit. As the festival grounds buzz with excitement,
+              Jimli stands among the other contestants, but his heart isn't
+              pounding with anticipation. It's heavy, weighed down by the
+              nagging feeling that he hasn't done enough. Despite the cheers and
+              murmurs of the elves around him, Jimli can't shake the sense of
+              foreboding. The organizer steps forward, and with each name
+              called, his heart sinks further. Deep down, he knows —today is not
+              his day.
+            </p>
+          </div>
+          <div id="story-part-2" class="story-part hidden">
+            <p class="section-title">Crushed Hopes</p>
+            <p class="section-text">
+              The announcement confirms his worst fears: Jimli and Elowen have
+              not won a prize. The realization hits him like a boulder to the
+              chest. The weight of his journey, the dreams he's carried since he
+              was a young dwarf, all come crashing down. He can feel the eyes of
+              the crowd on him, and his cheeks burn with shame. "I should have
+              done better," he thinks, clenching his fists. "I should have
+              trained harder, been more prepared." The disappointment is
+              overwhelming, and for a moment, Jimli feels utterly lost. The
+              contest may be over, but the sting of defeat lingers, sharp and
+              painful.
+            </p>
+          </div>
+          <div id="story-part-3" class="story-part hidden">
+            <p class="section-title">A Silver Lining</p>
+            <p class="section-text">
+              But as Jimli stands there, shoulders slumped, he feels a gentle
+              touch on his arm. It's Elowen, her smile warm and full of
+              understanding. "Jimli," she says softly, "we may not have won, but
+              look at what you've achieved. You're the first dwarf to ever
+              compete in this festival. That's something to be proud of." Her
+              words are like a balm to his wounded pride. Jimli looks around and
+              sees not just the elves who won, but many others watching him with
+              respect —and even admiration. He realizes that in their eyes, he
+              is more than just a contestant. He's a trailblazer, a symbol of
+              friendship between elves and dwarves.
+            </p>
+          </div>
+          <div id="story-part-4" class="story-part hidden">
+            <p class="section-title">A New Beginning</p>
+            <p class="section-text">
+              As the festival continues, Jimli starts to feel a shift in his
+              heart. Yes, he didn’t win the contest, but he’s gained something
+              far more valuable. He’s made friends, broken barriers, and proven
+              that dwarves and elves can dance together in harmony. Elowen
+              smiles at him, and for a moment, Jimli sees the festival through
+              new eyes. This isn’t the end of his dream —it’s just the beginning
+              of a new chapter. "Come back next year," Elowen says, her voice
+              full of warmth. "I’ll be waiting, and next time, we’ll take that
+              first prize together." Jimli grins, a spark of hope reigniting in
+              his chest. Maybe this festival has given him something even better
+              than victory: a reason to keep dancing.
+            </p>
+          </div>
+          <button id="next-button">Next Page</button>
+        </div>
+      </div>
+      <footer>
+        <button id="calendar-button">Go back to Calendar</button>
+      </footer>
+    </div>
+    <script src="../00/script.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

@@ -1,5 +1,8 @@
 const startButton = document.getElementById("start-button");
 const skipButton = document.getElementById("skipButton");
+const victoryPage = window.location.href.includes("victory");
+const defeatPage = window.location.href.includes("defeat");
+let typewriterSound = document.getElementById("typewriter-sound");
 
 // Event listener for the Start Adventure button
 if (startButton) {
@@ -19,7 +22,6 @@ if (skipButton) {
 // Typewriter effect function with looping sound
 function typeWriter(element, text, delay = 25) {
   let i = 0;
-  const typewriterSound = document.getElementById("typewriter-sound");
 
   // Function to play and loop the sound
   function playSound() {
@@ -71,6 +73,12 @@ function showNextPart(partIndex) {
     // Apply the typewriter effect with sound
     typeWriter(textElement, fullHtml);
 
+    if ((victoryPage || defeatPage) && partIndex === 0) {
+      let gameMusic = document.getElementById("game-music");
+      gameMusic.play();
+      gameMusic.volume = 0.8;
+    }
+
     // Show the correct button (either Next Page or Begin the Adventure)
     if (partIndex === storyParts.length - 1) {
       document.getElementById("next-button").classList.add("hidden");
@@ -105,11 +113,15 @@ document.getElementById("next-button").addEventListener("click", () => {
 });
 
 // Event listener for the Start Adventure button
-document.getElementById("start-button").addEventListener("click", () => {
-  window.location.href = "calendar.html"; // Redirect to the calendar page
-});
+if (startButton) {
+  document.getElementById("start-button").addEventListener("click", () => {
+    window.location.href = "calendar.html"; // Redirect to the calendar page
+  });
+}
 
 // Event listener for the Skip button
-document.getElementById("skip-button").addEventListener("click", () => {
-  window.location.href = "calendar.html"; // Redirect to the calendar page
-});
+if (skipButton) {
+  document.getElementById("skip-button").addEventListener("click", () => {
+    window.location.href = "calendar.html"; // Redirect to the calendar page
+  });
+}
