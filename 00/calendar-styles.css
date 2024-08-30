@@ -138,4 +138,19 @@ footer p {
 
 #final-day-square {
   width: 280px;
+  background-image: url("./final-day.jpg");
+  background-size: cover;
+  background-position: right;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#day-title {
+  margin: 3px 12px 0 0;
+  color: #211d1d;
+  font-size: 0.55em;
+  margin: 0.4px 0 0 8px;
+  font-weight: 600;
+  font-family: "Arial", sans-serif;
 }

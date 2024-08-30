@@ -10,3 +10,8 @@ console.log(`Total Points: ${totalPoints}`);
 document.getElementById(
   "points-display"
 ).textContent = `Total Points: ${totalPoints}`;
+
+// Event listener for the "Back to calendar" button
+document.getElementById("calendar-button").addEventListener("click", () => {
+  window.location.href = "../calendar.html";
+});

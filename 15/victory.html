@@ -3,12 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Victory Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload the font to speed up the load time -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    /></noscript>
+    <title>Victory</title>
+    <link rel="stylesheet" href="../00/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <h1>VICTORY!</h1>
-    <p id="points-display">Total Points:</p>
+    <div id="intro-screen">
+      <h1 id="intro-text" class="grey-qo-regular">The final result!</h1>
+      <button id="start-story-btn">Did you win a prize?</button>
+    </div>
 
+    <div id="backstory-page" class="hidden">
+      <audio id="typewriter-sound" src="./00/typewriter.mp3"></audio>
+      <header>
+        <h1 id="backstory-title" class="grey-qo-regular">
+          The Lord of the Dance
+        </h1>
+      </header>
+      <div id="content-container">
+        <div id="left-side">
+          <img
+            src="./jimli-winner.jpeg"
+            alt="Jimli, the Dancing Dwarf"
+            id="jimli-img"
+          />
+        </div>
+        <div id="right-side">
+          <div id="story-part-1" class="story-part">
+            <p class="section-title">You won a prize!</p>
+
+            <p id="points-display">Total Points:</p>
+
+            <p class="section-text">
+              <b>WIP</b>blablabla<strong>blablabla.</strong><br /><br />
+            </p>
+          </div>
+          <div id="story-part-2" class="story-part hidden">
+            <p class="section-title">Title 2</p>
+            <p class="section-text">
+              <b>WIP</b>blablabla<strong>blablabla.</strong><br /><br />
+            </p>
+          </div>
+          <div id="story-part-3" class="story-part hidden">
+            <p class="section-title">Title 3</p>
+            <p class="section-text">
+              <b>WIP</b>blablabla<strong>blablabla.</strong><br /><br />
+            </p>
+          </div>
+          <div id="story-part-4" class="story-part hidden">
+            <p class="section-title">What did you win?</p>
+            <p class="section-text">
+              <b>WIP</b>blablabla<strong>blablabla.</strong><br /><br />
+            </p>
+          </div>
+          <button id="next-button">Next Page</button>
+        </div>
+      </div>
+      <footer>
+        <button id="calendar-button">Go back to Calendar</button>
+      </footer>
+    </div>
+    <script src="../00/script.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

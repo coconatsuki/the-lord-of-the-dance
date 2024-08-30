@@ -1,0 +1,13 @@
+#calendar-button {
+  padding: 5px;
+  background: none;
+  border: none;
+  color: #a8e6a3;
+  font-size: 1.2em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#calendar-button:hover {
+  color: #d0d090;
+}
