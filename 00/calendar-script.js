@@ -1,5 +1,5 @@
 const totalDays = 14; // Total days (including the last special day)
-let currentDay = 8; // Set current day
+let currentDay = 9; // Set current day
 let totalPoints = 54;
 
 // Day1: 31 (6/10) / Day2: 17 (6/10) / Dat3: 124 (10/10) / Day4: 32 (5/10) / Day5: 12 (5/10)
@@ -7,6 +7,7 @@ let totalPoints = 54;
 // let questScore = {day1: 6, day2: 6, day3: 10, day4: 5, day5: 5, day6: 9, day7: 7, day8: 6}
 
 let winTheContest;
+
 // Update days left and points display
 document.getElementById("days-left").textContent = totalDays - currentDay;
 document.getElementById("total-points").textContent = totalPoints;

@@ -7,12 +7,6 @@ let narrative;
 const urlParams = new URLSearchParams(queryString);
 const totalPoints = urlParams.get("points");
 
-console.log(`Total Points: ${totalPoints}`);
-
-// document.getElementById(
-//   "points-display"
-// ).textContent = `Total Points: ${totalPoints}`;
-
 // Event listener for the "Back to calendar" button
 document.getElementById("calendar-button").addEventListener("click", () => {
   window.location.href = "../calendar.html";
@@ -41,7 +35,7 @@ if (victoryPage) {
       He turns to Elowen, his eyes shining. "I couldn’t have done it without you, Elowen. Thank you." She nods, "It was my pleasure, Master Dwarf. Now, let’s enjoy this moment!"`,
       prize: `As the excitement dies down, the organizer announces the prize. "For securing second place, Jimli and Elowen, you are <strong>treated to a feast prepared by our finest elven chefs</strong>. A meal fit for kings!"<br /><br />Jimli's stomach growls audibly, and he chuckles. "Elven cuisine? I might just get used to this! But I do hope there's plenty of it!" The crowd laughs, and Jimli can’t wait to savor this well-deserved reward.`,
     };
-  } else if (totalPoints > 70 && totalPoints < 94) {
+  } else {
     narrative = {
       title: "Third Place!",
       message1: `The morning sun bathes the festival grounds in a golden glow. Jimli stands among the other contestants, his heart pounding like a blacksmith's hammer on an anvil. Every breath feels like a century, every second, a lifetime. The gathered crowd of elves watch the contestants with silent admiration.<br />The organizer steps forward: "Dancers, the moment you've all been waiting for has arrived! The judges have made their decisions. The elf pauses, letting the suspense hang in the air. "And now, the third prize goes to... <strong>Master Jimli and his partner, Elowen!</strong>"`,
@@ -49,7 +43,7 @@ if (victoryPage) {
       Elowen steps closer, her eyes twinkling. "We did it, Jimli! You were fantastic." Jimli grins, his heart swelling with joy. "We make a pretty good team, don’t we?" In a gesture of friendship, Elowen leans in and kisses him lightly on the cheek. Jimli blushes, but he’s too happy to be embarrassed. This is a moment to remember.`,
       message3: `As the applause fades, Jimli raises his arms, feeling like he’s on top of the world. "Third place! Not bad for a dwarf, eh?" he exclaims, his voice filled with pride. Elowen laughs softly, "Not bad at all, Jimli. You’ve shown everyone here that dwarves can dance with the best of them." The crowd cheers, and Jimli feels like he’s just won the greatest victory of his life.<br /><br />
       He turns to Elowen, "Thank you, Elowen. I couldn’t have done this without you." She nods, her smile bright. "It was an honor to dance with you, Jimli. Let’s enjoy this victory together!"`,
-      prize: `As the excitement settles, the organizer announces the prize. "For claiming third place, Jimli and Elowen, you are awarded a luxurious massage from our skilled elven masseurs. A perfect way to relax after the contest!" Jimli chuckles, "A massage, eh? I could get used to this elven hospitality. Just don’t tell the other dwarves!" The crowd laughs, and Jimli can’t wait to enjoy this well-deserved reward.`,
+      prize: `As the excitement settles, the organizer announces the prize. "For claiming third place, Jimli and Elowen, you are awarded <strong>a luxurious massage from our skilled elven masseurs</strong>. A perfect way to relax after the contest!"<br/><br/>Jimli chuckles, "A massage, eh? I could get used to this elven hospitality. Just don’t tell the other dwarves!" The crowd laughs, and Jimli can’t wait to enjoy this well-deserved reward.`,
     };
   }
 

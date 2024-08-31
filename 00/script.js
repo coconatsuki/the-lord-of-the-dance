@@ -77,6 +77,12 @@ function showNextPart(partIndex) {
       let gameMusic = document.getElementById("game-music");
       gameMusic.play();
       gameMusic.volume = 0.8;
+
+      // Loop the narrative music only if the flag is set to true
+      gameMusic.addEventListener("ended", function () {
+        gameMusic.currentTime = 0;
+        gameMusic.play();
+      });
     }
 
     // Show the correct button (either Next Page or Begin the Adventure)
