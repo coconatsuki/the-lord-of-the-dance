@@ -1,6 +1,6 @@
 const totalDays = 14; // Total days (including the last special day)
-let currentDay = 9; // Set current day
-let totalPoints = 54;
+let currentDay = 10; // Set current day
+let totalPoints = 61;
 
 // Day1: 31 (6/10) / Day2: 17 (6/10) / Dat3: 124 (10/10) / Day4: 32 (5/10) / Day5: 12 (5/10)
 // Day 6: 8 (9/10) / Day 7: 42 (7) / Day 8: 6 (6)
