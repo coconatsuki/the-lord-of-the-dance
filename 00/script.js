@@ -1,5 +1,5 @@
 const startButton = document.getElementById("start-button");
-const skipButton = document.getElementById("skipButton");
+const skipButton = document.getElementById("skip-button");
 const victoryPage = window.location.href.includes("victory");
 const defeatPage = window.location.href.includes("defeat");
 let typewriterSound = document.getElementById("typewriter-sound");
@@ -121,13 +121,6 @@ document.getElementById("next-button").addEventListener("click", () => {
 // Event listener for the Start Adventure button
 if (startButton) {
   document.getElementById("start-button").addEventListener("click", () => {
-    window.location.href = "calendar.html"; // Redirect to the calendar page
-  });
-}
-
-// Event listener for the Skip button
-if (skipButton) {
-  document.getElementById("skip-button").addEventListener("click", () => {
     window.location.href = "calendar.html"; // Redirect to the calendar page
   });
 }
