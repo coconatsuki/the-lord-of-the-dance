@@ -1,5 +1,5 @@
 const totalDays = 14; // Total days (including the last special day)
-let currentDay = 12; // Set current day
+let currentDay = 13; // Set current day
 let totalPoints = 75;
 
 // let questScore = {day1: 6, day2: 6, day3: 10, day4: 5, day5: 5, day6: 9, day7: 7, day8: 6, day9: 7; day10: 5}
