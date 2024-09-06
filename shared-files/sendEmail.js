@@ -14,6 +14,7 @@ const emailNotificationsDisabled = [
   "11",
   "12",
   "13",
+  "14",
 ];
 
 emailjs.init({ publicKey: "UChoyKkEXNYoHSj0P" });
